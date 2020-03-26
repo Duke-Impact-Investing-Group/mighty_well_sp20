@@ -1,0 +1,39 @@
+﻿condition ,product_handle,Freq,proportion
+aplastic anemia,picc-line-cover,2,100
+behcet's syndrome,picc-line-cover,1,100
+blood tumor,Merch,1,100
+cancer,Merch,2,50
+cancer,mighty-medplanner-medical-organizer,1,25
+cancer,picc-line-cover,1,25
+CAPS,picc-line-cover,1,100
+chemotherapy,picc-line-cover,6,75
+chemotherapy,Merch,1,12.5
+chronic - general,Merch,1,33
+chronic - general,mighty-medplanner-medical-organizer,1,33
+cystic fibrosis,medical-iv-infusion-backpack-for-patients,1,100
+diabetes,picc-line-cover,1,33
+diabetes,mighty-medplanner-medical-organizer,2,67
+EDS,mighty-medplanner-medical-organizer,1,25
+EDS,picc-line-cover,2,50
+EDS,medical-iv-infusion-backpack-for-patients,1,25
+fibromyalgia,Merch,2,100
+GP,picc-line-cover,3,75
+GP,medical-iv-infusion-backpack-for-patients,1,25
+Heart disease,medical-iv-infusion-backpack-for-patients,1,100
+leukemia,picc-line-cover,1,100
+lumpectomy,the-mighty-wrap,1,100
+lyme disease,picc-line-cover,10,45
+lyme disease,mighty-medplanner-medical-organizer,4,18
+lyme disease,Merch,1,5
+lyme disease,the-mighty-wrap,1,5
+lymphoma,picc-line-cover,1,100
+marfan syndrome,Merch,1,100
+mastectomy,the-mighty-wrap,1,100
+MCAS,picc-line-cover,1,100
+osteomyelitis,picc-line-cover,1,100
+PCOS,mighty-medplanner-medical-organizer,1,100
+polyarthryalgia,mighty-medplanner-medical-organizer,1,100
+sensitive skin,picc-line-cover,2,100
+TBI,picc-line-cover,1,100
+thyroid cancer,picc-line-cover,1,100
+TPN,picc-line-cover,1,100

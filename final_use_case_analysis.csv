@@ -1,0 +1,111 @@
+﻿use case,device,freq,proprotion each product has been used for use case ,proprotion each product has been used generally 
+hold PIIC line,the-mighty-wrap,0,0,1
+hold PIIC line,medical-iv-infusion-backpack-for-patients,0,0,2
+hold PIIC line,mighty-medplanner-medical-organizer,0,0,2
+hold PIIC line,picc-line,67,100,43
+hold PIIC line,Merch,0,0,5
+comfort/stay warm,the-mighty-wrap,3,100,1
+comfort/stay warm,medical-iv-infusion-backpack-for-patients,0,0,2
+comfort/stay warm,mighty-medplanner-medical-organizer,0,0,2
+comfort/stay warm,picc-line,0,0,43
+comfort/stay warm,Merch,0,0,5
+IV infusion,the-mighty-wrap,1,10,1
+IV infusion,medical-iv-infusion-backpack-for-patients,2,20,2
+IV infusion,mighty-medplanner-medical-organizer,0,0,2
+IV infusion,picc-line,7,70,43
+IV infusion,Merch,0,0,5
+hold medical supplies,the-mighty-wrap,0,0,1
+hold medical supplies,medical-iv-infusion-backpack-for-patients,14,45,2
+hold medical supplies,mighty-medplanner-medical-organizer,17,55,2
+hold medical supplies,picc-line,0,0,43
+hold medical supplies,Merch,0,0,5
+hold port,the-mighty-wrap,0,0,1
+hold port,medical-iv-infusion-backpack-for-patients,0,0,2
+hold port,mighty-medplanner-medical-organizer,0,0,2
+hold port,picc-line,1,100,43
+hold port,Merch,0,0,5
+IV bandage,the-mighty-wrap,0,0,1
+IV bandage,medical-iv-infusion-backpack-for-patients,0,0,2
+IV bandage,mighty-medplanner-medical-organizer,0,0,2
+IV bandage,picc-line,1,100,43
+IV bandage,Merch,0,0,5
+looking good/feeling proud,the-mighty-wrap,0,0,1
+looking good/feeling proud,medical-iv-infusion-backpack-for-patients,0,0,2
+looking good/feeling proud,mighty-medplanner-medical-organizer,0,0,2
+looking good/feeling proud,picc-line,1,9,43
+looking good/feeling proud,Merch,11,91,5
+organize medications,the-mighty-wrap,0,0,1
+organize medications,medical-iv-infusion-backpack-for-patients,0,0,2
+organize medications,mighty-medplanner-medical-organizer,15,100,2
+organize medications,picc-line,0,0,43
+organize medications,Merch,0,0,5
+"TPN, ",the-mighty-wrap,0,0,1
+"TPN, ",medical-iv-infusion-backpack-for-patients,0,0,2
+"TPN, ",mighty-medplanner-medical-organizer,0,0,2
+"TPN, ",picc-line,2,100,43
+"TPN, ",Merch,0,0,5
+tube feeding,the-mighty-wrap,0,0,1
+tube feeding,medical-iv-infusion-backpack-for-patients,9,82,2
+tube feeding,mighty-medplanner-medical-organizer,0,0,2
+tube feeding,picc-line,0,0,43
+tube feeding,Merch,2,18,5
+wheelchair,the-mighty-wrap,1,100,1
+wheelchair,medical-iv-infusion-backpack-for-patients,0,0,2
+wheelchair,mighty-medplanner-medical-organizer,0,0,2
+wheelchair,picc-line,0,0,43
+wheelchair,Merch,0,0,5
+air travel,the-mighty-wrap,0,0,1
+air travel,medical-iv-infusion-backpack-for-patients,1,100,2
+air travel,mighty-medplanner-medical-organizer,0,0,2
+air travel,picc-line,0,0,43
+air travel,Merch,0,0,5
+"comfort/stay warm, IV infusion",the-mighty-wrap,1,100,1
+"comfort/stay warm, IV infusion",medical-iv-infusion-backpack-for-patients,0,0,2
+"comfort/stay warm, IV infusion",mighty-medplanner-medical-organizer,0,0,2
+"comfort/stay warm, IV infusion",picc-line,0,0,43
+"comfort/stay warm, IV infusion",Merch,0,0,5
+"hold PIIC line, antibiotic infusion",the-mighty-wrap,0,0,1
+"hold PIIC line, antibiotic infusion",medical-iv-infusion-backpack-for-patients,0,0,2
+"hold PIIC line, antibiotic infusion",mighty-medplanner-medical-organizer,0,0,2
+"hold PIIC line, antibiotic infusion",picc-line,6,100,43
+"hold PIIC line, antibiotic infusion",Merch,0,0,5
+"hold PIIC line, chemotherapy",the-mighty-wrap,0,0,1
+"hold PIIC line, chemotherapy",medical-iv-infusion-backpack-for-patients,0,0,2
+"hold PIIC line, chemotherapy",mighty-medplanner-medical-organizer,0,0,2
+"hold PIIC line, chemotherapy",picc-line,5,100,43
+"hold PIIC line, chemotherapy",Merch,0,0,5
+"hold PIIC line, IV infusion",the-mighty-wrap,0,0,1
+"hold PIIC line, IV infusion",medical-iv-infusion-backpack-for-patients,0,0,2
+"hold PIIC line, IV infusion",mighty-medplanner-medical-organizer,0,0,2
+"hold PIIC line, IV infusion",picc-line,3,100,43
+"hold PIIC line, IV infusion",Merch,0,0,5
+"hold PIIC line, IV infusion, antibiotics infusion",the-mighty-wrap,0,0,1
+"hold PIIC line, IV infusion, antibiotics infusion",medical-iv-infusion-backpack-for-patients,0,0,2
+"hold PIIC line, IV infusion, antibiotics infusion",mighty-medplanner-medical-organizer,0,0,2
+"hold PIIC line, IV infusion, antibiotics infusion",picc-line,3,100,43
+"hold PIIC line, IV infusion, antibiotics infusion",Merch,0,0,5
+"hold PIIC line, TPN, IV infusion",the-mighty-wrap,0,0,1
+"hold PIIC line, TPN, IV infusion",medical-iv-infusion-backpack-for-patients,0,0,2
+"hold PIIC line, TPN, IV infusion",mighty-medplanner-medical-organizer,0,0,2
+"hold PIIC line, TPN, IV infusion",picc-line,1,100,43
+"hold PIIC line, TPN, IV infusion",Merch,0,0,5
+"IV infusion, hold medical supplies",the-mighty-wrap,0,0,1
+"IV infusion, hold medical supplies",medical-iv-infusion-backpack-for-patients,3,100,2
+"IV infusion, hold medical supplies",mighty-medplanner-medical-organizer,0,0,2
+"IV infusion, hold medical supplies",picc-line,0,0,43
+"IV infusion, hold medical supplies",Merch,0,0,5
+"organize medications, hold medical supplies",the-mighty-wrap,0,0,1
+"organize medications, hold medical supplies",medical-iv-infusion-backpack-for-patients,0,0,2
+"organize medications, hold medical supplies",mighty-medplanner-medical-organizer,15,100,2
+"organize medications, hold medical supplies",picc-line,0,0,43
+"organize medications, hold medical supplies",Merch,0,0,5
+"tube feeding, hold medical supplies",the-mighty-wrap,0,0,1
+"tube feeding, hold medical supplies",medical-iv-infusion-backpack-for-patients,7,100,2
+"tube feeding, hold medical supplies",mighty-medplanner-medical-organizer,0,0,2
+"tube feeding, hold medical supplies",picc-line,0,0,43
+"tube feeding, hold medical supplies",Merch,0,0,5
+"tube feeding, IV infusion, hold medical supplies",the-mighty-wrap,0,0,1
+"tube feeding, IV infusion, hold medical supplies",medical-iv-infusion-backpack-for-patients,2,100,2
+"tube feeding, IV infusion, hold medical supplies",mighty-medplanner-medical-organizer,0,0,2
+"tube feeding, IV infusion, hold medical supplies",picc-line,0,0,43
+"tube feeding, IV infusion, hold medical supplies",Merch,0,0,5
