@@ -1,0 +1,11 @@
+﻿gender,product,frequency,proprotion of gender for product ,ratio of f to m for product,ratio of f to m overall
+female,the-mighty-wrap,5,63,,
+male,the-mighty-wrap,3,38,1.666666667,3.56
+female,picc-line-cover,100,81,,
+male,picc-line-cover,24,19,4.166666667,3.56
+female,gift-bundle-mighty-medplanner,1,100,,
+male,gift-bundle-mighty-medplanner,0,0,,
+female,medical-iv-infusion-backpack-for-patients,15,83,,
+male,medical-iv-infusion-backpack-for-patients,3,17,5,3.56
+female,Merch,16,70,,
+male,Merch,7,30,2.285714286,3.56
