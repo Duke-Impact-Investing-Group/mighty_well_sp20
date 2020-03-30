@@ -39,11 +39,11 @@ organize medications,medical-iv-infusion-backpack-for-patients,0,0,2
 organize medications,mighty-medplanner-medical-organizer,15,100,2
 organize medications,picc-line,0,0,43
 organize medications,Merch,0,0,5
-"TPN, ",the-mighty-wrap,0,0,1
-"TPN, ",medical-iv-infusion-backpack-for-patients,0,0,2
-"TPN, ",mighty-medplanner-medical-organizer,0,0,2
-"TPN, ",picc-line,2,100,43
-"TPN, ",Merch,0,0,5
+TPN,the-mighty-wrap,0,0,1
+TPN,medical-iv-infusion-backpack-for-patients,0,0,2
+TPN,mighty-medplanner-medical-organizer,0,0,2
+TPN,picc-line,2,100,43
+TPN,Merch,0,0,5
 tube feeding,the-mighty-wrap,0,0,1
 tube feeding,medical-iv-infusion-backpack-for-patients,9,82,2
 tube feeding,mighty-medplanner-medical-organizer,0,0,2
