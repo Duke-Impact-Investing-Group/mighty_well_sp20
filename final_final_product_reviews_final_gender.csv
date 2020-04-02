@@ -1,0 +1,11 @@
+"","gender","product_handle","Freq","probability"
+"1","female","medplanner",23,0.884615384615385
+"2","male","medplanner",3,0.115384615384615
+"3","female","merch",19,0.703703703703704
+"4","male","merch",8,0.296296296296296
+"5","female","mighty-pages",3,0.5
+"6","male","mighty-pages",3,0.5
+"7","female","picc line cover",106,0.803030303030303
+"8","male","picc line cover",26,0.196969696969697
+"9","female","the-mighty-wrap",5,0.625
+"10","male","the-mighty-wrap",3,0.375
