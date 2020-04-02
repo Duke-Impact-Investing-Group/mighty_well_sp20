@@ -1,0 +1,20 @@
+"","product_handle","device","freq","probability","Baye's"
+"1","medplanner","feeding tube,medications",1,0.0108695652173913,1
+"2","medplanner","infusion - general",1,0.0108695652173913,0.5
+"3","medplanner","IV infusion",1,0.0108695652173913,0.0833333333333333
+"4","medplanner","medications",8,0.0869565217391304,0.666666666666667
+"5","mighty-pages","medications",4,0.0434782608695652,0.333333333333333
+"6","mighty-pages","subcutaneous injection,medications",1,0.0108695652173913,1
+"7","picc line cover","Infusion - general",2,0.0217391304347826,1
+"8","picc line cover","IV infusion",9,0.0978260869565217,0.75
+"9","picc line cover","IV infusion,antibiotics infusion",1,0.0108695652173913,1
+"10","picc line cover","IV infusion,PICC Line",1,0.0108695652173913,1
+"11","picc line cover","PICC Line",68,0.739130434782609,1
+"12","picc line cover","PICC Line,antibiotic infusion",6,0.0652173913043478,1
+"13","picc line cover","PICC Line,infusion - general",1,0.0108695652173913,1
+"14","picc line cover","PICC Line,IV infusion",2,0.0217391304347826,1
+"15","picc line cover","PICC Line,IV infusion,antibiotics infusion",2,0.0217391304347826,1
+"16","picc line cover","PICC,IV infusion,antibiotics infusion",1,0.0108695652173913,1
+"17","picc line cover","port",1,0.0108695652173913,0.5
+"18","the-mighty-wrap","feeding tube,port",1,0.0108695652173913,1
+"19","the-mighty-wrap","IV infusion",2,0.0217391304347826,0.166666666666667

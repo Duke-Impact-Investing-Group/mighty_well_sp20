@@ -1,0 +1,121 @@
+"","condition","product_handle","Freq","probability"
+"1","aplastic anemia","medplanner",0,0
+"2","behcet's syndrome, UC","medplanner",0,0
+"4","cancer - general","medplanner",0,0
+"5","CAPS","medplanner",0,0
+"6","chemotherapy","medplanner",0,0
+"7","chronic - general","medplanner",2,0.2
+"8","diabetes","medplanner",1,0.1
+"9","diabetes, breast cancer","medplanner",1,0.1
+"10","EDS","medplanner",1,0.1
+"11","EDS, GP","medplanner",0,0
+"12","fibromyalgia, marfan syndrome","medplanner",0,0
+"13","GP","medplanner",0,0
+"14","leukemia","medplanner",0,0
+"15","lumpectomy, mastectomy","medplanner",0,0
+"16","lyme disease","medplanner",4,0.4
+"17","lyme disease, POTS","medplanner",0,0
+"18","lyme disease, TBI","medplanner",0,0
+"19","lymphoma","medplanner",0,0
+"20","MCAS","medplanner",0,0
+"22","osteomyelitis","medplanner",0,0
+"23","PCOS, polyarthryalgia","medplanner",1,0.1
+"24","sensitive skin","medplanner",0,0
+"25","thyroid cancer","medplanner",0,0
+"26","TPN","medplanner",0,0
+"27","aplastic anemia","merch",0,0
+"28","behcet's syndrome, UC","merch",0,0
+"30","cancer - general","merch",1,0.2
+"31","CAPS","merch",0,0
+"32","chemotherapy","merch",0,0
+"33","chronic - general","merch",1,0.2
+"34","diabetes","merch",0,0
+"35","diabetes, breast cancer","merch",0,0
+"36","EDS","merch",0,0
+"37","EDS, GP","merch",0,0
+"38","fibromyalgia, marfan syndrome","merch",1,0.2
+"39","GP","merch",0,0
+"40","leukemia","merch",0,0
+"41","lumpectomy, mastectomy","merch",0,0
+"42","lyme disease","merch",1,0.2
+"43","lyme disease, POTS","merch",0,0
+"44","lyme disease, TBI","merch",0,0
+"45","lymphoma","merch",0,0
+"46","MCAS","merch",0,0
+"48","osteomyelitis","merch",0,0
+"49","PCOS, polyarthryalgia","merch",0,0
+"50","sensitive skin","merch",1,0.2
+"51","thyroid cancer","merch",0,0
+"52","TPN","merch",0,0
+"53","aplastic anemia","mighty-pages",0,0
+"54","behcet's syndrome, UC","mighty-pages",0,0
+"56","cancer - general","mighty-pages",0,0
+"57","CAPS","mighty-pages",0,0
+"58","chemotherapy","mighty-pages",0,0
+"59","chronic - general","mighty-pages",0,0
+"60","diabetes","mighty-pages",0,0
+"61","diabetes, breast cancer","mighty-pages",0,0
+"62","EDS","mighty-pages",0,0
+"63","EDS, GP","mighty-pages",0,0
+"64","fibromyalgia, marfan syndrome","mighty-pages",0,0
+"65","GP","mighty-pages",0,0
+"66","leukemia","mighty-pages",0,0
+"67","lumpectomy, mastectomy","mighty-pages",0,0
+"68","lyme disease","mighty-pages",0,0
+"69","lyme disease, POTS","mighty-pages",1,1
+"70","lyme disease, TBI","mighty-pages",0,0
+"71","lymphoma","mighty-pages",0,0
+"72","MCAS","mighty-pages",0,0
+"74","osteomyelitis","mighty-pages",0,0
+"75","PCOS, polyarthryalgia","mighty-pages",0,0
+"76","sensitive skin","mighty-pages",0,0
+"77","thyroid cancer","mighty-pages",0,0
+"78","TPN","mighty-pages",0,0
+"79","aplastic anemia","picc line cover",2,0.0606060606060606
+"80","behcet's syndrome, UC","picc line cover",1,0.0303030303030303
+"82","cancer - general","picc line cover",1,0.0303030303030303
+"83","CAPS","picc line cover",1,0.0303030303030303
+"84","chemotherapy","picc line cover",8,0.242424242424242
+"85","chronic - general","picc line cover",0,0
+"86","diabetes","picc line cover",1,0.0303030303030303
+"87","diabetes, breast cancer","picc line cover",0,0
+"88","EDS","picc line cover",0,0
+"89","EDS, GP","picc line cover",2,0.0606060606060606
+"90","fibromyalgia, marfan syndrome","picc line cover",0,0
+"91","GP","picc line cover",1,0.0303030303030303
+"92","leukemia","picc line cover",1,0.0303030303030303
+"93","lumpectomy, mastectomy","picc line cover",0,0
+"94","lyme disease","picc line cover",8,0.242424242424242
+"95","lyme disease, POTS","picc line cover",0,0
+"96","lyme disease, TBI","picc line cover",1,0.0303030303030303
+"97","lymphoma","picc line cover",1,0.0303030303030303
+"98","MCAS","picc line cover",1,0.0303030303030303
+"100","osteomyelitis","picc line cover",1,0.0303030303030303
+"101","PCOS, polyarthryalgia","picc line cover",0,0
+"102","sensitive skin","picc line cover",1,0.0303030303030303
+"103","thyroid cancer","picc line cover",1,0.0303030303030303
+"104","TPN","picc line cover",1,0.0303030303030303
+"105","aplastic anemia","the-mighty-wrap",0,0
+"106","behcet's syndrome, UC","the-mighty-wrap",0,0
+"108","cancer - general","the-mighty-wrap",0,0
+"109","CAPS","the-mighty-wrap",0,0
+"110","chemotherapy","the-mighty-wrap",0,0
+"111","chronic - general","the-mighty-wrap",0,0
+"112","diabetes","the-mighty-wrap",0,0
+"113","diabetes, breast cancer","the-mighty-wrap",0,0
+"114","EDS","the-mighty-wrap",0,0
+"115","EDS, GP","the-mighty-wrap",0,0
+"116","fibromyalgia, marfan syndrome","the-mighty-wrap",0,0
+"117","GP","the-mighty-wrap",0,0
+"118","leukemia","the-mighty-wrap",0,0
+"119","lumpectomy, mastectomy","the-mighty-wrap",1,0.5
+"120","lyme disease","the-mighty-wrap",1,0.5
+"121","lyme disease, POTS","the-mighty-wrap",0,0
+"122","lyme disease, TBI","the-mighty-wrap",0,0
+"123","lymphoma","the-mighty-wrap",0,0
+"124","MCAS","the-mighty-wrap",0,0
+"126","osteomyelitis","the-mighty-wrap",0,0
+"127","PCOS, polyarthryalgia","the-mighty-wrap",0,0
+"128","sensitive skin","the-mighty-wrap",0,0
+"129","thyroid cancer","the-mighty-wrap",0,0
+"130","TPN","the-mighty-wrap",0,0
