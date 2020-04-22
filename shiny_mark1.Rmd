@@ -1,0 +1,375 @@
+---
+title: "R Notebook"
+output:
+  # tufte::tufte_html:
+  #   toc: false
+  html_document:
+    theme: cerulean
+runtime: shiny
+---
+
+This is an R Shiny App. It's an interactive app, and communicates with a local server that is instantiatd when you click *Run* in RStudio.
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+
+
+```{r setup, include=FALSE, result = 'hide'}
+library(dplyr)
+library(plyr)
+library(reticulate)
+library(tidyverse)
+#setwd('D:\\DIIG\\S20\\MW')
+setwd('D:\\Batcave\\DIIG\\MightyWell')
+use_python("C:\\Users\\Aneesh\\Anaconda3\\python.exe")
+py_run_string("import os as os")
+# py_run_string("os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = 'C:/Users/Aneesh/Anaconda3/Library/plugins/platforms'")
+py_run_string("os.chdir('D:/Batcave/DIIG/MightyWell')")
+
+
+
+product_reviews_final <- read.csv("product.csv", stringsAsFactors = FALSE)
+product_reviews_final2 <- read.csv("product.csv", stringsAsFactors = FALSE)
+```
+
+```{r echo = FALSE, message=FALSE, result = 'hide'}
+product_reviews_final$product_handle[grep("shirt", product_reviews_final$product_handle)] <- "merch"
+product_reviews_final$product_handle[grep("hat", product_reviews_final$product_handle)] <- "merch"
+product_reviews_final$product_handle[grep("sticker", product_reviews_final$product_handle)] <- "merch"
+product_reviews_final$product_handle[grep("line", product_reviews_final$product_handle)] <- "picc line cover"
+product_reviews_final$product_handle[grep("medplanner", product_reviews_final$product_handle)] <- "medplanner"
+product_reviews_final$product_handle[grep("up", product_reviews_final$product_handle)] <- "na"
+product_reviews_final$product_handle[grep("perfect", product_reviews_final$product_handle)] <- "na"
+product_reviews_final$product_handle[grep("2pack", product_reviews_final$product_handle)] <- "na"
+product_reviews_final <- product_reviews_final[!(product_reviews_final$product_handle == "na"), ]
+product_reviews_final <- product_reviews_final[!(product_reviews_final$product_handle == ""), ]
+```
+
+
+```{r echo = FALSE, message=FALSE, result = 'hide'}
+#old method 
+product_reviews_devices <- product_reviews_final[!(product_reviews_final$device == "na"), ]
+product_reviews_products_devices_count <- count(product_reviews_devices, c("product_handle", "device"))
+product_reviews_products_count <-count(product_reviews_devices, vars = "product_handle")
+product_reviews_devices_count<- count(product_reviews_devices, vars = "device")
+product_reviews_products_devices_count$device<-sub(", ", ",", product_reviews_products_devices_count$device)
+product_reviews_products_devices_count$device<-sub(", ", ",", product_reviews_products_devices_count$device)
+product_reviews_products_devices_count$device<-sub(", ", ",", product_reviews_products_devices_count$device)
+product_reviews_devices_count$device<-sub(", ", ",", product_reviews_devices_count$device)
+product_reviews_devices_count$device<-sub(", ", ",", product_reviews_devices_count$device)
+product_reviews_devices_count$device<-sub(", ", ",", product_reviews_devices_count$device)
+for (i in 1:nrow(product_reviews_products_devices_count)){
+  if (grepl(",", product_reviews_products_devices_count$device[i])){
+    z <- strsplit(product_reviews_products_devices_count$device[i], ",")
+    for (string in z){
+      for (q in string){
+        # print(q)
+        indexIWanttoadd <- which(product_reviews_products_devices_count$device == q & product_reviews_products_devices_count$product_handle == product_reviews_products_devices_count$product_handle[i])
+        product_reviews_products_devices_count$freq[indexIWanttoadd] <- product_reviews_products_devices_count$freq[i] + product_reviews_products_devices_count$freq[indexIWanttoadd]
+      }
+
+    }
+  }
+}
+product_reviews_devices_count_2 <-  product_reviews_devices_count
+for (i in 1:nrow(product_reviews_devices_count)){
+  if (grepl(",", product_reviews_devices_count$device[i])){
+    z <- strsplit(product_reviews_devices_count$device[i], ",")
+    for (string in z){
+      for (q in string){
+        # print(q)
+        indexIWanttoadd <- which(product_reviews_devices_count$device == q)
+        product_reviews_devices_count$freq[indexIWanttoadd] <- product_reviews_devices_count$freq[i] + product_reviews_devices_count$freq[indexIWanttoadd]
+      }
+      
+    }
+  }
+}
+
+
+rows = nrow(product_reviews_devices)
+product_reviews_products_count[,"probability"] <- NA
+product_reviews_devices_count[,"probability"] <- NA
+product_reviews_products_devices_count[,"probability"] <- NA
+for (i in 1:nrow(product_reviews_products_devices_count)){
+  product_reviews_products_devices_count$probability[i] <- product_reviews_products_devices_count$freq[i] / rows
+}
+for (i in 1:nrow(product_reviews_products_count)){
+  product_reviews_products_count$probability[i] <- product_reviews_products_count$freq[i] / rows
+}
+for (i in 1:nrow(product_reviews_devices_count)){
+  product_reviews_devices_count$probability[i] <- product_reviews_devices_count$freq[i] / rows
+}
+product_reviews_products_devices_count <- product_reviews_products_devices_count[!(product_reviews_products_devices_count$device == ""), ]
+product_reviews_products_count <- product_reviews_products_count[!(product_reviews_products_count$product_handle == ""), ]
+product_reviews_devices_count <- product_reviews_devices_count[!(product_reviews_devices_count$device == ""), ]
+row.names(product_reviews_products_devices_count) <- 1:nrow(product_reviews_products_devices_count)
+row.names(product_reviews_products_count) <- 1:nrow(product_reviews_products_count)
+row.names(product_reviews_devices_count) <- 1:nrow(product_reviews_devices_count)
+product_reviews_products_devices_count_2 <- product_reviews_products_devices_count
+
+
+x <- '';
+product_reviews_products_devices_count[,"Baye's"] <- NA
+for (i in 1:nrow(product_reviews_products_devices_count)){
+  s = product_reviews_products_devices_count$device[i]
+  y <- sapply(s,function(s) which(apply(product_reviews_devices_count==s,1,any))[1]);
+  product_reviews_products_devices_count$`Baye's`[i] <- product_reviews_products_devices_count$probability[i] / product_reviews_devices_count$probability[y]
+}
+```
+
+```{r echo = FALSE, message=FALSE, result = 'hide'}
+
+product_reviews_final[186,17] <- "looking good/feeling proud"
+product_reviews_final[5,17] <- "air travel"
+product_reviews_final[223,17] <- "tube feeding"
+product_reviews_final[97,17] <- "IV bandage"
+product_reviews_final[97,15] <- "sensitive skin"
+product_reviews_final[7,17] <- "hold medical supplies"
+product_reviews_final[233,17] <- "stay warm"
+product_reviews_final[137,17] <- "hold PIIC line"
+product_reviews_final[35,17] <- "hold medical supplies"
+product_reviews_final[132,15] <- "chemotherapy"
+product_reviews_final[83,15] <- "lyme disease"
+product_reviews_final[258,17] <- "wheelchair"
+product_reviews_final[241,15] <- "cancer"
+product_reviews_final[153,15] <- "chemotherapy"
+product_reviews_final[102,17] <- "tube feeding"
+product_reviews_final[206,17] <- "hold PIIC line"
+product_reviews_final[244,15] <- "blood tumor"
+product_reviews_final[28,15] <- "lyme disease"
+product_reviews_final[28,17] <- "hold medical supplies"
+product_reviews_final[230,15] <- "lyme disease"
+product_reviews_final[230,17] <- "looking good/feeling proud"
+product_reviews_final[248,17] <- "looking good/feeling proud"
+product_reviews_final[256,17] <- "looking good/feeling proud"
+product_reviews_final[191,15] <- "sensitive skin"
+product_reviews_final[53,15] <- "chemotherapy"
+product_reviews_final[51,15] <- "cancer"
+product_reviews_final[24,17] <- "hold medical supplies"
+product_reviews_final[221,15] <- "lyme disease"
+product_reviews_final[192,15] <- "lyme disease"
+product_reviews_final[257,15] <- "fibromyalgia"
+product_reviews_final= product_reviews_final[-c(56,264,265,266),]
+```
+
+```{r echo = FALSE, message=FALSE, result = 'hide'}
+product_reviews_final$product_handle[grep("shirt", product_reviews_final$product_handle)] <- "merch"
+product_reviews_final$product_handle[grep("hat", product_reviews_final$product_handle)] <- "merch"
+product_reviews_final$product_handle[grep("sticker", product_reviews_final$product_handle)] <- "merch"
+product_reviews_final$product_handle[grep("line", product_reviews_final$product_handle)] <- "picc line cover"
+product_reviews_final$product_handle[grep("medplanner", product_reviews_final$product_handle)] <- "medplanner"
+product_reviews_final$product_handle[grep("up", product_reviews_final$product_handle)] <- "na"
+product_reviews_final$product_handle[grep("perfect", product_reviews_final$product_handle)] <- "na"
+product_reviews_final$product_handle[grep("2pack", product_reviews_final$product_handle)] <- "na"
+product_reviews_final <- product_reviews_final[!(product_reviews_final$product_handle == "na"), ]
+product_reviews_final <- product_reviews_final[!(product_reviews_final$product_handle == ""), ]
+
+product_reviews_final_deice <- as.data.frame(xtabs(~ device + product_handle, product_reviews_final))
+product_reviews_final_deice <- product_reviews_final_deice[!(product_reviews_final_deice$device == "na"), ]
+product_reviews_final_deice[,"probability"] <- 0
+product_reviews_products_count_for_deice <-count(product_reviews_final, c("product_handle","device"))
+product_reviews_products_count_for_deice <- product_reviews_products_count_for_deice[!(product_reviews_products_count_for_deice$device == "na"), ]
+product_reviews_products_count_for_deice <-count(product_reviews_products_count_for_deice, vars = "product_handle")
+for (i in 1: nrow(product_reviews_final_deice)){
+  s = product_reviews_final_deice$product_handle[i]
+  indexIWanttoadd <- which(product_reviews_products_count_for_deice$product_handle == s)
+  if (length(indexIWanttoadd) == 0){
+    next
+  }
+  if (product_reviews_products_count_for_deice$freq[indexIWanttoadd] == 0){
+    next
+  }
+  product_reviews_final_deice$probability[i] <- product_reviews_final_deice$Freq[i]/product_reviews_products_count_for_deice$freq[indexIWanttoadd]
+}
+
+```
+
+```{r echo = FALSE, message=FALSE, result = 'hide'}
+product_reviews_final_gender <- as.data.frame(xtabs(~ gender + product_handle, product_reviews_final))
+product_reviews_final_gender <- product_reviews_final_gender[!(product_reviews_final_gender$gender == "anonymous"), ]
+product_reviews_final_gender[,"probability"] <- 1
+product_reviews_products_count_for_gender <-count(product_reviews_final, c("product_handle","gender"))
+product_reviews_products_count_for_gender <- product_reviews_products_count_for_gender[!(product_reviews_products_count_for_gender$gender == "anonymous"), ]
+product_reviews_products_count_for_gender <-count(product_reviews_products_count_for_gender, vars = "product_handle")
+for (i in 1: nrow(product_reviews_final_gender)){
+  s = product_reviews_final_gender$product_handle[i]
+  indexIWanttoadd <- which(product_reviews_products_count_for_gender$product_handle == s)
+  if (length(indexIWanttoadd) == 0){
+    next
+  }
+  product_reviews_final_gender$probability[i] <- product_reviews_final_gender$Freq[i]/product_reviews_products_count_for_gender$freq[indexIWanttoadd]
+}
+```
+
+
+```{r echo = FALSE, message=FALSE, result = 'hide'}
+product_reviews_final_condition <-  as.data.frame(xtabs(~ condition + product_handle, product_reviews_final))
+product_reviews_final_condition <- product_reviews_final_condition[!(product_reviews_final_condition$condition == ""), ]
+product_reviews_final_condition <- product_reviews_final_condition[!(product_reviews_final_condition$condition == "na"), ]
+product_reviews_final_condition <- product_reviews_final_condition[!(product_reviews_final_condition$condition == "cancer"), ]
+product_reviews_final_condition[,"probability"] <- NA
+product_reviews_products_count_for_final_condition <-count(product_reviews_final, c("product_handle","condition"))
+product_reviews_products_count_for_final_condition <- product_reviews_products_count_for_final_condition[!(product_reviews_products_count_for_final_condition$condition == ""), ]
+product_reviews_products_count_for_final_condition <- product_reviews_products_count_for_final_condition[!(product_reviews_products_count_for_final_condition$condition == "na"), ]
+product_reviews_products_count_for_final_condition <- product_reviews_products_count_for_final_condition[!(product_reviews_products_count_for_final_condition$condition == "cancer"), ]
+product_reviews_products_count_for_final_condition <-count(product_reviews_products_count_for_final_condition, vars = "product_handle")
+for (i in 1: nrow(product_reviews_final_condition)){
+  s = product_reviews_final_condition$product_handle[i]
+  indexIWanttoadd <- which(product_reviews_products_count_for_final_condition$product_handle == s)
+  if (length(indexIWanttoadd) == 0){
+    next
+  }
+  product_reviews_final_condition$probability[i] <- product_reviews_final_condition$Freq[i]/product_reviews_products_count_for_final_condition$freq[indexIWanttoadd]
+}
+```
+
+```{r echo = FALSE, message=FALSE, result = 'hide'}
+product_reviews_final_case <-  as.data.frame(xtabs(~ use.case + product_handle, product_reviews_final))
+product_reviews_final_case <- product_reviews_final_case[!(product_reviews_final_case$use.case == ""), ]
+product_reviews_final_case <- product_reviews_final_case[!(product_reviews_final_case$use.case == "na"), ]
+product_reviews_final_case[,"probability"] <- NA
+product_reviews_products_count_for_final_case <-count(product_reviews_final, c("product_handle","use.case"))
+product_reviews_products_count_for_final_case <- product_reviews_products_count_for_final_case[!(product_reviews_products_count_for_final_case$use.case == ""), ]
+product_reviews_products_count_for_final_case <- product_reviews_products_count_for_final_case[!(product_reviews_products_count_for_final_case$use.case == "na"), ]
+product_reviews_products_count_for_final_case <-count(product_reviews_products_count_for_final_case, vars = "product_handle")
+for (i in 1: nrow(product_reviews_final_case)){
+  s = product_reviews_final_case$product_handle[i]
+  indexIWanttoadd <- which(product_reviews_products_count_for_final_case$product_handle == s)
+  if (length(indexIWanttoadd) == 0){
+    next
+  }
+  product_reviews_final_case$probability[i] <- product_reviews_final_case$Freq[i]/product_reviews_products_count_for_final_case$freq[indexIWanttoadd]
+}
+product_reviews_final_case <- product_reviews_final_case[!is.na(product_reviews_final_case$probability), ]
+```
+
+```{r echo = FALSE, message=FALSE, result = 'hide'}
+#write.csv(product_reviews_final_gender, "afinal_final_product_reviews_final_gender.csv")
+#write.csv(product_reviews_final_condition, "afinal_final_product_reviews_final_condition.csv")
+#write.csv(product_reviews_final_case, "afinal_final_product_reviews_final_case.csv")
+#write.csv(product_reviews_final_deice, "final_final_product_reviews_products_devices_count.csv")
+```
+
+```{r echo = FALSE}
+selectInput(
+  'breaks', label = 'Select your gender:',
+  choices = c("male", "female"), selected = "female"
+)
+
+# print(as.character(input$breaks))
+ui <- fluidPage(
+  textInput("gender", "Enter your gender", "Gender"),
+  textInput("disease", "Enter condition", "Medical condition"),
+  verbatimTextOutput("value")
+)
+
+server <- function(input, output) {
+  output$value <- renderPrint({ input$gender})
+
+}
+
+shinyApp(ui, server)
+
+```
+
+```{python message=FALSE}
+def printstring(gender):
+    return gender
+
+```
+
+```{python message=FALSE}
+print("Hello check 1 2 3")
+import pandas as pd
+gender = pd.read_csv('D:/Batcave/DIIG/MightyWell/final_final_product_reviews_final_gender.csv') 
+#getting information on gender analysis
+condition = pd.read_csv("D:/Batcave/DIIG/MightyWell/final_final_product_reviews_final_condition.csv") 
+#getting information on medical condition analysis
+case = pd.read_csv("D:/Batcave/DIIG/MightyWell/final_final_product_reviews_final_case.csv")
+#getting information on case use analysis 
+device = pd.read_csv("D:/Batcave/DIIG/MightyWell/final_final_product_reviews_products_devices_count.csv")
+# gender_input =  input("Please either either male or female: ")  #stores gender
+gender_input = "male"
+# condition_input = input("Please input what condition you have: ") #stores medical condition
+condition_input = "lyme disease"
+# case_input = input("Please input what function you desire from the device: ")  #stores user need
+case_input = "holding picc line"
+# device_input = input("Please input what device you want to replace: ") #stores user previous device
+device_input = "med planner"
+score_medplanner = 0
+score_mighty_pages = 0
+score_merch = 0
+score_picc_line_cover = 0
+score_the_mighty_wrap = 0
+score_medical_iv_fusion_backpack = 0
+condition['probability'] = condition['probability'] * 0.4
+case['probability'] = case['probability'] * 0.3
+device['probability'] = device['probability'] * 0.2
+gender['probability'] = gender['probability'] * 0.1
+def summing(stringinput, scoreinput, ):
+    global score_medplanner, score_mighty_pages, score_merch, score_picc_line_cover, score_the_mighty_wrap, score_medical_iv_fusion_backpack
+    if (stringinput == "medical-iv-infusion-backpack-for-patients"):
+        score_medical_iv_fusion_backpack += scoreinput
+    if (stringinput == "medplanner"):
+        score_medplanner += scoreinput
+    if (stringinput == "merch"):
+        score_merch += scoreinput
+    if (stringinput == "mighty-pages"):
+        score_mighty_pages += scoreinput
+    if (stringinput == "picc line cover"):
+        score_picc_line_cover += scoreinput
+    if (stringinput == "the-mighty-wrap"):
+        score_the_mighty_wrap += scoreinput
+def max_score():
+    global score_medplanner, score_mighty_pages, score_merch, score_picc_line_cover, score_the_mighty_wrap, score_medical_iv_fusion_backpack
+    max_val = max(score_medplanner, score_mighty_pages, score_merch, score_picc_line_cover, score_the_mighty_wrap, score_medical_iv_fusion_backpack)
+    if (max_val == score_medplanner):
+        print ("The best device to use is the medplanner")
+    if (max_val == score_mighty_pages):
+        print ("The best device to use is the mighty pages")
+    if (max_val == score_merch):
+        print ("The best device to use is the merch")
+    if (max_val == score_picc_line_cover):
+        print ("The best device to use is the picc line cover")
+    if (max_val == score_the_mighty_wrap):
+        print ("The best device to use is the mighty wrap")
+    if (max_val == score_medical_iv_fusion_backpack):
+        print ("The best device to use is the medical iv infusion backpack")
+
+product_devices = ["medical-iv-infusion-backpack-for-patients", "medplanner", "merch", "mighty-pages", "picc line cover", "the-mighty-wrap"]
+score = 0.0 #temp value that changes
+for string in product_devices:
+    if condition_input in condition['condition'].unique() : #first checking if user input is in the database for condition
+        index_of_condition = condition.index[(condition['condition'] == condition_input) & (condition['product_handle'] == string)].tolist()[0] #getting the index of the condiiton and device to find its probability
+        score = condition['probability'][index_of_condition] #getting probability of the two conditions above
+        summing(string, score) #adding the probability above to the scores of each device
+    else:
+        score = 0.0
+    if case_input in case['use.case'].unique(): #repeating above for use case
+        index_of_condition = case.index[(case['use.case'] == case_input) & (case['product_handle'] == string)].tolist()[0]
+        score = case['probability'][index_of_condition]
+        summing(string, score)
+    else:
+        score = 0.0
+    if gender_input in gender['gender'].unique(): #repeating above for gender
+        index_of_condition = gender.index[(gender['gender'] == gender_input) & (gender['product_handle'] == string)].tolist()[0]
+        score = gender['probability'][index_of_condition]
+        summing(string, score)
+    else:
+        score = 0.0
+    if device_input in device['device'].unique(): #repeating above for previous device
+        index_of_condition = device.index[(device['device'] == device_input) & (device['product_handle'] == string)].tolist()[0]
+        score = device['probability'][index_of_condition]
+        summing(string, score)
+    else:
+        score = 0.0
+max_score()
+```
