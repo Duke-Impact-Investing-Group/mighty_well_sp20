@@ -1,0 +1,121 @@
+"","use.case","product_handle","Freq","probability"
+"2","air travel","medical-iv-infusion-backpack-for-patients",1,0.0666666666666667
+"3","comfort/stay warm","medical-iv-infusion-backpack-for-patients",0,0
+"4","comfort/stay warm, IV infusion","medical-iv-infusion-backpack-for-patients",0,0
+"5","hold medical supplies","medical-iv-infusion-backpack-for-patients",2,0.133333333333333
+"6","hold PIIC line","medical-iv-infusion-backpack-for-patients",0,0
+"7","hold PIIC line, antibiotic infusion","medical-iv-infusion-backpack-for-patients",0,0
+"8","hold PIIC line, chemotherapy","medical-iv-infusion-backpack-for-patients",0,0
+"9","hold PIIC line, IV infusion","medical-iv-infusion-backpack-for-patients",0,0
+"10","hold PIIC line, IV infusion, antibiotics infusion","medical-iv-infusion-backpack-for-patients",0,0
+"11","hold PIIC line, TPN, IV infusion","medical-iv-infusion-backpack-for-patients",0,0
+"12","hold port","medical-iv-infusion-backpack-for-patients",0,0
+"13","IV bandage","medical-iv-infusion-backpack-for-patients",0,0
+"14","IV infusion","medical-iv-infusion-backpack-for-patients",0,0
+"15","IV infusion, hold medical supplies","medical-iv-infusion-backpack-for-patients",3,0.2
+"16","looking good/feeling proud","medical-iv-infusion-backpack-for-patients",0,0
+"18","organize medications, hold medical supplies","medical-iv-infusion-backpack-for-patients",0,0
+"19","TPN, ","medical-iv-infusion-backpack-for-patients",0,0
+"20","tube feeding","medical-iv-infusion-backpack-for-patients",0,0
+"21","tube feeding, hold medical supplies","medical-iv-infusion-backpack-for-patients",7,0.466666666666667
+"22","tube feeding, IV infusion, hold medical supplies","medical-iv-infusion-backpack-for-patients",2,0.133333333333333
+"24","air travel","medplanner",0,0
+"25","comfort/stay warm","medplanner",0,0
+"26","comfort/stay warm, IV infusion","medplanner",0,0
+"27","hold medical supplies","medplanner",4,0.2
+"28","hold PIIC line","medplanner",0,0
+"29","hold PIIC line, antibiotic infusion","medplanner",0,0
+"30","hold PIIC line, chemotherapy","medplanner",0,0
+"31","hold PIIC line, IV infusion","medplanner",0,0
+"32","hold PIIC line, IV infusion, antibiotics infusion","medplanner",0,0
+"33","hold PIIC line, TPN, IV infusion","medplanner",0,0
+"34","hold port","medplanner",0,0
+"35","IV bandage","medplanner",0,0
+"36","IV infusion","medplanner",0,0
+"37","IV infusion, hold medical supplies","medplanner",0,0
+"38","looking good/feeling proud","medplanner",1,0.05
+"40","organize medications, hold medical supplies","medplanner",15,0.75
+"41","TPN, ","medplanner",0,0
+"42","tube feeding","medplanner",0,0
+"43","tube feeding, hold medical supplies","medplanner",0,0
+"44","tube feeding, IV infusion, hold medical supplies","medplanner",0,0
+"46","air travel","merch",0,0
+"47","comfort/stay warm","merch",0,0
+"48","comfort/stay warm, IV infusion","merch",0,0
+"49","hold medical supplies","merch",0,0
+"50","hold PIIC line","merch",2,0.222222222222222
+"51","hold PIIC line, antibiotic infusion","merch",0,0
+"52","hold PIIC line, chemotherapy","merch",0,0
+"53","hold PIIC line, IV infusion","merch",0,0
+"54","hold PIIC line, IV infusion, antibiotics infusion","merch",0,0
+"55","hold PIIC line, TPN, IV infusion","merch",0,0
+"56","hold port","merch",0,0
+"57","IV bandage","merch",0,0
+"58","IV infusion","merch",0,0
+"59","IV infusion, hold medical supplies","merch",0,0
+"60","looking good/feeling proud","merch",7,0.777777777777778
+"62","organize medications, hold medical supplies","merch",0,0
+"63","TPN, ","merch",0,0
+"64","tube feeding","merch",0,0
+"65","tube feeding, hold medical supplies","merch",0,0
+"66","tube feeding, IV infusion, hold medical supplies","merch",0,0
+"68","air travel","mighty-pages",0,0
+"69","comfort/stay warm","mighty-pages",0,0
+"70","comfort/stay warm, IV infusion","mighty-pages",0,0
+"71","hold medical supplies","mighty-pages",0,0
+"72","hold PIIC line","mighty-pages",0,0
+"73","hold PIIC line, antibiotic infusion","mighty-pages",0,0
+"74","hold PIIC line, chemotherapy","mighty-pages",0,0
+"75","hold PIIC line, IV infusion","mighty-pages",0,0
+"76","hold PIIC line, IV infusion, antibiotics infusion","mighty-pages",0,0
+"77","hold PIIC line, TPN, IV infusion","mighty-pages",0,0
+"78","hold port","mighty-pages",0,0
+"79","IV bandage","mighty-pages",0,0
+"80","IV infusion","mighty-pages",0,0
+"81","IV infusion, hold medical supplies","mighty-pages",0,0
+"82","looking good/feeling proud","mighty-pages",0,0
+"84","organize medications, hold medical supplies","mighty-pages",4,1
+"85","TPN, ","mighty-pages",0,0
+"86","tube feeding","mighty-pages",0,0
+"87","tube feeding, hold medical supplies","mighty-pages",0,0
+"88","tube feeding, IV infusion, hold medical supplies","mighty-pages",0,0
+"90","air travel","picc line cover",0,0
+"91","comfort/stay warm","picc line cover",0,0
+"92","comfort/stay warm, IV infusion","picc line cover",0,0
+"93","hold medical supplies","picc line cover",0,0
+"94","hold PIIC line","picc line cover",45,0.652173913043478
+"95","hold PIIC line, antibiotic infusion","picc line cover",5,0.072463768115942
+"96","hold PIIC line, chemotherapy","picc line cover",5,0.072463768115942
+"97","hold PIIC line, IV infusion","picc line cover",3,0.0434782608695652
+"98","hold PIIC line, IV infusion, antibiotics infusion","picc line cover",3,0.0434782608695652
+"99","hold PIIC line, TPN, IV infusion","picc line cover",1,0.0144927536231884
+"100","hold port","picc line cover",1,0.0144927536231884
+"101","IV bandage","picc line cover",2,0.0289855072463768
+"102","IV infusion","picc line cover",0,0
+"103","IV infusion, hold medical supplies","picc line cover",0,0
+"104","looking good/feeling proud","picc line cover",1,0.0144927536231884
+"106","organize medications, hold medical supplies","picc line cover",0,0
+"107","TPN, ","picc line cover",1,0.0144927536231884
+"108","tube feeding","picc line cover",2,0.0289855072463768
+"109","tube feeding, hold medical supplies","picc line cover",0,0
+"110","tube feeding, IV infusion, hold medical supplies","picc line cover",0,0
+"112","air travel","the-mighty-wrap",0,0
+"113","comfort/stay warm","the-mighty-wrap",1,0.333333333333333
+"114","comfort/stay warm, IV infusion","the-mighty-wrap",1,0.333333333333333
+"115","hold medical supplies","the-mighty-wrap",0,0
+"116","hold PIIC line","the-mighty-wrap",0,0
+"117","hold PIIC line, antibiotic infusion","the-mighty-wrap",0,0
+"118","hold PIIC line, chemotherapy","the-mighty-wrap",0,0
+"119","hold PIIC line, IV infusion","the-mighty-wrap",0,0
+"120","hold PIIC line, IV infusion, antibiotics infusion","the-mighty-wrap",0,0
+"121","hold PIIC line, TPN, IV infusion","the-mighty-wrap",0,0
+"122","hold port","the-mighty-wrap",0,0
+"123","IV bandage","the-mighty-wrap",0,0
+"124","IV infusion","the-mighty-wrap",1,0.333333333333333
+"125","IV infusion, hold medical supplies","the-mighty-wrap",0,0
+"126","looking good/feeling proud","the-mighty-wrap",0,0
+"128","organize medications, hold medical supplies","the-mighty-wrap",0,0
+"129","TPN, ","the-mighty-wrap",0,0
+"130","tube feeding","the-mighty-wrap",0,0
+"131","tube feeding, hold medical supplies","the-mighty-wrap",0,0
+"132","tube feeding, IV infusion, hold medical supplies","the-mighty-wrap",0,0
