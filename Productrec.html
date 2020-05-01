@@ -1,0 +1,226 @@
+
+<form id="survey-form" action="">
+
+  <h1 id="title">Product Finder</h1>
+  <p id="description">Answer the 4 questions below, and we will recommend a Mighty Well Product and blog posts that best suit your needs.</p>
+  
+  <!-- ------------------Gender---------------------------- -->
+  <div class = "tab"> Gender:
+    <p>
+        <input type="radio" name="gender" value="male" checked> Male<br>
+        <input type="radio" name="gender" value="female"> Female<br>
+        <input type="radio" name="gender" value="other"> Other
+      </p>
+  </div>
+
+    <!-- ------------------Medical Condition-------------------------------- -->
+  <div class = "tab"> Medical Condition:
+      <p>
+        <input type="checkbox" name="medcon" value="aplasticAnemia">Aplastic Anemia<br>
+        <input type="checkbox" name="medcon" value="behcets">Behcet's Syndrome<br>
+        <input type="checkbox" name="medcon" value="caps">CAPS<br>
+        <input type="checkbox" name="medcon" value="cysticFibrosis" checked>Cystic Fibrosis<br>
+        <input type="checkbox" name="medcon" value="diabetes" checked>Diabetes<br>
+        <input type="checkbox" name="medcon" value="dysautonomia">Dysautonomia<br>
+        <input type="checkbox" name="medcon" value="eds">Ehlers-Danlos Syndrome (EDS)<br>
+        <input type="checkbox" name="medcon" value="fibromyalgia">Fibromyalgia<br>
+        <input type="checkbox" name="medcon" value="gp" checked>Gastroparesis (GP)<br>
+        <input type="checkbox" name="medcon" value="hrt" checked>HRT<br>
+        <input type="checkbox" name="medcon" value="lyme" checked>Lyme Disease<br>
+        <input type="checkbox" name="medcon" value="marfan" checked>Marfan Syndrome<br>
+        <input type="checkbox" name="medcon" value="mcas" checked>MCAS<br>
+        <input type="checkbox" name="medcon" value="osteomyelitis">Osteomyelitis<br>
+        <input type="checkbox" name="medcon" value="partialEmptySella">Partial Empty Sella<br>
+        <input type="checkbox" name="medcon" value="polyarthralgia">Polyarthralgia<br>
+        <input type="checkbox" name="medcon" value="pcos" checked>Polycystic Ovary Syndrome (PCOS)<br>
+        <input type="checkbox" name="medcon" value="pots" checked>Postural Orthostatic Tachycardia Syndrome (POTS)<br>
+        <input type="checkbox" name="medcon" value="thyroidcancer" checked>Thyroid Cancer<br>
+        <input type="checkbox" name="medcon" value="uc" checked>Ulcerative Colitis (UC)<br>
+        <input type="checkbox" name="medcon" value="other" checked>Other<br>
+
+      </p>
+  </div>
+  <!-- ------------------Medical Devices-------------------------------- -->
+  <div class = "tab"> Medical Devices:
+    <p>
+      <input type="checkbox" name="meddev" value="diabeticPumps">Diabetic Pumps<br>
+      <input type="checkbox" name="meddev" value="EpiPen">EpiPen (Allergies)<br>
+      <input type="checkbox" name="meddev" value="glucoseMonitor">Glucose Monitors/ Diabetic Test Strips and Supplies<br>
+      <input type="checkbox" name="meddev" value="hickmanLines" checked>Hickman Lines (CVCs)<br>
+      <input type="checkbox" name="meddev" value="inhalers" checked>Inhalers<br>
+      <input type="checkbox" name="meddev" value="mastectomyDrains" checked>Mastectomy Drains<br>
+      <input type="checkbox" name="meddev" value="midlines" checked>Midlines<br>
+      <input type="checkbox" name="meddev" value="peripherals" checked>Peripherals<br>
+      <input type="checkbox" name="meddev" value="PICCLines" checked>PICC Lines<br>
+      <input type="checkbox" name="meddev" value="pillsAndOtherMedications" checked>Pills and Other Medications<br>
+      <input type="checkbox" name="meddev" value="ports" checked>Ports<br>
+      <input type="checkbox" name="meddev" value="vitamins" checked>Vitamins<br>
+      <input type="checkbox" name="meddev" value="wheelchairs" checked>Wheelchairs/Mobility Aids<br>
+      <input type="checkbox" name="meddev" value="other" checked>Other<br>
+    </p>
+  </div>
+  
+  <!-- -----------------Use Case--------------------------------- -->
+  
+  <div class = "tab"> Use Case:
+    <p>
+      <input type="checkbox" name="usecase" value="antibioticInfusion">Antibiotic Infusion<br>
+      <input type="checkbox" name="usecase" value="chemotherapy">Chemotherapy<br>
+      <input type="checkbox" name="usecase" value="glucoseMonitoring">Glucose Monitoring<br>
+      <input type="checkbox" name="usecase" value="holdMedicalSupplies" checked>Hold Medical Supplies/Items<br>
+      <input type="checkbox" name="usecase" value="IVInfusion" checked>IV Infusion<br>
+      <input type="checkbox" name="usecase" value="lookingGood" checked>Looking Good/Feeling Proud!<br>
+      <input type="checkbox" name="usecase" value="organizeMedications">Organize Medications<br>
+      <input type="checkbox" name="usecase" value="raisingAwareness">Raising Awareness<br>
+      <input type="checkbox" name="usecase" value="salineTreatment">Saline Treatment<br>
+      <input type="checkbox" name="usecase" value="subcutaneousInjection" checked>Subcutaneous Injection<br>
+      <input type="checkbox" name="usecase" value="TPNInjection" checked>TPN Injection<br>
+      <input type="checkbox" name="usecase" value="transfusion">Transfusion<br>
+      <input type="checkbox" name="usecase" value="tubeFeeding">Tube Feeding<br>
+      <input type="checkbox" name="usecase" value="other" checked>Other<br>
+    </p>
+  </div>
+
+  <div style="overflow:auto;">
+        <div style="float:right;">
+          <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+          <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+        </div>
+  </div>
+
+     <!-- Circles which indicates the steps of the form: -->
+  <div style="text-align:center;margin-top:40px;">
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+  </div>
+
+  <style>
+  #regForm {
+  background-color: #ffffff;
+  margin: 100px auto;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+}
+
+/* Style the input fields */
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+/* Mark the active step: */
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
+}
+  </style>
+<!------------------SCRIPT---------------------------->
+
+  <script>
+    var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
+
+function showTab(n) {
+  // This function will display the specified tab of the form ...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  // ... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.getElementById("prevBtn").style.display = "none";
+  } else {
+    document.getElementById("prevBtn").style.display = "inline";
+  }
+  if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").innerHTML = "Submit";
+  } else {
+    document.getElementById("nextBtn").innerHTML = "Next";
+  }
+  // ... and run a function that displays the correct step indicator:
+  fixStepIndicator(n)
+}
+
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Exit the function if any field in the current tab is invalid:
+  if (n == 1 && !validateForm()) return false;
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  // if you have reached the end of the form... :
+  if (currentTab >= x.length) {
+    //...the form gets submitted:
+    document.getElementById("regForm").submit();
+    return false;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+}
+
+function validateForm() {
+  // This function deals with validation of the form fields
+  var x, y, i, valid = true;
+  x = document.getElementsByClassName("tab");
+  y = x[currentTab].getElementsByTagName("input");
+  // A loop that checks every input field in the current tab:
+  for (i = 0; i < y.length; i++) {
+    // If a field is empty...
+    if (y[i].value == "") {
+      // add an "invalid" class to the field:
+      y[i].className += " invalid";
+      // and set the current valid status to false:
+      valid = false;
+    }
+  }
+  // If the valid status is true, mark the step as finished and valid:
+  if (valid) {
+    document.getElementsByClassName("step")[currentTab].className += " finish";
+  }
+  return valid; // return the valid status
+}
+
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class to the current step:
+  x[n].className += " active";
+}
+  </script>
+
+</form>
