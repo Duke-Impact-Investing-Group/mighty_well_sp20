@@ -9,7 +9,8 @@ import gspread
 import pandas as pd
 from oauth2client.service_account import ServiceAccountCredentials
 
-
+# if you don't have the config file ask Aneesh for it
+# And place it in the config/ folder
 # Google spreadsheets bot config - secret file
 with open('./config/googleconfig.json') as data_file:
         CONFIG = json.load(data_file)
