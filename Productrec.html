@@ -5,7 +5,7 @@
 <form id="survey-form" action="">
   <div id = "container">
   <h1 id="title">Product Finder</h1>
-  <p id="description">Answer the 4 questions below, and we will recommend a Mighty Well Product and blog posts that best suit your needs.</p>
+  <div id="description">Answer the 4 questions below, and we will recommend a Mighty Well Product and blog posts that best suit your needs.</div>
 
   <!-- ------------------Gender---------------------------- -->
   <div class = "tab">
@@ -124,6 +124,7 @@
           <div class = "center">
           <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
           <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+          <button type="button" id="startOverBtn" onclick="location.reload()">Start Over</button>
       </div>
   </div>
   <!-- Circles which indicates the steps of the form: -->
@@ -153,6 +154,25 @@
         padding:100px;
       }
 
+      #title{
+        margin-left:auto;
+        margin-right:auto;
+        text-align: center;
+        font:xx-large;
+
+      }
+
+      #description {
+        text-align: center;
+        padding:10px;
+        max-width:400px;
+        margin-left:auto;
+        margin-right:auto;
+        font: Lato;
+        font-size: 14px;
+        color: grey;
+    }
+
       #productRecContainer{
         background-color:#ffffff;
         padding:100px;
@@ -169,26 +189,15 @@
       }
 
       ul.checkbox  {
-        margin: 0;
-        padding: 0;
-        margin-left: 20px;
+        margin-left: auto;
+        margin-right:auto;
         list-style: none;
         }
 
-    ul.checkbox li input {
-    margin-right: .25em;
-    }
-
-    ul.checkbox li {
-    border: 1px transparent solid;
-    float: left;
-    min-width: 400px;
-    }
-
-      .description {
-          text-align: center;
-          width: 75%;
-
+      ul.checkbox li {
+        border: 1px transparent solid;
+        float: left;
+        min-width: 400px;
       }
 
       .number {
@@ -268,8 +277,11 @@
           if(n == x.length-1){
             document.getElementById("prevBtn").style.display = "none";
             document.getElementById("nextBtn").style.display = "none";
+            document.getElementById("startOverBtn").style.display="inline";
           }
           else{
+          document.getElementById("startOverBtn").style.display="none";
+
           if (n == 0) {
               document.getElementById("prevBtn").style.display = "none";
           } else {
