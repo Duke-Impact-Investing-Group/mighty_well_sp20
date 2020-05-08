@@ -1,0 +1,417 @@
+<form id="survey-form" action="">
+	<div id = "container">
+    <h1 id="title">Product Finder</h1>
+    <p id="description"> Answer the 4 questions below, and we will recommend a Mighty Well Product and blog posts that best suit your needs.</p>
+
+   <!-- ------------------Gender---------------------------- -->
+   <div class="tab">
+      <h3 id="number"> - 1 - </h3>
+      <h2 id="question"> What is your gender? </h2>
+      <p>
+		<input type="radio" name="Gender" id="Male" value="Male">Male<br>
+		<input type="radio" name="Gender" id="Female" value="Female">Female<br>
+		<input type="radio" name="Gender" id="Other" value="Other"> Other
+	  </p>
+   </div>
+   
+   <!-- ------------------Medical Condition-------------------------------- -->
+   <div class = "tab">
+      <h3 class = "number"> - 2 - </h3>
+      <h2 class = "question"> Select all that apply to you! </h2> <br>
+      <label class = "checkbox-label">
+        <span class = "checkbox-custom">
+          <ul>
+         <li><input type="checkbox" name="medcon" value="Aplastic Anemia">Aplastic Anemia<br></li>
+         <li><input type="checkbox" name="medcon" value="Behcet's Syndrome">Behcet's Syndrome<br></li>
+         <li><input type="checkbox" name="medcon" value="CAPS">CAPS<br></li>
+          <li><input type="checkbox" name="medcon" value="Cystic Fibrosis" >Cystic Fibrosis<br></li>
+          <li><input type="checkbox" name="medcon" value="Diabetes" >Diabetes<br></li>
+          <li><input type="checkbox" name="medcon" value="Dysautonomia">Dysautonomia<br></li>
+          <li><input type="checkbox" name="medcon" value="Ehlers-Danlos Syndrome">Ehlers-Danlos Syndrome (EDS)<br></li>
+          <li><input type="checkbox" name="medcon" value="fibromyalgia">Fibromyalgia<br></li>
+          <li><input type="checkbox" name="medcon" value="Gastroparesis (GP)" >Gastroparesis (GP)<br></li>
+          <li><input type="checkbox" name="medcon" value="HRT" >HRT<br></li>
+          <li><input type="checkbox" name="medcon" value="Lyme Disease" >Lyme Disease<br></li>
+          <li><input type="checkbox" name="medcon" value="Marfan Syndrome" >Marfan Syndrome<br></li>
+          <li><input type="checkbox" name="medcon" value="MCAS" >MCAS<br></li>
+          <li><input type="checkbox" name="medcon" value="Osteomyelitis">Osteomyelitis<br></li>
+          <li><input type="checkbox" name="medcon" value="Partial Empty Sella">Partial Empty Sella<br></li>
+          <li><input type="checkbox" name="medcon" value="Polyarthralgia">Polyarthralgia<br></li>
+          <li><input type="checkbox" name="medcon" value="Polycystic Ovary Syndrome" >Polycystic Ovary Syndrome (PCOS)<br></li>
+          <li><input type="checkbox" name="medcon" value="Postural Orthostatic Tachycardia Syndrome" >Postural Orthostatic Tachycardia Syndrome (POTS)<br></li>
+          <li><input type="checkbox" name="medcon" value="Thyroid Cancer" >Thyroid Cancer<br></li>
+          <li><input type="checkbox" name="medcon" value="Ulcerative Colitis" >Ulcerative Colitis (UC)<br></li>
+          <li><input type="checkbox" name="medcon" value="Other" >Other<br></li>
+          </ul>
+        </span>
+        </label>
+  </div>
+   
+   <!-- ------------------Medical Devices-------------------------------- -->
+   <div class="tab">
+      <h3 id="number"> - 3 - </h3>
+      <h2 id="question"> What medical devices do you use?</h2>
+ <label class = "checkbox-label">
+      <span class="checkbox-custom">
+      <p>
+          <!--<input type="checkbox" name="meddev" value="diabeticPumps">Diabetic Pumps<br>-->
+          <input type="checkbox" name="meddev" value="EpiPen">EpiPen (Allergies) <br>
+          <input type="checkbox" name="meddev" value="Glucose Monitor">Diabetic Supplies<br>
+         <!--input <input type="checkbox" name="meddev" value="Hickman Lines">Hickman Lines (CVCs)<br> -->
+         <!-- <input type="checkbox" name="meddev" value="Inhalers">Inhalers<br> -->
+          <input type="checkbox" name="meddev" value="Mastectomy Drains">Mastectomy Drains<br>
+          <input type="checkbox" name="meddev" value="Midlines">Midlines<br>
+          <input type="checkbox" name="meddev" value="Peripheral I.V.s">Peripheral I.V.s<br>
+          <input type="checkbox" name="meddev" value="PICC Lines">PICC Lines<br>
+          <input type="checkbox" name="meddev" value="Pills and Other Medications">Pills and Other Medications<br>
+          <input type="checkbox" name="meddev" value="Port">Port<br>
+          <!-- <input type="checkbox" name="meddev" value="Vitamins">Vitamins<br> -->
+          <input type="checkbox" name="meddev" value="Wheelchairs/Mobility Aids">Wheelchairs/Mobility Aids<br>
+          <input type="checkbox" name="meddev" value="Other">Other<br>
+      </p>
+      </span>
+      </label>
+   </div>
+   
+   <!-- -----------------Use Case--------------------------------- -->
+
+  <div class="tab"> Use Case:
+      <h3 id="number"> - 4 - </h3>
+      <h2 id="question"> What are you looking to receive help with? </h2>
+      <label class = "checkbox-label">
+      <span class="checkbox-custom">
+      <p>
+          <input type="checkbox" name="usecase" value="Antibiotic Infusion">Antibiotic Infusion<br>
+          <input type="checkbox" name="usecase" value="Chemotherapy">Chemotherapy<br>
+          <input type="checkbox" name="usecase" value="Glucose Monitoring">Glucose Monitoring<br>
+          <input type="checkbox" name="usecase" value="Hold Medical Supplies/Items">Hold Medical Supplies/Items<br>
+          <input type="checkbox" name="usecase" value="IV Infusion">IV Infusion<br>
+          <input type="checkbox" name="usecase" value="Looking Good/Feeling Proud">Looking Good/Feeling Proud!<br>
+          <input type="checkbox" name="usecase" value="Organize Medications">Organize Medications<br>
+          <input type="checkbox" name="usecase" value="Raising Awareness">Raising Awareness<br>
+          <input type="checkbox" name="usecase" value="Saline Treatment">Saline Treatment<br>
+          <input type="checkbox" name="usecase" value="Subcutaneous Injection">Subcutaneous Injection<br>
+          <input type="checkbox" name="usecase" value="TPN Injection">TPN Injection<br>
+          <input type="checkbox" name="usecase" value="Transfusion">Transfusion<br>
+          <input type="checkbox" name="usecase" value="Tube Feeding">Tube Feeding<br>
+          <input type="checkbox" name="usecase" value="Other">Other<br>
+      </p>
+      </span>
+      </label>
+      <!-- <p id="demo">Here</p>     -->
+  </div>
+  
+
+<script>
+const scriptURL =
+  "https://script.google.com/macros/s/AKfycbxx4_QDeXS7AqXlU9WkYvDTvdY_dYHUMbZ-YdQK4SslU54ihug/exec"
+const form = document.forms[0]
+
+form.addEventListener("submit", e => {
+  e.preventDefault()
+  fetch(scriptURL, {
+      method: "POST",
+      body: new FormData(form)
+    })
+    .then(response => console.log("Success!", response))
+    .catch(error => console.error("Error!", error.message))
+})
+</script>
+
+ <div class="tab" id="productRecContainer">
+    <h1>Your Results!</h1>
+    <h3>Enjoy these Mighty Well products and specially curated blog posts just for you!</h3>
+    <a href="" class = "productLink">
+    <h2 id="productName" style="float: left;"> Product Name </h2><br>
+    <img src="https://bit.ly/2SEVDwz" id= "productPicture" alt = "Product Picture">
+    </a>
+
+    <a href = "" class="blogLink">
+    <h2 id="blogName" style="float: right;"></h2><br>
+    <img src="" id="blogPicture" alt = "blog Picture" style="float: right;">
+    </a>
+
+  </div>
+  
+  <div style="overflow:auto;">
+      <div style = "float:left;"></div>
+          <p id="demo"></p>
+          <div class = "center">
+          <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+          <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+          <button type="button" id="startOverBtn" onclick="location.reload()">Start Over</button>
+		  <button type="submit" id="finalsub" onclick="nextPrev(1)" form="survey-form" value="Submit">Submit</button>
+      </div>
+  </div>
+  <!-- Circles which indicates the steps of the form: -->
+  <div style="text-align:center;margin-top:40px;">
+      <span class="step"></span>
+      <span class="step"></span>
+      <span class="step"></span>
+      <span class="step"></span>
+  </div>
+</div>
+
+  <style>
+        ul {
+        columns: 300px;
+        list-style: none; 
+      }
+
+      #regForm {
+          background-color: #ffffff;
+          margin: 100px auto;
+          padding: 40px;
+          width: 70%;
+          min-width: 300px;
+      }
+      #container{
+        background-color:#edf9fc;
+        padding:100px;
+      }
+
+      #title{
+        margin-left:auto;
+        margin-right:auto;
+        text-align: center;
+        font:xx-large;
+
+      }
+
+      #description {
+        text-align: center;
+        padding:10px;
+        max-width:400px;
+        margin-left:auto;
+        margin-right:auto;
+        font: Lato;
+        font-size: 14px;
+        color: grey;
+    }
+
+      #productRecContainer{
+        background-color:#ffffff;
+        padding:100px;
+      }
+
+      #productPicture{
+        padding: 20px;
+        max-width: 40%;
+        height: auto;
+      }
+
+      .center{
+        text-align-last: center;
+      }
+
+      ul.checkbox  {
+        margin-left: auto;
+        margin-right:auto;
+        list-style: none;
+        }
+
+      ul.checkbox li {
+        border: 1px transparent solid;
+        float: left;
+        min-width: 400px;
+      }
+
+      .number {
+          text-align: center;
+      }
+
+      .question{
+          text-align: center;
+          padding:10px
+      }
+
+
+      button{
+         text-align: center;
+      }
+
+      /* Style the input fields */
+      input {
+          text-align: center;
+          padding: 10px;
+          width: 100%;
+          font-size: 17px;
+          font-family: Raleway;
+          border: 1px solid #aaaaaa;
+      }
+
+      /* Mark input boxes that gets an error on validation: */
+      input.invalid {
+          background-color: #ffdddd;
+      }
+
+      /* Hide all steps by default: */
+      .tab {
+          display: none;
+      }
+
+      /* Make circles that indicate the steps of the form: */
+      .step {
+          height: 15px;
+          width: 15px;
+          margin: 0 2px;
+          background-color: #bbbbbb;
+          border: none;
+          border-radius: 50%;
+          display: inline-block;
+          opacity: 0.5;
+      }
+
+      /* Mark the active step: */
+      .step.active {
+          opacity: 1;
+      }
+
+      /* Mark the steps that are finished and valid: */
+      .step.finish {
+          background-color: #4CAF50;
+      }
+  </style>
+  <!------------------SCRIPT---------------------------->
+
+  <script>
+      const CATALOG ={
+        PICCPerfect: ["https://mighty-well.com/products/picc-line-cover-piccperfect-mighty-well?_pos=5&_sid=db99fc554&_ss=r", "https://blog.mighty-well.com/2017/07/adapting-to-the-picc-life/"],
+        MedPlanner:  ["https://mighty-well.com/collections/all/products/mighty-medplanner-medical-organizer","https://blog.mighty-well.com/2019/06/trying-out-the-mighty-medplanner-your-new-medical-organizer/"],
+        MightyPack: ["https://mighty-well.com/collections/all/products/medical-iv-infusion-backpack-for-patients","https://blog.mighty-well.com/2018/12/travel-without-worries-with-the-mighty-pack-the-best-backpack-for-friends-in-the-fight/"],
+        MightyWrap: ["https://mighty-well.com/collections/all/products/the-mighty-jacket","https://blog.mighty-well.com/2017/06/learning-to-love-your-tube/"],
+        UndefeatedWear:["https://mighty-well.com/collections/all/products/undefeated-t-shirt-heather-gray","https://blog.mighty-well.com/2019/11/mighty-well-fall-photoshoot/"]
+      }
+      var currentTab = 0; // Current tab is set to be the first tab (0)
+      showTab(currentTab); // Display the current tab
+
+      function showTab(n) {
+          // This function will display the specified tab of the form ...
+          var x = document.getElementsByClassName("tab");
+          x[n].style.display = "block";
+          // ... and fix the Previous/Next buttons:
+          if(n == x.length-1){
+            document.getElementById("prevBtn").style.display = "none";
+            document.getElementById("nextBtn").style.display = "none";
+            document.getElementById("startOverBtn").style.display="inline";
+			document.getElementById("finalsub").style.display="none";
+          }
+		  if(n == x.length-2){
+            document.getElementById("prevBtn").style.display = "none";
+            document.getElementById("nextBtn").style.display = "none";
+            document.getElementById("startOverBtn").style.display="none";
+			document.getElementById("finalsub").style.display="inline";
+          }
+          else{
+          document.getElementById("startOverBtn").style.display="none";
+		  document.getElementById("finalsub").style.display="none";
+
+          if (n == 0) {
+              document.getElementById("prevBtn").style.display = "none";
+          } else {
+              document.getElementById("prevBtn").style.display = "inline";
+          }
+          if (n == (x.length - 2)) {
+              document.getElementById("nextBtn").innerHTML = "Get Results!";
+          } else {
+              document.getElementById("nextBtn").innerHTML = "Next";
+          }}
+          // ... and run a function that displays the correct step indicator:
+          fixStepIndicator(n)
+      }
+
+      function nextPrev(n) {
+          // This function will figure out which tab to display
+          var x = document.getElementsByClassName("tab");
+          // Exit the function if any field in the current tab is invalid:
+          if (n == 1 && !validateForm()) return false;
+          // Hide the current tab:
+          x[currentTab].style.display = "none";
+          // Increase or decrease the current tab by 1:
+          currentTab = currentTab + n;
+          // if you have reached the end of the form... :
+          if (currentTab >= x.length) {
+              //...the form gets submitted:
+              document.getElementById("demo").innerHTML = "check";
+              document.getElementById("nextBtn").onclick = function() {calculateProduct();}
+              /*INSERT CODE TO USE PRODUCT REC FUNCTION*/
+              calculateProduct()
+
+              //document.getElementById("survey-form").submit();
+              return false;
+          }
+          // Otherwise, display the correct tab:
+          showTab(currentTab);
+      }
+
+      function validateForm() {
+          // This function deals with validation of the form fields
+          var x, y, i, valid = true;
+          x = document.getElementsByClassName("tab");
+          y = x[currentTab].getElementsByTagName("input");
+          // A loop that checks every input field in the current tab:
+          for (i = 0; i < y.length; i++) {
+              // If a field is empty...
+              if (y[i].value == "") {
+                  // add an "invalid" class to the field:
+                  y[i].className += " invalid";
+                  // and set the current valid status to false:
+                  valid = false;
+              }
+          }
+          // If the valid status is true, mark the step as finished and valid:
+          if (valid) {
+              document.getElementsByClassName("step")[currentTab].className += " finish";
+          }
+          return valid; // return the valid status
+      }
+
+      function fixStepIndicator(n) {
+          // This function removes the "active" class of all steps...
+          var i, x = document.getElementsByClassName("step");
+          for (i = 0; i < x.length+1; i++) {
+              x[i].className = x[i].className.replace(" active", "");
+          }
+          //... and adds the "active" class to the current step:
+          x[n].className += " active";
+      }
+
+      function calculateProduct() {
+          var deviceChecks = document.getElementsByName("meddev");
+          var deviceUsed;
+          for (i = 0; i < deviceChecks.length; i++) {
+              // If a field is empty...
+              if (deviceChecks[i].checked) {
+                  deviceUsed = deviceChecks[i].value;
+                  console.log("Device used:" + deviceUsed);
+                  document.getElementById("demo").innerHTML = "Device used: " + deviceUsed;
+              }
+          }
+
+          // https://api.jsonbin.io/b/5eb23bd48284f36af7b645fc
+          let req = new XMLHttpRequest();
+
+          req.onreadystatechange = () => {
+              if (req.readyState == XMLHttpRequest.DONE) {
+                  var jsonData = JSON.parse(req.responseText);
+                  console.log("Recommended devices: "+ jsonData[deviceUsed])
+                  console.log("All jSON Data: " + req.responseText);
+              }
+          };
+
+          req.open("GET", "https://api.jsonbin.io/b/5eb23bd48284f36af7b645fc/1", true);
+          req.send();
+      }
+      /* function productRecOut(){
+        let recProduct = CATALOG[//insert function] // saves the url to the recommended product
+        let productName =recProduct[0] //  TODO: take url and extract name text referring to product name
+        let productPicture =recProduct[0] //  TODO: take url and extract src referring to product photo
+        let blogName = recProduct[1] //  TODO: take url and extract name text referring to blog name
+        let blogPicture = recProduct[1] //  TODO: take url and extract src referring to blog photo
+        document.querySelectorAll("productLink").setAttribute("href". recProduct[0]);
+        document.getElementById("productName").innerText = productName;
+        document.getElementById("productPicture").setAttribute("src", productPicture);
+      }*/
+  </script>
+</div>
+</form>
