@@ -5,17 +5,19 @@
 <form id="survey-form" action="">
   <div id = "container">
   <h1 id="title">Product Finder</h1>
-  <div id="description">Answer the 4 questions below, and we will recommend a Mighty Well Product and blog posts that best suit your needs.</div>
+  <div id="description">Answer the 4 questions below, and we will recommend a Mighty Well Product and blog posts just for you!</div>
 
   <!-- ------------------Gender---------------------------- -->
   <div class = "tab">
     <h3 class= "number"> - 1 - </h3>
     <h2 class = "question"> What is your gender? </h2><br>
+    <div class="inputContainer">
     <p>
-        <input type="radio" name="gender" value="male" >Male<br>
-        <input type="radio" name="gender" value="female">Female<br>
-        <input type="radio" name="gender" value="other">Other
+        <span class = "radio"><input type="radio" name="gender" value="male" >Male<br></span>
+        <span class = "radio"><input type="radio" name="gender" value="female">Female<br></span>
+        <span class = "radio"><input type="radio" name="gender" value="other">Other</span>
       </p>
+    </div>
   </div>
 
     <!-- ------------------Medical Condition-------------------------------- -->
@@ -23,8 +25,8 @@
       <h3 class = "number"> - 2 - </h3>
       <h2 class = "question"> Select all that apply to you! </h2> <br>
       <label class = "checkbox-label">
-        <span class = "checkbox-custom">
-          <ul>
+        <p>
+        <ul>
          <li><input type="checkbox" name="medcon" value="aplasticAnemia">Aplastic Anemia<br></li>
          <li><input type="checkbox" name="medcon" value="behcets">Behcet's Syndrome<br></li>
          <li><input type="checkbox" name="medcon" value="caps">CAPS<br></li>
@@ -39,15 +41,15 @@
           <li><input type="checkbox" name="medcon" value="marfan" >Marfan Syndrome<br></li>
           <li><input type="checkbox" name="medcon" value="mcas" >MCAS<br></li>
           <li><input type="checkbox" name="medcon" value="osteomyelitis">Osteomyelitis<br></li>
-          <li><input type="checkbox" name="medcon" value="partialEmptySella">Partial Empty Sella<br></li>
+          <!--<li><input type="checkbox" name="medcon" value="partialEmptySella">Partial Empty Sella<br></li>-->
           <li><input type="checkbox" name="medcon" value="polyarthralgia">Polyarthralgia<br></li>
           <li><input type="checkbox" name="medcon" value="pcos" >Polycystic Ovary Syndrome (PCOS)<br></li>
           <li><input type="checkbox" name="medcon" value="pots" >Postural Orthostatic Tachycardia Syndrome (POTS)<br></li>
-          <li><input type="checkbox" name="medcon" value="thyroidcancer" >Thyroid Cancer<br></li>
+          <!-- <li><input type="checkbox" name="medcon" value="thyroidcancer" >Thyroid Cancer<br></li> -->
           <li><input type="checkbox" name="medcon" value="uc" >Ulcerative Colitis (UC)<br></li>
           <li><input type="checkbox" name="medcon" value="other" >Other<br></li>
           </ul>
-        </span>
+        </p>
         </label>
   </div>
   <!-- ------------------Medical Devices-------------------------------- -->
@@ -56,25 +58,28 @@
       <h2 class="question"> What medical devices do you use?</h2><br>
       <label class = "checkbox-label">
       <span class="checkbox-custom">
-      <p>
+        <p>
+        <ul>
           <!--<input type="checkbox" name="meddev" value="diabeticPumps">Diabetic Pumps<br>-->
-          <input type="checkbox" name="meddev" value="EpiPen">EpiPen (Allergies) <br>
-          <input type="checkbox" name="meddev" value="glucoseMonitor">Diabetic Supplies<br>
-         <!--input <input type="checkbox" name="meddev" value="hickmanLines">Hickman Lines (CVCs)<br> -->
-         <!-- <input type="checkbox" name="meddev" value="inhalers">Inhalers<br> -->
-          <input type="checkbox" name="meddev" value="mastectomyDrains">Mastectomy Drains<br>
-          <input type="checkbox" name="meddev" value="midlines">Midlines<br>
-          <input type="checkbox" name="meddev" value="peripherals">Peripheral I.V.s<br>
-          <input type="checkbox" name="meddev" value="PICCLines">PICC Lines<br>
-          <input type="checkbox" name="meddev" value="pillsAndOtherMedications">Pills and Other Medications<br>
-          <input type="checkbox" name="meddev" value="ports">Port<br>
+          <li><input type="checkbox" name="meddev" value="EpiPen (Allergies)">EpiPen<br></li>
+          <li><input type="checkbox" name="meddev" value="Diabetic Supplies">Diabetic Supplies<br></li>
+          <!--input <input type="checkbox" name="meddev" value="hickmanLines">Hickman Lines (CVCs)<br> -->
+          <!-- <input type="checkbox" name="meddev" value="inhalers">Inhalers<br> -->
+          <li><input type="checkbox" name="meddev" value="Mastectomy Drains">Mastectomy Drains<br></li>
+          <li><input type="checkbox" name="meddev" value="midlines">Midlines<br></li>
+          <li> <input type="checkbox" name="meddev" value="Peripheral I.V.s">Peripheral IVs<br></li>
+          <li><input type="checkbox" name="meddev" value="PICC Lines">PICC Lines<br></li>
+          <li><input type="checkbox" name="meddev" value="pills and Other Medications">Pills and Other Medications<br></li>
+          <li><input type="checkbox" name="meddev" value="Port">Port<br></li>
           <!-- <input type="checkbox" name="meddev" value="vitamins">Vitamins<br> -->
-          <input type="checkbox" name="meddev" value="wheelchairs">Wheelchairs/Mobility Aids<br>
-          <input type="checkbox" name="meddev" value="other">Other<br>
-      </p>
+          <li><input type="checkbox" name="meddev" value="Wheelchairs/Mobility Aids">Wheelchairs/Mobility Aids<br></li>
+          <li><input type="checkbox" name="meddev" value="other">Other<br></li>
+          </ul>
+        </p>
       </span>
       </label>
   </div>
+
 
   <!-- -----------------Use Case--------------------------------- -->
 
@@ -83,22 +88,24 @@
       <h2 class="question"> What are you looking to use Mighty Well products for? </h2><br>
       <label class = "checkbox-label">
       <span class="checkbox-custom">
-      <p>
-          <input type="checkbox" name="usecase" value="antibioticInfusion">Antibiotic Infusion<br>
-          <input type="checkbox" name="usecase" value="chemotherapy">Chemotherapy<br>
-          <input type="checkbox" name="usecase" value="glucoseMonitoring">Glucose Monitoring<br>
-          <input type="checkbox" name="usecase" value="holdMedicalSupplies">Hold Medical Supplies/Items<br>
-          <input type="checkbox" name="usecase" value="IVInfusion">IV Infusion<br>
-          <input type="checkbox" name="usecase" value="lookingGood">Looking Good/Feeling Proud!<br>
-          <input type="checkbox" name="usecase" value="organizeMedications">Organize Medications<br>
-          <input type="checkbox" name="usecase" value="raisingAwareness">Raising Awareness<br>
-          <input type="checkbox" name="usecase" value="salineTreatment">Saline Treatment<br>
-          <input type="checkbox" name="usecase" value="subcutaneousInjection">Subcutaneous Injection<br>
-          <input type="checkbox" name="usecase" value="TPNInjection">TPN Injection<br>
-          <input type="checkbox" name="usecase" value="transfusion">Transfusion<br>
-          <input type="checkbox" name="usecase" value="tubeFeeding">Tube Feeding<br>
-          <input type="checkbox" name="usecase" value="other">Other<br>
-      </p>
+        <p>
+        <ul>
+          <li><input type="checkbox" name="usecase" value="antibioticInfusion">Antibiotic Infusion<br></li>
+          <li><input type="checkbox" name="usecase" value="chemotherapy">Chemotherapy<br></li>
+          <li><input type="checkbox" name="usecase" value="glucoseMonitoring">Glucose Monitoring<br></li>
+          <li><input type="checkbox" name="usecase" value="holdMedicalSupplies">Hold Medical Supplies/Items<br></li>
+          <li><input type="checkbox" name="usecase" value="IVInfusion">IV Infusion<br></li>
+          <li><input type="checkbox" name="usecase" value="lookingGood">Looking Good/Feeling Proud!<br></li>
+          <li><input type="checkbox" name="usecase" value="organizeMedications">Organize Medications<br></li>
+          <li><input type="checkbox" name="usecase" value="raisingAwareness">Raising Awareness<br></li>
+          <li><input type="checkbox" name="usecase" value="salineTreatment">Saline Treatment<br></li>
+          <li><input type="checkbox" name="usecase" value="subcutaneousInjection">Subcutaneous Injection<br></li>
+          <li><input type="checkbox" name="usecase" value="TPNInjection">TPN Injection<br></li>
+          <li><input type="checkbox" name="usecase" value="transfusion">Transfusion<br></li>
+          <li><input type="checkbox" name="usecase" value="tubeFeeding">Tube Feeding<br></li>
+          <li><input type="checkbox" name="usecase" value="other">Other<br></li>
+        </ul>
+        </p>
       </span>
       </label>
   </div>
@@ -121,10 +128,10 @@
   <div style="overflow:auto;">
       <div style = "float:left;"></div>
           <p id="demo"></p>
-          <div class = "center">
-          <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-          <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-          <button type="button" id="startOverBtn" onclick="location.reload()">Start Over</button>
+          <div style = "text-align: center;">
+          <button class ="formBtn" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+          <button class ="formBtn" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+          <button class ="formBtn" type="button" id="startOverBtn" onclick="location.reload()">Start Over</button>
       </div>
   </div>
   <!-- Circles which indicates the steps of the form: -->
@@ -137,9 +144,15 @@
 </div>
 
   <style>
-        ul {
+      ul {
         columns: 300px;
         list-style: none; 
+      }
+
+      p{
+        margin:0 10px 0 10px;
+        display: inline-block;
+        text-align:left;
       }
 
       #regForm {
@@ -149,6 +162,7 @@
           width: 70%;
           min-width: 300px;
       }
+
       #container{
         background-color:#edf9fc;
         padding:100px;
@@ -158,8 +172,7 @@
         margin-left:auto;
         margin-right:auto;
         text-align: center;
-        font:xx-large;
-
+        font-size:35px;
       }
 
       #description {
@@ -184,18 +197,25 @@
         height: auto;
       }
 
-      .center{
-        text-align-last: center;
+      .radio{
+        background-color: white;
+        padding: 7px;
       }
 
       ul.checkbox  {
         margin-left: auto;
+        background-color: color;
         margin-right:auto;
         list-style: none;
         }
 
+      li{
+        background-color: white;
+        padding: 7px;
+      }
+
       ul.checkbox li {
-        border: 1px transparent solid;
+        border: 1px black;
         float: left;
         min-width: 400px;
       }
@@ -206,22 +226,29 @@
 
       .question{
           text-align: center;
-          padding:10px
+          padding-top: 10px;
       }
 
+      .inputContainer{
+       text-align : center;
+      }
 
-      button{
+      .formBtn{
+         width: 10em;
+         height: 2.2em;
          text-align: center;
+         color: white;
+         text-align:center;
+         background-color: black;
       }
 
       /* Style the input fields */
+
       input {
           text-align: center;
-          padding: 10px;
-          width: 100%;
           font-size: 17px;
           font-family: Raleway;
-          border: 1px solid #aaaaaa;
+          padding-bottom: 20px;
       }
 
       /* Mark input boxes that gets an error on validation: */
@@ -260,13 +287,28 @@
 
   <script>
       const CATALOG ={
-        PICCPerfect: ["https://mighty-well.com/products/picc-line-cover-piccperfect-mighty-well?_pos=5&_sid=db99fc554&_ss=r", "https://blog.mighty-well.com/2017/07/adapting-to-the-picc-life/"],
-        MedPlanner:  ["https://mighty-well.com/collections/all/products/mighty-medplanner-medical-organizer","https://blog.mighty-well.com/2019/06/trying-out-the-mighty-medplanner-your-new-medical-organizer/"],
-        MightyPack: ["https://mighty-well.com/collections/all/products/medical-iv-infusion-backpack-for-patients","https://blog.mighty-well.com/2018/12/travel-without-worries-with-the-mighty-pack-the-best-backpack-for-friends-in-the-fight/"],
-        MightyWrap: ["https://mighty-well.com/collections/all/products/the-mighty-jacket","https://blog.mighty-well.com/2017/06/learning-to-love-your-tube/"],
-        UndefeatedWear:["https://mighty-well.com/collections/all/products/undefeated-t-shirt-heather-gray","https://blog.mighty-well.com/2019/11/mighty-well-fall-photoshoot/"]
+        "PICC Perfect": ["https://mighty-well.com/products/picc-line-cover-piccperfect-mighty-well?_pos=5&_sid=db99fc554&_ss=r", "https://blog.mighty-well.com/2017/07/adapting-to-the-picc-life/"],
+        "Med Planner":  ["https://mighty-well.com/collections/all/products/mighty-medplanner-medical-organizer","https://blog.mighty-well.com/2019/06/trying-out-the-mighty-medplanner-your-new-medical-organizer/"],
+        "Mighty Pack": ["https://mighty-well.com/collections/all/products/medical-iv-infusion-backpack-for-patients","https://blog.mighty-well.com/2018/12/travel-without-worries-with-the-mighty-pack-the-best-backpack-for-friends-in-the-fight/"],
+        "Mighty Wrap": ["https://mighty-well.com/collections/all/products/the-mighty-jacket","https://blog.mighty-well.com/2017/06/learning-to-love-your-tube/"],
+        "Undefeated Wear":["https://mighty-well.com/collections/all/products/undefeated-t-shirt-heather-gray","https://blog.mighty-well.com/2019/11/mighty-well-fall-photoshoot/"]
       }
+
+      const scriptURL = "https://script.google.com/macros/s/AKfycbxx4_QDeXS7AqXlU9WkYvDTvdY_dYHUMbZ-YdQK4SslU54ihug/exec"
+      const form = document.forms[0]
+
+
+      function recordResults(){
+        fetch(scriptURL, {
+            method: "POST",
+            body: new FormData(form)
+          })
+      .then(response => console.log("Success!", response))
+      .catch(error => console.error("Error!", error.message))
+      }
+
       var currentTab = 0; // Current tab is set to be the first tab (0)
+      var productRec = "";
       showTab(currentTab); // Display the current tab
 
       function showTab(n) {
@@ -289,6 +331,7 @@
           }
           if (n == (x.length - 2)) {
               document.getElementById("nextBtn").innerHTML = "Get Results!";
+              recordResults();
           } else {
               document.getElementById("nextBtn").innerHTML = "Next";
           }}
@@ -309,12 +352,15 @@
           if (currentTab >= x.length) {
               //...the form gets submitted:
               document.getElementById("demo").innerHTML = "check";
-              document.getElementById("nextBtn").onclick = function() {calculateProduct();}
-              /*INSERT CODE TO USE PRODUCT REC FUNCTION*/
-              calculateProduct()
-
               //document.getElementById("survey-form").submit();
               return false;
+          }
+
+          if(currentTab>=x.length-2){ // Last question page
+            //document.getElementById("nextBtn").onclick = function() {calculateProduct();}
+            calculateProduct();
+            const result = await calculateProduct();
+            getProductInfo();
           }
           // Otherwise, display the correct tab:
           showTab(currentTab);
@@ -325,17 +371,6 @@
           var x, y, i, valid = true;
           x = document.getElementsByClassName("tab");
           y = x[currentTab].getElementsByTagName("input");
-          // A loop that checks every input field in the current tab:
-          for (i = 0; i < y.length; i++) {
-              // If a field is empty...
-              if (y[i].value == "") {
-                  // add an "invalid" class to the field:
-                  y[i].className += " invalid";
-                  // and set the current valid status to false:
-                  valid = false;
-              }
-          }
-          // If the valid status is true, mark the step as finished and valid:
           if (valid) {
               document.getElementsByClassName("step")[currentTab].className += " finish";
           }
@@ -360,7 +395,7 @@
               if (deviceChecks[i].checked) {
                   deviceUsed = deviceChecks[i].value;
                   console.log("Device used:" + deviceUsed);
-                  document.getElementById("demo").innerHTML = "Device used: " + deviceUsed;
+                 // document.getElementById("demo").innerHTML = "Device used: " + deviceUsed;
               }
           }
 
@@ -370,24 +405,33 @@
           req.onreadystatechange = () => {
               if (req.readyState == XMLHttpRequest.DONE) {
                   var jsonData = JSON.parse(req.responseText);
+
                   console.log("Recommended devices: "+ jsonData[deviceUsed])
                   console.log("All jSON Data: " + req.responseText);
+                  productRec = jsonData[deviceUsed];
+                  console.log(productRec);
               }
           };
 
           req.open("GET", "https://api.jsonbin.io/b/5eb23bd48284f36af7b645fc/1", true);
           req.send();
       }
-      /* function productRecOut(){
-        let recProduct = CATALOG[//insert function] // saves the url to the recommended product
-        let productName =recProduct[0] //  TODO: take url and extract name text referring to product name
-        let productPicture =recProduct[0] //  TODO: take url and extract src referring to product photo
-        let blogName = recProduct[1] //  TODO: take url and extract name text referring to blog name
-        let blogPicture = recProduct[1] //  TODO: take url and extract src referring to blog photo
-        document.querySelectorAll("productLink").setAttribute("href". recProduct[0]);
-        document.getElementById("productName").innerText = productName;
-        document.getElementById("productPicture").setAttribute("src", productPicture);
-      }*/
+
+      function getProductInfo(){
+        console.log(productRec);
+        let productURLs = CATALOG[productRec];
+        console.log(productURLs);
+        let productName =recProduct[0]; //  TODO: take url and extract name text referring to product name
+        console.log(productName);
+        let productPicture =recProduct[0]; //  TODO: take url and extract src referring to product photo
+        let blogName = recProduct[1]; //  TODO: take url and extract name text referring to blog name
+        let blogPicture = recProduct[1]; //  TODO: take url and extract src referring to blog photo
+        //document.querySelectorAll("productLink").setAttribute("href", recProduct[0]);
+        //document.getElementById("productName").innerText = productName;
+        //document.getElementById("productPicture").setAttribute("src", productPicture);
+      }
+
+
   </script>
 
 </form>

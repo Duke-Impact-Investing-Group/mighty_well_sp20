@@ -100,23 +100,6 @@
       </label>
       <!-- <p id="demo">Here</p>     -->
   </div>
-  
-
-<script>
-const scriptURL =
-  "https://script.google.com/macros/s/AKfycbxx4_QDeXS7AqXlU9WkYvDTvdY_dYHUMbZ-YdQK4SslU54ihug/exec"
-const form = document.forms[0]
-
-form.addEventListener("submit", e => {
-  e.preventDefault()
-  fetch(scriptURL, {
-      method: "POST",
-      body: new FormData(form)
-    })
-    .then(response => console.log("Success!", response))
-    .catch(error => console.error("Error!", error.message))
-})
-</script>
 
  <div class="tab" id="productRecContainer">
     <h1>Your Results!</h1>
@@ -282,6 +265,20 @@ form.addEventListener("submit", e => {
         MightyWrap: ["https://mighty-well.com/collections/all/products/the-mighty-jacket","https://blog.mighty-well.com/2017/06/learning-to-love-your-tube/"],
         UndefeatedWear:["https://mighty-well.com/collections/all/products/undefeated-t-shirt-heather-gray","https://blog.mighty-well.com/2019/11/mighty-well-fall-photoshoot/"]
       }
+
+      const scriptURL =
+  "https://script.google.com/macros/s/AKfycbxx4_QDeXS7AqXlU9WkYvDTvdY_dYHUMbZ-YdQK4SslU54ihug/exec"
+const form = document.forms[0]
+
+form.addEventListener("submit", e => {
+  e.preventDefault()
+  fetch(scriptURL, {
+      method: "POST",
+      body: new FormData(form)
+    })
+    .then(response => console.log("Success!", response))
+    .catch(error => console.error("Error!", error.message))
+})
       var currentTab = 0; // Current tab is set to be the first tab (0)
       showTab(currentTab); // Display the current tab
 
@@ -413,5 +410,4 @@ form.addEventListener("submit", e => {
         document.getElementById("productPicture").setAttribute("src", productPicture);
       }*/
   </script>
-</div>
 </form>
