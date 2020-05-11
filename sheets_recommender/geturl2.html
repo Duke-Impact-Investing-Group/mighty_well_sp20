@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<title>Web Page Design</title>
+<head>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js">
+var urls = []; 
+const proxyurl = "https://cors-anywhere.herokuapp.com/";
+const url = 'https://www.bbc.com/news/world-europe-52620015'; 
+$.get(proxyurl+url, function(data) {
+    var imgs = $('<div/>').html(data).find('img');
+    imgs.each(function(i, img) {
+        alert(img.src);	
+		document.write(img.src);		// show a dialog containing the url of image
+		urls.push(img); 
+    });
+});
+</script>
+</head>
+<body>
+</body>
+</html>
