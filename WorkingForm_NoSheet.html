@@ -143,6 +143,7 @@
         <span class="step"></span>
     </div>
   </div>
+</form>
   
     <style>
         ul {
@@ -361,10 +362,11 @@
             }
   
             if(currentTab>=x.length-2){ // Last question page
-              //document.getElementById("nextBtn").onclick = function() {calculateProduct();}
-              //calculateProduct();
-             // const result = await calculateProduct();
-              //getProductInfo();
+                //document.getElementById("nextBtn").onclick = function() {calculateProduct();}
+                
+                //const result = await calculateProduct();
+                getProductInfo();
+               
             }
             // Otherwise, display the correct tab:
             showTab(currentTab);
@@ -413,29 +415,36 @@
                     console.log("Recommended devices: "+ jsonData[deviceUsed])
                     console.log("All jSON Data: " + req.responseText);
                     productRec = jsonData[deviceUsed];
-                    console.log(productRec);
                 }
             };
   
             req.open("GET", "https://api.jsonbin.io/b/5eb23bd48284f36af7b645fc/1", true);
             req.send();
+
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve('resolved');
+                }, 2000);
+            });
         }
   
-        /*function getProductInfo(){
-          console.log(productRec);
+          async function getProductInfo(){
+          var result = await calculateProduct();
+          console.log(result);
+
           let productURLs = CATALOG[productRec];
           console.log(productURLs);
           let productName =productURLs[0]; //  TODO: take url and extract name text referring to product name
           console.log(productName);
-          let productPicture =recProduct[0]; //  TODO: take url and extract src referring to product photo
-          let blogName = recProduct[1]; //  TODO: take url and extract name text referring to blog name
-          let blogPicture = recProduct[1]; //  TODO: take url and extract src referring to blog photo
+          let productPicture =productURLs[0]; //  TODO: take url and extract src referring to product photo
+          let blogName = productURLs[1]; //  TODO: take url and extract name text referring to blog name
+          let blogPicture = productURLs[1]; //  TODO: take url and extract src referring to blog photo
           //document.querySelectorAll("productLink").setAttribute("href", recProduct[0]);
           //document.getElementById("productName").innerText = productName;
           //document.getElementById("productPicture").setAttribute("src", productPicture);
-        }*/
+        }
   
   
     </script>
   
-  </form>
+  
