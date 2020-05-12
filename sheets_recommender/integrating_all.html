@@ -289,9 +289,9 @@
 
   <script>
       const CATALOG ={
-        "PICC Perfect": ["https://mighty-well.com/products/picc-line-cover-piccperfect-mighty-well?_pos=5&_sid=db99fc554&_ss=r", "https://blog.mighty-well.com/2017/07/adapting-to-the-picc-life/"],
-        "Med Planner":  ["https://mighty-well.com/collections/all/products/mighty-medplanner-medical-organizer","https://blog.mighty-well.com/2019/06/trying-out-the-mighty-medplanner-your-new-medical-organizer/"],
-        "Mighty Pack": ["https://mighty-well.com/collections/all/products/medical-iv-infusion-backpack-for-patients","https://blog.mighty-well.com/2018/12/travel-without-worries-with-the-mighty-pack-the-best-backpack-for-friends-in-the-fight/"],
+        "PICCPerfect ": ["https://mighty-well.com/products/picc-line-cover-piccperfect-mighty-well?_pos=5&_sid=db99fc554&_ss=r", "https://blog.mighty-well.com/2017/07/adapting-to-the-picc-life/"],
+        "MedPlanner":  ["https://mighty-well.com/collections/all/products/mighty-medplanner-medical-organizer","https://blog.mighty-well.com/2019/06/trying-out-the-mighty-medplanner-your-new-medical-organizer/"],
+        "Mighty Pack ": ["https://mighty-well.com/collections/all/products/medical-iv-infusion-backpack-for-patients","https://blog.mighty-well.com/2018/12/travel-without-worries-with-the-mighty-pack-the-best-backpack-for-friends-in-the-fight/"],
         "Mighty Wrap": ["https://mighty-well.com/collections/all/products/the-mighty-jacket","https://blog.mighty-well.com/2017/06/learning-to-love-your-tube/"],
         "Undefeated Wear":["https://mighty-well.com/collections/all/products/undefeated-t-shirt-heather-gray","https://blog.mighty-well.com/2019/11/mighty-well-fall-photoshoot/"]
       }
@@ -369,7 +369,7 @@
               //document.getElementById("nextBtn").onclick = function() {calculateProduct();}
               
               //const result = await calculateProduct();
-              console.log("break 1");
+              //console.log("break 1");
               createProductPage();}
           // Otherwise, display the correct tab:
           showTab(currentTab);
@@ -397,7 +397,7 @@
       }
 
       function calculateProduct() {
-        console.log("break 3");
+       // console.log("break 3");
           var deviceChecks = document.getElementsByName("meddev");
           var deviceUsed = [];
           for (i = 0; i < deviceChecks.length; i++) {
@@ -419,7 +419,7 @@
                       productRec.push(prodList[j]);
                     }
                   //console.log("Recommended device: "+ jsonData[deviceUsed])
-                  //console.log("All jSON Data: " + req.responseText);
+                  console.log("All jSON Data: " + req.responseText);
               }}
           };
           req.open("GET", "https://api.jsonbin.io/b/5eb23bd48284f36af7b645fc/1", true);
@@ -440,6 +440,7 @@
             imgs.each(function(i, img) {
             urls.push(img.src); 
             });
+          
           gridTable[productName].push(urls[3]);
           });
            return new Promise(resolve => {
@@ -460,22 +461,22 @@
           });});}
 
         async function createProductPage(){
-          console.log("break 2");
+          //console.log("break 2");
           await calculateProduct();
-          console.log("break 4");
-          console.log(productRec);
+          //console.log("break 4");
+          //console.log(productRec);
           for(var i=0; i<productRec.length;i++){
-            gridTable[productRec[i]] = [];
+            var x = productRec[i];
+            gridTable[x] = [];
             let productURLs = CATALOG[productRec[i]];
-            console.log(productURLs);
             await getProductInfo(productURLs[0],productRec[i]);
             await getBlogInfo(productURLs[1], productRec[i]);
           }
           console.log(gridTable);
           
-          document.querySelectorAll("productLink").setAttribute("href", recProduct[0]);
-          document.getElementById("productName").innerText = productName;
-          document.getElementById("productPicture").setAttribute("src", productPicture);
+          //document.querySelectorAll("productLink").setAttribute("href", recProduct[0]);
+          //document.getElementById("productName").innerText = productName;
+          //document.getElementById("productPicture").setAttribute("src", productPicture);
       }
 
   </script>
