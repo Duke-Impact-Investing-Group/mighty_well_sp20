@@ -312,11 +312,8 @@
           })
 
       var currentTab = 0; // Current tab is set to be the first tab (0)
-      var productRec = "";
-      var productImg = "";
-      var productName = "";
-      var blogImg = "";
-      var blogName = "";
+      var productRec = [];
+      var gridTable = new Object;
       
       showTab(currentTab); // Display the current tab
 
@@ -368,13 +365,12 @@
               return false;
           }
 
-          if(currentTab>=x.length-2){ // Last question page
+          if(currentTab==x.length-2){ // Last question page
               //document.getElementById("nextBtn").onclick = function() {calculateProduct();}
               
               //const result = await calculateProduct();
-              createProductPage();
-             
-          }
+              console.log("break 1");
+              createProductPage();}
           // Otherwise, display the correct tab:
           showTab(currentTab);
       }
@@ -401,30 +397,31 @@
       }
 
       function calculateProduct() {
+        console.log("break 3");
           var deviceChecks = document.getElementsByName("meddev");
-          var deviceUsed;
+          var deviceUsed = [];
           for (i = 0; i < deviceChecks.length; i++) {
               // If a field is empty...
               if (deviceChecks[i].checked) {
-                  deviceUsed = deviceChecks[i].value;
-                  console.log("Device used:" + deviceUsed);
+                  deviceUsed.push(deviceChecks[i].value);
                  // document.getElementById("demo").innerHTML = "Device used: " + deviceUsed;
-              }
-          }
-
+          }}
+          console.log("Device used:" + deviceUsed);
           // https://api.jsonbin.io/b/5eb23bd48284f36af7b645fc
           let req = new XMLHttpRequest();
 
           req.onreadystatechange = () => {
               if (req.readyState == XMLHttpRequest.DONE) {
                   var jsonData = JSON.parse(req.responseText);
-
-                  console.log("Recommended devices: "+ jsonData[deviceUsed])
-                  console.log("All jSON Data: " + req.responseText);
-                  productRec = jsonData[deviceUsed];
-              }
+                  for(i = 0; i<deviceUsed.length;i++){
+                    var prodList = jsonData[deviceUsed[i]];
+                    for(var j = 0;j<prodList.length;j++){
+                      productRec.push(prodList[j]);
+                    }
+                  //console.log("Recommended device: "+ jsonData[deviceUsed])
+                  //console.log("All jSON Data: " + req.responseText);
+              }}
           };
-
           req.open("GET", "https://api.jsonbin.io/b/5eb23bd48284f36af7b645fc/1", true);
           req.send();
 
@@ -435,35 +432,27 @@
           });
       }
 
-        function getProductInfo(url){
+        function getProductInfo(url, productName){
         var urls = []; 
-        $.get(proxyurl+url, function(data) {
-        productName = $('h1.product-single__title', data).html();
+        $.get(proxyurl+url, function(data) { 
+        gridTable[productName].push($('h1.product-single__title', data).html());
         var imgs = $('<div class= "product-single__photos" style="user-select: auto;">').html(data).find('img');
             imgs.each(function(i, img) {
             urls.push(img.src); 
             });
-          productImg = urls[3];});
+          gridTable[productName].push(urls[3]);
+          });
            return new Promise(resolve => {
               setTimeout(() => {
                   resolve('resolved');
               }, 2000);
           });}
 
-       /* function getProductName(url){
-        $.get(proxyurl+url, function(data){
-        
-        return new Promise(resolve => {
-              setTimeout(() => {
-                  resolve('resolved');
-              }, 2000);
-          });}*/
-
-        function getBlogInfo(url){
+        function getBlogInfo(url, productName){
           var urls = []; 
           $.get(proxyurl+url, function(data) {
-          blogImg = $('div.post-image',data).find('a').attr('href');
-          blogName = $('h1.post-title',data).html();         
+          gridTable[productName].push($('h1.post-title',data).html());         
+          gridTable[productName].push($('div.post-image',data).find('a').attr('href'));
            return new Promise(resolve => {
               setTimeout(() => {
                   resolve('resolved');
@@ -471,24 +460,22 @@
           });});}
 
         async function createProductPage(){
-        await calculateProduct();
-        //console.log(result);
-        let productURLs = CATALOG[productRec];
-        await getProductInfo(productURLs[0]);
-        await getBlogInfo(productURLs[1]);
-        console.log(productImg);
-        console.log(productName);
-        console.log(blogImg);
-        console.log(blogName);
-        //class="product-single__photo product-single__photo"
-        //let productName =productURLs[0]; //  TODO: take url and extract name text referring to product name
-        //console.log(productName);
-       // let productPicture =productURLs[0]; //  TODO: take url and extract src referring to product photo
-       // let blogName = productURLs[1]; //  TODO: take url and extract name text referring to blog name
-        //let blogPicture = productURLs[1]; //  TODO: take url and extract src referring to blog photo
-        //document.querySelectorAll("productLink").setAttribute("href", recProduct[0]);
-        //document.getElementById("productName").innerText = productName;
-        //document.getElementById("productPicture").setAttribute("src", productPicture);
+          console.log("break 2");
+          await calculateProduct();
+          console.log("break 4");
+          console.log(productRec);
+          for(var i=0; i<productRec.length;i++){
+            gridTable[productRec[i]] = [];
+            let productURLs = CATALOG[productRec[i]];
+            console.log(productURLs);
+            await getProductInfo(productURLs[0],productRec[i]);
+            await getBlogInfo(productURLs[1], productRec[i]);
+          }
+          console.log(gridTable);
+          
+          document.querySelectorAll("productLink").setAttribute("href", recProduct[0]);
+          document.getElementById("productName").innerText = productName;
+          document.getElementById("productPicture").setAttribute("src", productPicture);
       }
 
   </script>
