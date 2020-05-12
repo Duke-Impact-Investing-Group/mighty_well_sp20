@@ -6,12 +6,11 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js">
 var urls = []; 
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
-const url = 'https://www.bbc.com/news/world-europe-52620015'; 
+const url = 'https://mighty-well.com/collections/all/products/picc-line-cover-piccperfect-mighty-well'; 
 $.get(proxyurl+url, function(data) {
-    var imgs = $('<div/>').html(data).find('img');
+    var imgs = $('<div class= "product-single__photos" style="user-select: auto;">').html(data).find('img');
     imgs.each(function(i, img) {
-        alert(img.src);	
-		document.write(img.src);		// show a dialog containing the url of image
+        console.log(img.src);	
 		urls.push(img); 
     });
 });
