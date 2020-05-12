@@ -299,20 +299,6 @@
       const scriptURL = "https://script.google.com/macros/s/AKfycbxx4_QDeXS7AqXlU9WkYvDTvdY_dYHUMbZ-YdQK4SslU54ihug/exec"
       const form = document.forms[0]
       const proxyurl = "https://cors-anywhere.herokuapp.com/";
-	  
-	  function getImgURL(url){
-        var urls = []; 
-        $.get(proxyurl+url, function(data) {
-            var imgs = $('<div class= "product-single__photos" style="user-select: auto;">').html(data).find('img');
-            imgs.each(function(i, img) {
-                //alert(img.src);	
-                console.log(img.src);	
-            urls.push(img); 
-            });
-            return urls[3];
-        });
-        }
-
 
 
       form.addEventListener("submit", e => {
@@ -327,6 +313,11 @@
 
       var currentTab = 0; // Current tab is set to be the first tab (0)
       var productRec = "";
+      var productImg = "";
+      var productName = "";
+      var blogImg = "";
+      var blogName = "";
+      
       showTab(currentTab); // Display the current tab
 
       function showTab(n) {
@@ -444,17 +435,68 @@
           });
       }
 
-        
+        function getImgURL(url){
+        var urls = []; 
+        $.get(proxyurl+url, function(data) {
+        var imgs = $('<div class= "product-single__photos" style="user-select: auto;">').html(data).find('img');
+            imgs.each(function(i, img) {
+                //alert(img.src);	
+            //console.log(img.src);	
+            urls.push(img.src); 
+            });
+            productImg = urls[3];
+           return new Promise(resolve => {
+              setTimeout(() => {
+                  resolve('resolved');
+              }, 2000);
+          });});}
+
+        function getProductName(url){
+        $.get(proxyurl+url, function(data){
+        productName = $('h1.product-single__title').html();});
+        return new Promise(resolve => {
+              setTimeout(() => {
+                  resolve('resolved');
+              }, 2000);
+          });}
+
+        function getBlogImg(url){
+          var urls = []; 
+          $.get(proxyurl+url, function(data) {
+              var imgs = $(".post-image img").html(data).find('img');
+              imgs.each(function(i, img) {
+              console.log(img.src);
+              urls.push(img.src); 
+              });
+              //console.log(urls);
+         
+           return new Promise(resolve => {
+              setTimeout(() => {
+                  resolve('resolved');
+              }, 2000);
+          });});}
+
+
+        function getBlogName(url){
+        $.get(proxyurl+url, function(data){
+        productName = $('h1.product-single__title').html();});
+        return new Promise(resolve => {
+              setTimeout(() => {
+                  resolve('resolved');
+              }, 2000);
+          });}
 
         async function getProductInfo(){
-        var result = await calculateProduct();
+        await calculateProduct();
         //console.log(result);
         let productURLs = CATALOG[productRec];
-        let images = getImgURL(productURLs);
-        console.log(images);
+        await getImgURL(productURLs[0]);
+        await getProductName(productURLs[0]);
+        await getBlogImg(productURLs[1]);
+        await getBlogName(productURLs[1]);
+        
+
         //class="product-single__photo product-single__photo"
-
-
         //let productName =productURLs[0]; //  TODO: take url and extract name text referring to product name
         //console.log(productName);
        // let productPicture =productURLs[0]; //  TODO: take url and extract src referring to product photo
@@ -466,3 +508,4 @@
       }
 
   </script>
+
