@@ -298,6 +298,8 @@
 
       const scriptURL = "https://script.google.com/macros/s/AKfycbxx4_QDeXS7AqXlU9WkYvDTvdY_dYHUMbZ-YdQK4SslU54ihug/exec"
       const form = document.forms[0]
+      const proxyurl = "https://cors-anywhere.herokuapp.com/";
+
 
       form.addEventListener("submit", e => {
           e.preventDefault()
@@ -311,6 +313,7 @@
 
       var currentTab = 0; // Current tab is set to be the first tab (0)
       var productRec = "";
+      var productImg = "";
       showTab(currentTab); // Display the current tab
 
       function showTab(n) {
@@ -428,22 +431,39 @@
           });
       }
 
-        async function getProductInfo(){
-        var result = await calculateProduct();
-        console.log(result);
+        function getImgURL(url){
+        var urls = []; 
+        $.get(proxyurl+url, function(data) {
+        var imgs = $('<div class= "product-single__photos" style="user-select: auto;">').html(data).find('img');
+            imgs.each(function(i, img) {
+                //alert(img.src);	
+            //console.log(img.src);	
+            urls.push(img.src); 
+            });
+            productImg = urls[3];
+           return new Promise(resolve => {
+              setTimeout(() => {
+                  resolve('resolved');
+              }, 2000);
+          });});}
 
+        async function getProductInfo(){
+        await calculateProduct();
+        //console.log(result);
         let productURLs = CATALOG[productRec];
-        console.log(productURLs);
-        let productName =productURLs[0]; //  TODO: take url and extract name text referring to product name
-        console.log(productName);
-        let productPicture =productURLs[0]; //  TODO: take url and extract src referring to product photo
-        let blogName = productURLs[1]; //  TODO: take url and extract name text referring to blog name
-        let blogPicture = productURLs[1]; //  TODO: take url and extract src referring to blog photo
+        await getImgURL(productURLs[0]);
+        
+
+        //class="product-single__photo product-single__photo"
+        //let productName =productURLs[0]; //  TODO: take url and extract name text referring to product name
+        //console.log(productName);
+       // let productPicture =productURLs[0]; //  TODO: take url and extract src referring to product photo
+       // let blogName = productURLs[1]; //  TODO: take url and extract name text referring to blog name
+        //let blogPicture = productURLs[1]; //  TODO: take url and extract src referring to blog photo
         //document.querySelectorAll("productLink").setAttribute("href", recProduct[0]);
         //document.getElementById("productName").innerText = productName;
         //document.getElementById("productPicture").setAttribute("src", productPicture);
       }
-
 
   </script>
 
