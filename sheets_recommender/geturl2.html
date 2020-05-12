@@ -8,9 +8,13 @@ var urls = [];
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
 const url = 'https://mighty-well.com/collections/all/products/picc-line-cover-piccperfect-mighty-well'; 
 $.get(proxyurl+url, function(data) {
-    var imgs = $('<div/>').html(data).find('img');
+    var imgs = $('<div class= "product-single__photos" style="user-select: auto;">').html(data).find('img');
     imgs.each(function(i, img) {
+<<<<<<< HEAD
         alert(img.src);	
+=======
+        console.log(img.src);	
+>>>>>>> b4b16d301e5a62ad37fa2e47c4a10f6d8af707ea
 		urls.push(img); 
     });
     console.log(imgs);
