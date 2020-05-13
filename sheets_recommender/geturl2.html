@@ -6,15 +6,10 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js">
 var urls = []; 
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
-const url = 'https://mighty-well.com/collections/all/products/picc-line-cover-piccperfect-mighty-well'; 
+const url = 'https://blog.mighty-well.com/2020/04/caring-for-your-picc-line-during-covid-19/'; 
 $.get(proxyurl+url, function(data) {
-    var imgs = $('<div class= "product-single__photos" style="user-select: auto;">').html(data).find('img');
+    var imgs = $('<div class = "post-image">').html(data).find('img');
     imgs.each(function(i, img) {
-<<<<<<< HEAD
-        alert(img.src);	
-=======
-        console.log(img.src);	
->>>>>>> b4b16d301e5a62ad37fa2e47c4a10f6d8af707ea
 		urls.push(img); 
     });
     console.log(imgs);
@@ -24,3 +19,131 @@ $.get(proxyurl+url, function(data) {
 <body>
 </body>
 </html>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+var urls = []; 
+$.get(proxyurl+url, function(data) {
+    var imgs = $('.attachment-penci-full-thumb size-penci-full-thumb penci-lazy wp-post-image').attr('src');
+    imgs.each(function(i, img) {
+		urls.push(img.src); 
+    });
+});
+</script>
+<img class="attachment-penci-full-thumb size-penci-full-thumb penci-lazy wp-post-image" src="https://blog.mighty-well.com/wp-content/uploads/2018/07/6-Emily-Levy.jpg" alt="6 Tips to Help You Speak Up to Healthcare Professionals About Your Health" title="6 – Emily Levy" style="display: inline;">
+$('.img1 img').attr('src');
+
+$.get(proxyurl+url, function(data) {
+        var imgs = $('.attachment-penci-full-thumb').find('img').attr("src");
+        console.log(imgs);
+    });
+
+const proxyurl = "https://cors-anywhere.herokuapp.com/";
+const url = 'https://blog.mighty-well.com/2020/04/caring-for-your-picc-line-during-covid-19/'; 
+
+    $.get(proxyurl+url, function(data){
+       var productName = $('h1.product-single__title').html(data).html();
+        console.log(productName);
+});
+
+$('.attachment-penci-full-thumb size-penci-full-thumb penci-lazy wp-post-image').attr('src');
+
+var urls = []; 
+const proxyurl = "https://cors-anywhere.herokuapp.com/";
+const url = 'https://mighty-well.com/collections/all/products/picc-line-cover-piccperfect-mighty-well'; 
+
+$.get(proxyurl+url, function(data){
+        var productName = $('h1.product-single__title').html();
+        console.log()productName;
+});
+
+<!DOCTYPE html>
+<html>
+<title>Web Page Design</title>
+<head>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js">
+var urls = []; 
+const proxyurl = "https://cors-anywhere.herokuapp.com/";
+const url = 'https://mighty-well.com/collections/all/products/picc-line-cover-piccperfect-mighty-well'; 
+$.get(proxyurl+url, function(data) {
+    var imgs = $('<div class= "product-single__photos" style="user-select: auto;">').html(data).find('img');
+    imgs.each(function(i, img) {	
+		urls.push(img); 
+    });
+    console.log(urls);
+});
+</script>
+</head>
+<body>
+</body>
+</html>
+
+$(".post-image img").attr('src')
+
+
+var urls = []; 
+const proxyurl = "https://cors-anywhere.herokuapp.com/";
+const url = 'https://blog.mighty-well.com/2020/04/finding-solace-in-the-outdoors-interview-with-chloe-from-more-than-lyme/'; 
+jQuery.get(proxyurl+url, function(data) {
+    var imgs = jQuery('div.post-image').find('a').attr('href');
+    console.log(imgs);
+    });
+
+    jQuery('h1.post-title').html();
+    jQuery('div.post-image').find('a').attr('href')
+
+    <script>
+
+    const proxyurl = "https://cors-anywhere.herokuapp.com/";
+    const url = 'https://blog.mighty-well.com/2020/04/finding-solace-in-the-outdoors-interview-with-chloe-from-more-than-lyme/'; 
+
+    function getProductInfo(url){
+      $.get(proxyurl+url, function(data) {
+      var productName = $('h1.product-single__title').html();
+      console.log(productName);
+         });}
+
+     /* function getProductName(url){
+      $.get(proxyurl+url, function(data){
+      
+      return new Promise(resolve => {
+            setTimeout(() => {
+                resolve('resolved');
+            }, 2000);
+        });}*/
+
+      function getBlogInfo(url){
+        var urls = []; 
+        $.get(proxyurl+url, function(data) {
+        blogImg = $('div.post-image').find('a').attr('href');
+        blogName = $('h1.post-title').html();         
+         return new Promise(resolve => {
+            setTimeout(() => {
+                resolve('resolved');
+            }, 2000);
+        });});}
+        
+
+
+https://cors-anywhere.herokuapp.com/https://mighty-well.com/collections/all/products/picc-line-cover-piccperfect-mighty-well
+
+
+function getProductInfo(url){
+  $.get('https://cors-anywhere.herokuapp.com/https://mighty-well.com/collections/all/products/picc-        line-cover-piccperfect-mighty-well', function(data) {
+  var productName = $('h1.product-single__title').html(data).html();
+  var imgs = $('<div class= "product-single__photos" style="user-select: auto;">').html(data).find('img');
+  console.log(productName);
+  console.log(imgs[3]);
+     });}
+
+      var urls = []; 
+      $.get('https://cors-anywhere.herokuapp.com/https://mighty-well.com/collections/all/products/picc-line-cover-piccperfect-mighty-well', function(data) {
+      var productName = $('h1.product-single__title').html();
+      var imgs = $('<div class= "product-single__photos" style="user-select: auto;">').html(data).find('img');
+          imgs.each(function(i, img) {
+          urls.push(img.src); 
+          });
+        console.log(urls[3]);
+        console.log(productName);
+        });
+
+      </script>
