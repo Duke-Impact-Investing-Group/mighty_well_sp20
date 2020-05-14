@@ -172,7 +172,7 @@
         background-color:#edf9fc;
         padding:100px;
       }
-	  
+	  /* this is the container for the grid images */
 	  #container2{
 		width:200px;
 		padding:100px;
@@ -495,7 +495,7 @@
       }
 	  </script>
 	  <script>
-	
+	//test urls for the grid images 
 	var uurls = new Array(
     'https://www.colorcombos.com/images/colors/BD2031.png',
     'https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Solid_blue.svg/225px-Solid_blue.svg.png',
@@ -505,7 +505,7 @@
     
 );
 
-
+//function to space out the grid of images 
 var renderImage = function(uurls, t, l) {
     var img = new Image();
     $(img)
@@ -525,12 +525,14 @@ var renderImage = function(uurls, t, l) {
        
         });        
 	}
+	// t means top and l means left, numbers define space 
 var t = 550;
 var l = 300;
+//using function to render the images 
 for (i = 0; i < uurls.length; i++) {
     renderImage(uurls[i], t, l)
     l = l + 450;
-    if (l > 1500) {
+    if (l > 1500) { //ensuring that there are only three images per row 
         t = t + 500;
         l = 300;
     }
