@@ -525,7 +525,7 @@
           }
 		  var t = 550;
 		  var l = 300;
-	//using function to render the images 
+		//using function to render the images 
 	      for (i = 0; i < uurls.length; i++) {
 			renderImage(uurls[i], t, l)
 			l = l + 450; //making sure the next time it is set it is 450 pixels away
@@ -539,6 +539,13 @@
 		for(var i=0; i<productRec.length;i++){
 			var x = productRec[i];
             console.log(gridTable[x]); 
+			//the comment below is the code that should work once the output of gridTable works 
+			//renderImage(gridTable[x][1], t, l)
+			//l = l + 450; //making sure the next time it is set it is 450 pixels away
+			//if (l > 1500) { //ensuring that there are only three images per row 
+				//t = t + 500; //going 500 pixels lower 
+				//l = 300;
+			}
           }
 		  
           
