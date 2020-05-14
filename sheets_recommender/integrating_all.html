@@ -1,4 +1,4 @@
-<!-- Note from Aneesh:  -->
+	<!-- Note from Aneesh:  -->
 <!-- Right now printing to Console (Ctrl-F console.log) -->
 <!-- Can change this to instead print on a screen/store easily -->
 
@@ -113,7 +113,8 @@
   <div class="tab" id="productRecContainer">
     <h1>Your Results!</h1>
     <h3>Enjoy these Mighty Well products and specially curated blog posts just for you!</h3>
-    <a href="" class = "productLink">
+    
+	<a href="" class = "productLink">
     <h2 id="productName" style="float: left;"> Product Name </h2><br>
     <img src="https://bit.ly/2SEVDwz" id= "productPicture" alt = "Product Picture">
     </a>
@@ -121,7 +122,9 @@
     <a href = "" class="blogLink">
     <h2 id="blogName" style="float: right;"></h2><br>
     <img src="" id="blogPicture" alt = "blog Picture" style="float: right;">
+	
     </a>
+	<div id="container2"></div>
 
   </div>
 
@@ -169,6 +172,11 @@
         background-color:#edf9fc;
         padding:100px;
       }
+	  
+	  #container2{
+		width:200px;
+		padding:100px;
+		}
 
       #title{
         margin-left:auto;
@@ -286,7 +294,7 @@
       }
   </style>
   <!------------------SCRIPT---------------------------->
-
+	<script src="https://code.jquery.com/jquery-1.6.4.js"></script>
   <script>
       const CATALOG ={
         "PICCPerfect ": ["https://mighty-well.com/products/picc-line-cover-piccperfect-mighty-well?_pos=5&_sid=db99fc554&_ss=r", "https://blog.mighty-well.com/2017/07/adapting-to-the-picc-life/"],
@@ -485,6 +493,46 @@
           document.getElementById("productName").innerText = productName;
           document.getElementById("productPicture").setAttribute("src", productPicture);
       }
+	  </script>
+	  <script>
+	
+	var uurls = new Array(
+    'https://www.colorcombos.com/images/colors/BD2031.png',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Solid_blue.svg/225px-Solid_blue.svg.png',
+    'https://qph.fs.quoracdn.net/main-qimg-43d8e9413b262a104ce86c48c0246a76.webp',
+    'https://www.colorcombos.com/images/colors/FFCC00.png',
+    'https://www.colorcombos.com/images/colors/663399.png'
+    
+);
 
-  </script>
 
+var renderImage = function(uurls, t, l) {
+    var img = new Image();
+    $(img)
+        .attr('src', uurls)
+		.attr('id', 'img' + i)
+        .load(function(){
+            $('#container2').append( $(this) );
+
+    
+             $(this).css( {
+				"height": "400px",
+                "position": "absolute",
+                     "top": t + 'px',
+                    "left": l + 'px'
+            });
+			
+       
+        });        
+	}
+var t = 550;
+var l = 300;
+for (i = 0; i < uurls.length; i++) {
+    renderImage(uurls[i], t, l)
+    l = l + 450;
+    if (l > 1500) {
+        t = t + 500;
+        l = 300;
+    }
+}
+	</script>
