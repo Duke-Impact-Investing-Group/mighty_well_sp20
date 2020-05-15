@@ -66,14 +66,16 @@
           <!--input <input type="checkbox" name="meddev" value="hickmanLines">Hickman Lines (CVCs)<br> -->
           <!-- <input type="checkbox" name="meddev" value="inhalers">Inhalers<br> -->
           <li><input type="checkbox" name="meddev" value="Mastectomy Drains">Mastectomy Drains<br></li>
-          <li><input type="checkbox" name="meddev" value="midlines">Midlines<br></li>
+          <li><input type="checkbox" name="meddev" value="Midlines">Midlines<br></li>
           <li> <input type="checkbox" name="meddev" value="Peripheral I.V.s">Peripheral IVs<br></li>
           <li><input type="checkbox" name="meddev" value="PICCLines">PICC Lines<br></li>
-          <li><input type="checkbox" name="meddev" value="pills and Other Medications">Pills and Other Medications<br></li>
+         <!-- <li><input type="checkbox" name="meddev" value="Pills and Other Medications">Pills and Other Medications<br></li>-->
           <li><input type="checkbox" name="meddev" value="Port">Port<br></li>
+          <li><input type="checkbox" name="meddev" value="TPN ">TPN<br></li>
+          <li><input type="checkbox" name="meddev" value="Tube Feeding ">Feeding Tube<br></li>
           <!-- <input type="checkbox" name="meddev" value="vitamins">Vitamins<br> -->
           <li><input type="checkbox" name="meddev" value="Wheelchairs/Mobility Aids ">Wheelchairs/Mobility Aids<br></li>
-          <li><input type="checkbox" name="meddev" value="other">Other<br></li>
+          <li><input type="checkbox" name="meddev" value="Other">Other<br></li>
           </ul>
         </p>
       </span>
@@ -110,10 +112,10 @@
       </label>
   </div>
 
-  <div class="tab">
+  <div class="tab results">
     <h1>Your Results!</h1>
-    <h3>Enjoy these Mighty Well products and specially curated blog posts just for you!</h3>
     <section class = "blogContainer">
+      <h3 style = "float: left;">Enjoy these Mighty Well products and specially curated blog posts just for you!</h3>
         <div class = "blog-image">
             <a href = "">
                 <img src = "">
@@ -169,21 +171,39 @@
 </form>
 
   <style>
+  /* Formating results page*/
     #template{
     display:none;
     }
+
     .productContainer{
       display: flex;
       flex-wrap: wrap;
     }
+
     @media (max-width: 920px) {
       .product-card {
-        flex: 1 21%;
+        padding: 2%;
+        flex-grow: 1;
+        flex-basis: 30%
       }
     }
-    .product-image img {
-      max-width: 100%;
+
+    @media screen and (min-width: 591px) {
+      .product-image img{
+      max-width: 307px;
+      max-height: 415px;
+      }}
+
+    .blog-name{
+      float: right;
+      font-size: 30;
     }
+
+    .blog-image img {
+      width: 100%;
+      float: right;}
+
       ul {
         columns: 300px;
         list-style: none; 
@@ -203,21 +223,34 @@
           min-width: 300px;
       }
 
-      #container{
+     #container{
         background-color:#edf9fc;
-        padding:100px;
+        padding-top:100px;
+        padding-bottom:100px;
+        padding-right:150px;
+        padding-left:150px;
       }
-	  /* this is the container for the grid images */
-	  #container2{
-		width:200px;
-		padding:100px;
-		}
 
-      #title{
+       /*#container{
+        max-width:1050px;
+        margin:0 auto;
+        padding: 100px 15px;
+        background-color:#edf9fc;
+      }*/
+	
+      h1{
         margin-left:auto;
         margin-right:auto;
         text-align: center;
         font-size:35px;
+      }
+
+      h3{
+        font-size:20;
+      }
+
+      #title .results{
+        font-size: 0;
       }
 
       #description {
@@ -231,16 +264,9 @@
         color: grey;
     }
 
-      #productRecContainer{
-        background-color:#ffffff;
-        padding:100px;
-      }
-
-      #productPicture{
-        padding: 20px;
-        max-width: 40%;
-        height: auto;
-      }
+    #description .results{
+      display: none;
+    }
 
       .radio{
         background-color: white;
@@ -515,6 +541,7 @@
           var productName = productRec[i];
           var product = gridTable[productName];
           var productURL =  CATALOG[productName];
+          console.log(productName);
           var node = document.getElementById("productCardTmp").cloneNode(true);
           node.id = productName;
           node.querySelector(".product-image img").setAttribute("src", product[1]);
@@ -544,9 +571,12 @@
             await getProductInfo(productURLs[0],productRec[i]);
             await getBlogInfo(productURLs[1], productRec[i]);
           }
+          
           console.log(gridTable);
           createBlog();
           createGrid();
+          document.querySelector("#title").remove();
+          document.querySelector("#description").remove();
       }
 	  </script>
 
