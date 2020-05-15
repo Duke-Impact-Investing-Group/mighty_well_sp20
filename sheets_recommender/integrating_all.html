@@ -20,41 +20,10 @@
     </div>
   </div>
 
-    <!-- ------------------Medical Condition-------------------------------- -->
-  <div class = "tab">
-      <h3 class = "number"> - 2 - </h3>
-      <h2 class = "question"> Select all that apply to you! </h2> <br>
-      <label class = "checkbox-label">
-        <p>
-        <ul>
-         <li><input type="checkbox" name="medcon" value="aplasticAnemia">Aplastic Anemia<br></li>
-         <li><input type="checkbox" name="medcon" value="behcets">Behcet's Syndrome<br></li>
-         <li><input type="checkbox" name="medcon" value="caps">CAPS<br></li>
-          <li><input type="checkbox" name="medcon" value="cysticFibrosis" >Cystic Fibrosis<br></li>
-          <li><input type="checkbox" name="medcon" value="diabetes" >Diabetes<br></li>
-          <li><input type="checkbox" name="medcon" value="dysautonomia">Dysautonomia<br></li>
-          <li><input type="checkbox" name="medcon" value="eds">Ehlers-Danlos Syndrome (EDS)<br></li>
-          <li><input type="checkbox" name="medcon" value="fibromyalgia">Fibromyalgia<br></li>
-          <li><input type="checkbox" name="medcon" value="gp" >Gastroparesis (GP)<br></li>
-          <li><input type="checkbox" name="medcon" value="hrt" >HRT<br></li>
-          <li><input type="checkbox" name="medcon" value="lyme" >Lyme Disease<br></li>
-          <li><input type="checkbox" name="medcon" value="marfan" >Marfan Syndrome<br></li>
-          <li><input type="checkbox" name="medcon" value="mcas" >MCAS<br></li>
-          <li><input type="checkbox" name="medcon" value="osteomyelitis">Osteomyelitis<br></li>
-          <!--<li><input type="checkbox" name="medcon" value="partialEmptySella">Partial Empty Sella<br></li>-->
-          <li><input type="checkbox" name="medcon" value="polyarthralgia">Polyarthralgia<br></li>
-          <li><input type="checkbox" name="medcon" value="pcos" >Polycystic Ovary Syndrome (PCOS)<br></li>
-          <li><input type="checkbox" name="medcon" value="pots" >Postural Orthostatic Tachycardia Syndrome (POTS)<br></li>
-          <!-- <li><input type="checkbox" name="medcon" value="thyroidcancer" >Thyroid Cancer<br></li> -->
-          <li><input type="checkbox" name="medcon" value="uc" >Ulcerative Colitis (UC)<br></li>
-          <li><input type="checkbox" name="medcon" value="other" >Other<br></li>
-          </ul>
-        </p>
-        </label>
-  </div>
+   
   <!-- ------------------Medical Devices-------------------------------- -->
   <div class="tab">
-      <h3 class="number"> - 3 - </h3>
+      <h3 class="number"> - 2 - </h3>
       <h2 class="question"> What medical devices do you use?</h2><br>
       <label class = "checkbox-label">
       <span class="checkbox-custom">
@@ -82,6 +51,38 @@
       </label>
   </div>
 
+   <!-- ------------------Medical Condition-------------------------------- -->
+   <div class = "tab">
+    <h3 class = "number"> - 3 - </h3>
+    <h2 class = "question"> Select all that apply to you! </h2> <br>
+    <label class = "checkbox-label">
+      <p>
+      <ul>
+       <li><input type="checkbox" name="medcon" value="aplasticAnemia">Aplastic Anemia<br></li>
+       <li><input type="checkbox" name="medcon" value="behcets">Behcet's Syndrome<br></li>
+       <li><input type="checkbox" name="medcon" value="caps">CAPS<br></li>
+        <li><input type="checkbox" name="medcon" value="cysticFibrosis" >Cystic Fibrosis<br></li>
+        <li><input type="checkbox" name="medcon" value="diabetes" >Diabetes<br></li>
+        <li><input type="checkbox" name="medcon" value="dysautonomia">Dysautonomia<br></li>
+        <li><input type="checkbox" name="medcon" value="eds">Ehlers-Danlos Syndrome (EDS)<br></li>
+        <li><input type="checkbox" name="medcon" value="fibromyalgia">Fibromyalgia<br></li>
+        <li><input type="checkbox" name="medcon" value="gp" >Gastroparesis (GP)<br></li>
+        <li><input type="checkbox" name="medcon" value="hrt" >HRT<br></li>
+        <li><input type="checkbox" name="medcon" value="lyme" >Lyme Disease<br></li>
+        <li><input type="checkbox" name="medcon" value="marfan" >Marfan Syndrome<br></li>
+        <li><input type="checkbox" name="medcon" value="mcas" >MCAS<br></li>
+        <li><input type="checkbox" name="medcon" value="osteomyelitis">Osteomyelitis<br></li>
+        <!--<li><input type="checkbox" name="medcon" value="partialEmptySella">Partial Empty Sella<br></li>-->
+        <li><input type="checkbox" name="medcon" value="polyarthralgia">Polyarthralgia<br></li>
+        <li><input type="checkbox" name="medcon" value="pcos" >Polycystic Ovary Syndrome (PCOS)<br></li>
+        <li><input type="checkbox" name="medcon" value="pots" >Postural Orthostatic Tachycardia Syndrome (POTS)<br></li>
+        <!-- <li><input type="checkbox" name="medcon" value="thyroidcancer" >Thyroid Cancer<br></li> -->
+        <li><input type="checkbox" name="medcon" value="uc" >Ulcerative Colitis (UC)<br></li>
+        <li><input type="checkbox" name="medcon" value="other" >Other<br></li>
+        </ul>
+      </p>
+      </label>
+</div>
 
   <!-- -----------------Use Case--------------------------------- -->
 
@@ -434,7 +435,7 @@
               return false;
           }
 
-          if(currentTab==x.length-2){ // Last question page
+          if(currentTab==x.length-3){ // Last question page
               //document.getElementById("nextBtn").onclick = function() {calculateProduct();}
               
               //const result = await calculateProduct();
@@ -575,6 +576,7 @@
           console.log(gridTable);
           createBlog();
           createGrid();
+          document.querySelector("#container").style.backgroundColor = "white";
           document.querySelector("#title").remove();
           document.querySelector("#description").remove();
       }
