@@ -133,11 +133,14 @@
   </div>
 
   <div id="template">
+	<br>
     <div id = "productCardTmp">
+	<br>
       <div class="product-card">
+		<br>
           <div class="product-image">
               <a href = ""> 
-                <img src = ""> 
+                <img src = "" class="try2"> 
               </a> 
           </div>
           <div class="product-info">
@@ -173,10 +176,22 @@
   <style>
   /* Formating results page*/
     #template{
-    display:none;
-    }
+	display: none;
+	}
+	
+	.template{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	}
 
-    .productContainer{
+    .productCardTmp{
+      width: 120px;
+      height: 120px;
+	  padding:40px; 
+    }
+	
+	.productContainer{
       display: flex;
       flex-wrap: wrap;
     }
@@ -191,9 +206,22 @@
 
     @media screen and (min-width: 591px) {
       .product-image img{
-      max-width: 307px;
-      max-height: 415px;
+      width: 100px;
+	  height: 100px;
+      float: right;
+	  margin-left: auto;
+		margin-right: auto;
       }}
+	  
+	  .try2{
+	  width: 100px;
+	  height: 100px;
+      float: right;
+	padding: 20px 
+	  margin-left: auto;
+		margin-right: auto;
+	  }
+	  
 
     .blog-name{
       float: right;
@@ -201,8 +229,12 @@
     }
 
     .blog-image img {
-      width: 100%;
-      float: right;}
+      width: 100px;
+	  height: 100px;
+      float: right;
+	  margin-left: auto;
+		margin-right: auto;
+		}
 
       ul {
         columns: 300px;
@@ -267,6 +299,8 @@
     #description .results{
       display: none;
     }
+	
+	
 
       .radio{
         background-color: white;
@@ -542,9 +576,11 @@
           var product = gridTable[productName];
           var productURL =  CATALOG[productName];
           console.log(productName);
+		  console.log(product); 
           var node = document.getElementById("productCardTmp").cloneNode(true);
           node.id = productName;
           node.querySelector(".product-image img").setAttribute("src", product[1]);
+		  console.log(product[1]); 
           node.querySelector(".product-image img").setAttribute("href", productURL[0]); //add link to image
           node.querySelector(".product-info h5").innerText = product[0];
           node.querySelector(".product-info a").setAttribute("href", productURL[0]); //add link to name
@@ -579,7 +615,3 @@
           document.querySelector("#description").remove();
       }
 	  </script>
-
-
-
-
