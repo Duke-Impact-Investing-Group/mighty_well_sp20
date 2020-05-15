@@ -61,18 +61,18 @@
         <p>
         <ul>
           <!--<input type="checkbox" name="meddev" value="diabeticPumps">Diabetic Pumps<br>-->
-          <li><input type="checkbox" name="meddev" value="EpiPen (Allergies)">EpiPen<br></li>
+          <li><input type="checkbox" name="meddev" value="EpiPen (Allergies) ">EpiPen<br></li>
           <li><input type="checkbox" name="meddev" value="Diabetic Supplies">Diabetic Supplies<br></li>
           <!--input <input type="checkbox" name="meddev" value="hickmanLines">Hickman Lines (CVCs)<br> -->
           <!-- <input type="checkbox" name="meddev" value="inhalers">Inhalers<br> -->
           <li><input type="checkbox" name="meddev" value="Mastectomy Drains">Mastectomy Drains<br></li>
           <li><input type="checkbox" name="meddev" value="midlines">Midlines<br></li>
           <li> <input type="checkbox" name="meddev" value="Peripheral I.V.s">Peripheral IVs<br></li>
-          <li><input type="checkbox" name="meddev" value="PICC Lines">PICC Lines<br></li>
+          <li><input type="checkbox" name="meddev" value="PICCLines">PICC Lines<br></li>
           <li><input type="checkbox" name="meddev" value="pills and Other Medications">Pills and Other Medications<br></li>
           <li><input type="checkbox" name="meddev" value="Port">Port<br></li>
           <!-- <input type="checkbox" name="meddev" value="vitamins">Vitamins<br> -->
-          <li><input type="checkbox" name="meddev" value="Wheelchairs/Mobility Aids">Wheelchairs/Mobility Aids<br></li>
+          <li><input type="checkbox" name="meddev" value="Wheelchairs/Mobility Aids ">Wheelchairs/Mobility Aids<br></li>
           <li><input type="checkbox" name="meddev" value="other">Other<br></li>
           </ul>
         </p>
@@ -110,23 +110,43 @@
       </label>
   </div>
 
-  <div class="tab" id="productRecContainer">
+  <div class="tab">
     <h1>Your Results!</h1>
     <h3>Enjoy these Mighty Well products and specially curated blog posts just for you!</h3>
-    
-	<a href="" class = "productLink">
-    <h2 id="productName" style="float: left;"> Product Name </h2><br>
-    <img src="https://bit.ly/2SEVDwz" id= "productPicture" alt = "Product Picture">
-    </a>
+    <section class = "blogContainer">
+        <div class = "blog-image">
+            <a href = "">
+                <img src = "">
+            </a>
+        </div>
+        <div class = "blog-name">
+            <a href="">
+                <h4></h4>
+            </a>
+        </div>
+    </section>
 
-    <a href = "" class="blogLink">
-    <h2 id="blogName" style="float: right;"></h2><br>
-    <img src="" id="blogPicture" alt = "blog Picture" style="float: right;">
-	
-    </a>
-	<div id="container2"></div>
-
+    <section class="productContainer">
+    </section>  
   </div>
+
+  <div id="template">
+    <div id = "productCardTmp">
+      <div class="product-card">
+          <div class="product-image">
+              <a href = ""> 
+                <img src = ""> 
+              </a> 
+          </div>
+          <div class="product-info">
+              <a href ="">
+              <h5> </h5>
+              </a>
+          </div>
+      </div>
+    </div>
+  </div>  
+  
 
   <div style="overflow:auto;">
       <div style = "float:left;"></div>
@@ -149,6 +169,21 @@
 </form>
 
   <style>
+    #template{
+    display:none;
+    }
+    .productContainer{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 920px) {
+      .product-card {
+        flex: 1 21%;
+      }
+    }
+    .product-image img {
+      max-width: 100%;
+    }
       ul {
         columns: 300px;
         list-style: none; 
@@ -433,7 +468,7 @@
                     for(var j = 0;j<prodList.length;j++){
                       productRec.push(prodList[j]);
                     }
-                  //console.log("Recommended device: "+ jsonData[deviceUsed])
+                  console.log("Recommended device: "+ productRec);
                   console.log("All jSON Data: " + req.responseText);
               }}
           };
@@ -474,42 +509,34 @@
                   resolve('resolved');
               }, 2000);
           });});}
-      //function to space out the grid of images 
-      var renderImage = function(uurls, t, l) {
-          var img = new Image();
-          $(img)
-            .attr('src', uurls)
-            .attr('id', 'img' + i)
-            .load(function(){
-                $('#container2').append( $(this) );
-                $(this).css( {
-                 "height": "400px",
-                  "position": "absolute",
-                   "top": t + 'px',
-                   "left": l + 'px'});
-             });        
-        }
-	// t means top and l means left, numbers define space 
 
       function createGrid(){
-      var t = 550;
-      var l = 300;
-      //using function to render the images 
-      for (var x in gridTable) {
-          var product = gridTable[x];
-          renderImage(product[1], t, l);
-          l = l + 450;
-          if (l > 1500) { //ensuring that there are only three images per row 
-              t = t + 500;
-              l = 300;
-          }}
-      }
+        for(var i =0; i<Object.keys(gridTable).length; i++){
+          var productName = productRec[i];
+          var product = gridTable[productName];
+          var productURL =  CATALOG[productName];
+          var node = document.getElementById("productCardTmp").cloneNode(true);
+          node.id = productName;
+          node.querySelector(".product-image img").setAttribute("src", product[1]);
+          node.querySelector(".product-image img").setAttribute("href", productURL[0]); //add link to image
+          node.querySelector(".product-info h5").innerText = product[0];
+          node.querySelector(".product-info a").setAttribute("href", productURL[0]); //add link to name
+          document.querySelector(".productContainer").appendChild(node); //add new card 
+        }
+    }
+
+    function createBlog(){
+        var productName = productRec[0];
+        var product = gridTable[productName];
+        var productURL = CATALOG[productName];
+        document.querySelector(".blog-image img").setAttribute("src", product[3]); // add blog image
+        document.querySelector(".blog-image a").setAttribute("href", productURL[1]); // add blog url to image
+        document.querySelector(".blog-name h4").innerText = product[2]; // add blog name
+        document.querySelector(".blog-name a").setAttribute("href", productURL[1]); // add blog url to name
+    }
        
         async function createProductPage(){
-          //console.log("break 2");
           await calculateProduct();
-          //console.log("break 4");
-          //console.log(productRec);
           for(var i=0; i<productRec.length;i++){
             var x = productRec[i];
             gridTable[x] = [];
@@ -518,23 +545,11 @@
             await getBlogInfo(productURLs[1], productRec[i]);
           }
           console.log(gridTable);
+          createBlog();
           createGrid();
-          
-          document.querySelectorAll("productLink").setAttribute("href", recProduct[0]);
-          document.getElementById("productName").innerText = productName;
-          document.getElementById("productPicture").setAttribute("src", productPicture);
       }
 	  </script>
 
-	//test urls for the grid images 
-/*	var uurls = new Array(
-    'https://www.colorcombos.com/images/colors/BD2031.png',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Solid_blue.svg/225px-Solid_blue.svg.png',
-    'https://qph.fs.quoracdn.net/main-qimg-43d8e9413b262a104ce86c48c0246a76.webp',
-    'https://www.colorcombos.com/images/colors/FFCC00.png',
-    'https://www.colorcombos.com/images/colors/663399.png'
-    
-);*/
 
 
 
