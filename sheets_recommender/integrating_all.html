@@ -12,11 +12,11 @@
     <h3 class= "number"> - 1 - </h3>
     <h2 class = "question"> What is your gender? </h2><br>
     <div class="inputContainer">
-    <p>
+    <span class = "input-options">
         <span class = "radio"><input type="radio" name="gender" value="male" >Male<br></span>
         <span class = "radio"><input type="radio" name="gender" value="female">Female<br></span>
         <span class = "radio"><input type="radio" name="gender" value="other">Other</span>
-      </p>
+    </span>
     </div>
   </div>
 
@@ -25,9 +25,7 @@
   <div class="tab">
       <h3 class="number"> - 2 - </h3>
       <h2 class="question"> What medical devices do you use?</h2><br>
-      <label class = "checkbox-label">
-      <span class="checkbox-custom">
-        <p>
+      <span class="input-options">
         <ul>
           <!--<input type="checkbox" name="meddev" value="diabeticPumps">Diabetic Pumps<br>-->
           <li><input type="checkbox" name="meddev" value="EpiPen (Allergies) ">EpiPen<br></li>
@@ -46,17 +44,14 @@
           <li><input type="checkbox" name="meddev" value="Wheelchairs/Mobility Aids ">Wheelchairs/Mobility Aids<br></li>
           <li><input type="checkbox" name="meddev" value="Other">Other<br></li>
           </ul>
-        </p>
       </span>
-      </label>
   </div>
 
    <!-- ------------------Medical Condition-------------------------------- -->
    <div class = "tab">
     <h3 class = "number"> - 3 - </h3>
     <h2 class = "question"> Select all that apply to you! </h2> <br>
-    <label class = "checkbox-label">
-      <p>
+      <span class="input-options">
       <ul>
        <li><input type="checkbox" name="medcon" value="aplasticAnemia">Aplastic Anemia<br></li>
        <li><input type="checkbox" name="medcon" value="behcets">Behcet's Syndrome<br></li>
@@ -80,8 +75,7 @@
         <li><input type="checkbox" name="medcon" value="uc" >Ulcerative Colitis (UC)<br></li>
         <li><input type="checkbox" name="medcon" value="other" >Other<br></li>
         </ul>
-      </p>
-      </label>
+      </span>
 </div>
 
   <!-- -----------------Use Case--------------------------------- -->
@@ -89,9 +83,7 @@
   <div class="tab">
       <h3 class="number"> - 4 - </h3>
       <h2 class="question"> What are you looking to use Mighty Well products for? </h2><br>
-      <label class = "checkbox-label">
-      <span class="checkbox-custom">
-        <p>
+      <span class="input-options">
         <ul>
           <li><input type="checkbox" name="usecase" value="antibioticInfusion">Antibiotic Infusion<br></li>
           <li><input type="checkbox" name="usecase" value="chemotherapy">Chemotherapy<br></li>
@@ -108,9 +100,7 @@
           <li><input type="checkbox" name="usecase" value="tubeFeeding">Tube Feeding<br></li>
           <li><input type="checkbox" name="usecase" value="other">Other<br></li>
         </ul>
-        </p>
       </span>
-      </label>
   </div>
 
   <div class="tab results">
@@ -218,10 +208,14 @@
 	  width: 100px;
 	  height: 100px;
       float: right;
-	padding: 20px 
+	padding: 20px; 
 	  margin-left: auto;
 		margin-right: auto;
 	  }
+
+    p.announcement-bar_message{
+      text-align: center;
+    }
 	  
 
     .blog-name{
@@ -242,7 +236,7 @@
         list-style: none; 
       }
 
-      p{
+      .input-options{
         margin:0 10px 0 10px;
         display: inline-block;
         text-align:left;
@@ -301,8 +295,6 @@
       display: none;
     }
 	
-	
-
       .radio{
         background-color: white;
         padding: 7px;
