@@ -26,7 +26,7 @@
       <h3 class="number"> - 2 - </h3>
       <h2 class="question"> What medical devices do you use?</h2><br>
       <p class="input-options">
-        <ul>
+        <ul class="form-fixed">
           <!--<input type="checkbox" name="meddev" value="diabeticPumps">Diabetic Pumps<br>-->
           <li><input type="checkbox" name="meddev" value="EpiPen (Allergies) ">EpiPen<br></li>
           <li><input type="checkbox" name="meddev" value="Diabetic Supplies">Diabetic Supplies<br></li>
@@ -52,7 +52,7 @@
     <h3 class = "number"> - 3 - </h3>
     <h2 class = "question"> Select all that apply to you! </h2> <br>
       <p class="input-options">
-      <ul>
+      <ul class="form-fixed">
        <li><input type="checkbox" name="medcon" value="aplasticAnemia">Aplastic Anemia<br></li>
        <li><input type="checkbox" name="medcon" value="behcets">Behcet's Syndrome<br></li>
        <li><input type="checkbox" name="medcon" value="caps">CAPS<br></li>
@@ -84,7 +84,7 @@
       <h3 class="number"> - 4 - </h3>
       <h2 class="question"> What are you looking to use Mighty Well products for? </h2><br>
       <p class="input-options">
-        <ul>
+        <ul class="form-fixed">
           <li><input type="checkbox" name="usecase" value="antibioticInfusion">Antibiotic Infusion<br></li>
           <li><input type="checkbox" name="usecase" value="chemotherapy">Chemotherapy<br></li>
           <li><input type="checkbox" name="usecase" value="glucoseMonitoring">Glucose Monitoring<br></li>
@@ -288,7 +288,7 @@
 		margin-right: auto;
 		}
 
-      ul {
+      ul.form-fixed {
         columns: 300px;
         list-style: none; 
       }
@@ -572,7 +572,7 @@
 
       function calculateProduct() {
        // console.log("break 3");
-			console.log("calcProduct");
+			//console.log("calcProduct");
           var deviceChecks = document.getElementsByName("meddev");
           var deviceUsed = [];
           for (i = 0; i < deviceChecks.length; i++) {
@@ -647,10 +647,33 @@
 						return true; 
 					} else {
 						console.log("not working"); 
+						console.log(url); 
 						return false;
 					}
 				}).catch(err => console.log('Error:', err));
 		} 
+		
+		function siftingundefinedurl(url){
+			if (url == undefined){
+				const backupurl = "https://media-exp1.licdn.com/dms/image/C510BAQHyvU-y9nCIoQ/company-logo_200_200/0?e=2159024400&v=beta&t=sgqg7XGUctmF9h5H5-_OWSJIOfhFnkhwEyBBqgLsITo" ; 
+				console.log("doesnt work");
+				return backupurl; 
+			}
+			else{
+				console.log("works"); 
+				return url; 
+			}
+		}
+		function siftingundefinedname(product_name, productName){
+			if (product_name == undefined){
+				console.log("dont works"); 
+				return productName; 
+			}
+			else{
+				console.log("works"); 
+				return product_name; 
+			}
+		}
 
       function createGrid(){
         for(var i =0; i<Object.keys(gridTable).length; i++){
@@ -661,12 +684,14 @@
             var node = document.getElementById("productCardTmp").cloneNode(true);
             node.id = productName;
             node.className = "product-card-box";
-            //console.log(" validating image url");
+            console.log(" validating image url");
             console.log("product image url"+product[1]);
-            node.querySelector(".product-image img").setAttribute("src", product[1]); //add image
+			var imageurl = siftingundefinedurl(product[1]); 
+            node.querySelector(".product-image img").setAttribute("src", imageurl); //add image
             console.log("product url "+productURL[0]);
             node.querySelector(".product-image img").setAttribute("href", productURL[0]); //add link to image
-            node.querySelector(".product-info h5").innerText = product[0]; // add name
+            var product_name = siftingundefinedname(product[0], productName); 
+			node.querySelector(".product-info h5").innerText = product_name; // add name
             console.log("product name "+product[0]);
             node.querySelector(".product-info a").setAttribute("href", productURL[0]); //add link to name
             document.querySelector(".productContainer").appendChild(node);} //add new card 
@@ -678,7 +703,6 @@
         var product = gridTable[productName];
         var productURL = CATALOG[productName];
 		console.log(" validating blog url");
-		validatingurl(product[3]); 
         document.querySelector(".blog-image img").setAttribute("src", product[3]);  // add blog image
         document.querySelector(".blog-image a").setAttribute("href", productURL[1]); // add blog url to image
         document.querySelector(".blog-name h4").innerText = product[2]; // add blog name
