@@ -12,11 +12,11 @@
     <h3 class= "number"> - 1 - </h3>
     <h2 class = "question"> What is your gender? </h2><br>
     <div class="inputContainer">
-    <p>
+    <p class = "input-options">
         <span class = "radio"><input type="radio" name="gender" value="male" >Male<br></span>
         <span class = "radio"><input type="radio" name="gender" value="female">Female<br></span>
         <span class = "radio"><input type="radio" name="gender" value="other">Other</span>
-      </p>
+    </p>
     </div>
   </div>
 
@@ -25,9 +25,7 @@
   <div class="tab">
       <h3 class="number"> - 2 - </h3>
       <h2 class="question"> What medical devices do you use?</h2><br>
-      <label class = "checkbox-label">
-      <span class="checkbox-custom">
-        <p>
+      <p class="input-options">
         <ul>
           <!--<input type="checkbox" name="meddev" value="diabeticPumps">Diabetic Pumps<br>-->
           <li><input type="checkbox" name="meddev" value="EpiPen (Allergies) ">EpiPen<br></li>
@@ -38,7 +36,7 @@
           <li><input type="checkbox" name="meddev" value="Midlines">Midlines<br></li>
           <li> <input type="checkbox" name="meddev" value="Peripheral I.V.s">Peripheral IVs<br></li>
           <li><input type="checkbox" name="meddev" value="PICCLines">PICC Lines<br></li>
-         <!-- <li><input type="checkbox" name="meddev" value="Pills and Other Medications">Pills and Other Medications<br></li>-->
+          <li><input type="checkbox" name="meddev" value="Pills and Other Medications">Pills and Other Medications<br></li>
           <li><input type="checkbox" name="meddev" value="Port">Port<br></li>
           <li><input type="checkbox" name="meddev" value="TPN ">TPN<br></li>
           <li><input type="checkbox" name="meddev" value="Tube Feeding ">Feeding Tube<br></li>
@@ -47,16 +45,13 @@
           <li><input type="checkbox" name="meddev" value="Other">Other<br></li>
           </ul>
         </p>
-      </span>
-      </label>
   </div>
 
    <!-- ------------------Medical Condition-------------------------------- -->
    <div class = "tab">
     <h3 class = "number"> - 3 - </h3>
     <h2 class = "question"> Select all that apply to you! </h2> <br>
-    <label class = "checkbox-label">
-      <p>
+      <p class="input-options">
       <ul>
        <li><input type="checkbox" name="medcon" value="aplasticAnemia">Aplastic Anemia<br></li>
        <li><input type="checkbox" name="medcon" value="behcets">Behcet's Syndrome<br></li>
@@ -81,7 +76,6 @@
         <li><input type="checkbox" name="medcon" value="other" >Other<br></li>
         </ul>
       </p>
-      </label>
 </div>
 
   <!-- -----------------Use Case--------------------------------- -->
@@ -89,9 +83,7 @@
   <div class="tab">
       <h3 class="number"> - 4 - </h3>
       <h2 class="question"> What are you looking to use Mighty Well products for? </h2><br>
-      <label class = "checkbox-label">
-      <span class="checkbox-custom">
-        <p>
+      <p class="input-options">
         <ul>
           <li><input type="checkbox" name="usecase" value="antibioticInfusion">Antibiotic Infusion<br></li>
           <li><input type="checkbox" name="usecase" value="chemotherapy">Chemotherapy<br></li>
@@ -108,15 +100,15 @@
           <li><input type="checkbox" name="usecase" value="tubeFeeding">Tube Feeding<br></li>
           <li><input type="checkbox" name="usecase" value="other">Other<br></li>
         </ul>
-        </p>
-      </span>
-      </label>
+      </p>
   </div>
 
   <div class="tab results">
-    <h1>Your Results!</h1>
-	<h2 style = "float: left;">Enjoy these Mighty Well products and specially curated blog posts just for you!</h2>
-	<h3> Blog Posts to check out! </h3>
+    <div class="results-title">Just For You</div>
+    <br>
+  <div class="results-description">Enjoy these Mighty Well products and specially curated blog posts just for you!</div>
+  <br>
+	<span class = "rec-blog-title"> Blog Posts for You </span>
     <section class = "blogContainer">
       
         <div class = "blog-image">
@@ -124,13 +116,17 @@
                 <img src = "">
             </a>
         </div>
+        <br>
         <div class = "blog-name">
             <a href="">
                 <h4></h4>
             </a>
         </div>
     </section>
-	<h3> Mighty Well Products to check out! </h3>
+  <hr>
+  <span class="rec-product-title"> Mighty Well Products For You</span>
+  
+	
     <div class="productContainer">
 	
     </div>  
@@ -147,6 +143,7 @@
                 <img src = ""> 
               </a> 
           </div>
+          <br>
           <div class="product-info">
               <a href ="">
               <h5> </h5>
@@ -184,9 +181,12 @@
 	}
 
 	.product-info{
+    display:block;
 		width:300px;
 		height:50px;
 	}
+
+ 
     .productCardTmp{
       width: 300px;
       height: 300px;
@@ -196,7 +196,7 @@
 	.blogContainer{
 	display: grid;
   grid-template-columns: auto auto;
-  grid-gap: 20px 20px;
+  grid-gap: 20px 40px;
   padding: 20px;
   width: 700px;
 	}
@@ -206,41 +206,84 @@
   grid-template-columns: auto auto;
   grid-gap: 20px 20px;
   padding: 20px;
-  width: 700px;
+  width: 800px;
     }
 
-    @media (max-width: 920px) {
-      .product-card {
-        padding: 2%;
-        flex-grow: 1;
-        flex-basis: 30%;
-		width:120px
-		height:120px
+  .product-card {
+    color: #ccc;
       }
-    }
-
+    
     @media screen and (min-width: 591px) {
       .product-image img{
+        object-fit: cover;
       width: 200px;
-	  height: 200px;
+	  height: 300px;
       float: right;
 	  margin-left: auto;
 		margin-right: auto;
       }}
-	  
 
-    .blog-name{
-      float: left;
-      font-size: 30;
-	  margin-top: 10px; 
-	  width:200px;
-	  
+    .results-title{
+      margin-left:auto;
+      margin-right:auto;
+      text-align: center;
+      font-size:35px;
+      text-transform: uppercase;
     }
 
+    .results-description{
+      text-align: center;
+        padding:10px;
+        max-width:400px;
+        margin-left:auto;
+        margin-right:auto;
+        font: Lato;
+        font-size: 14px;
+        color: grey;
+    }
+
+    .rec-product-title{
+    font-size: 20;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    line-height: 1;
+    display: inline-block;
+    text-transform: uppercase;
+    background: #fff;
+    text-align: center;
+    }
+
+    .rec-blog-title{
+    font-size: 20;
+    padding: 0 18px;
+    line-height: 1;
+    display: inline-block;
+    text-transform: uppercase;
+    background: #fff;
+    text-align: center;
+    }
+	  
+    .product-card-box:{
+      box-shadow: 3px 5px 3px black;
+    }
+
+    .blog-name{
+    display:block;
+    font-size: 30;
+    text-align: left;
+	  width:700px;
+    }
+
+    .blog-name:hover{
+    color:#e8f4f8;
+	}
+
     .blog-image img {
-     width: 200px;
-	  height: 200px;
-      float: right;
+    object-fit: cover;
+    height: auto;
+    width: 100%;
+    max-width: 750px;
+	  max-height: 350px;
 	  margin-left: auto;
 		margin-right: auto;
 		}
@@ -251,6 +294,11 @@
       }
 
       p{
+        margin:0 10px 0 10px;
+        display: inline-block;
+      }
+
+      p.input-options{
         margin:0 10px 0 10px;
         display: inline-block;
         text-align:left;
@@ -271,13 +319,6 @@
         padding-right:150px;
         padding-left:150px;
       }
-
-       /*#container{
-        max-width:1050px;
-        margin:0 auto;
-        padding: 100px 15px;
-        background-color:#edf9fc;
-      }*/
 	
       h1{
         margin-left:auto;
@@ -308,7 +349,15 @@
     #description .results{
       display: none;
     }
-	
+
+    hr {
+    clear: both;
+    border-top: solid #ccc;
+    border-width: 2px 0 0;
+    width:800px;
+    margin: 30px 0;
+    height: 0;
+    }
 	
 
       .radio{
@@ -429,19 +478,7 @@
       var gridTable = new Object;
       
       showTab(currentTab); // Display the current tab
-		//og: https://www.quora.com/How-do-detect-if-an-image-URL-s-isn-t-able-to-load-in-browser-side-Java-script
-		function validatingurl (url){
-			fetch(proxyurl+url, { method: 'HEAD' })
-				.then(res => {
-					if (res.ok) {
-						console.log("working url image"); 
-						return url; 
-					} else {
-						console.log("not working"); 
-						return "https://media-exp1.licdn.com/dms/image/C510BAQHyvU-y9nCIoQ/company-logo_200_200/0?e=2159024400&v=beta&t=sgqg7XGUctmF9h5H5-_OWSJIOfhFnkhwEyBBqgLsITo";
-					}
-				}).catch(err => console.log('Error:', err));
-		} 
+		
       function showTab(n) {
           // This function will display the specified tab of the form ...
           var x = document.getElementsByClassName("tab");
@@ -496,6 +533,12 @@
               //const result = await calculateProduct();
               //console.log("break 1");
               createProductPage();}
+          if(currentTab==x.length-1){ // Last question page
+              //document.getElementById("nextBtn").onclick = function() {calculateProduct();}
+              
+              //const result = await calculateProduct();
+              //console.log("break 1");
+              displayProductPage();}
           // Otherwise, display the correct tab:
           showTab(currentTab);
       }
@@ -511,7 +554,6 @@
               break;
             }
           }
-          console.log(valid);
           if (valid) {
               document.getElementsByClassName("step")[currentTab].className += " finish";
           }
@@ -549,7 +591,8 @@
                   for(i = 0; i<deviceUsed.length;i++){
                     var prodList = jsonData[deviceUsed[i]];
                     for(var j = 0;j<prodList.length;j++){
-                      productRec.push(prodList[j]);
+                      if(!productRec.includes(prodList[j])){
+                      productRec.push(prodList[j]);}
                     }
                   console.log("Recommended device: "+ productRec);
                   console.log("All jSON Data: " + req.responseText);
@@ -595,31 +638,45 @@
               }, 2000);
           });});}
 
+      //og: https://www.quora.com/How-do-detect-if-an-image-URL-s-isn-t-able-to-load-in-browser-side-Java-script
+		function validatingurl (url){
+			fetch(proxyurl+url, { method: 'HEAD' })
+				.then(res => {
+					if (res.ok) {
+						console.log("working url image"); 
+						return true; 
+					} else {
+						console.log("not working"); 
+						return false;
+					}
+				}).catch(err => console.log('Error:', err));
+		} 
+
       function createGrid(){
         for(var i =0; i<Object.keys(gridTable).length; i++){
           var productName = productRec[i];
           var product = gridTable[productName];
+          console.log(gridTable[productName]);
           var productURL =  CATALOG[productName];
-          var node = document.getElementById("productCardTmp").cloneNode(true);
-          node.id = productName;
-		  console.log(" validating image url");
-		  validatingurl(product[1]); 
-          node.querySelector(".product-image img").setAttribute("src", product[1]);
-          node.querySelector(".product-image img").setAttribute("href", productURL[0]); //add link to image
-          node.querySelector(".product-info h5").innerText = product[0];
-          node.querySelector(".product-info a").setAttribute("href", productURL[0]); //add link to name
-          document.querySelector(".productContainer").appendChild(node); //add new card 
-        }
+            var node = document.getElementById("productCardTmp").cloneNode(true);
+            node.id = productName;
+            node.className = "product-card-box";
+            //console.log(" validating image url");
+            console.log("product image url"+product[1]);
+            node.querySelector(".product-image img").setAttribute("src", product[1]); //add image
+            console.log("product url "+productURL[0]);
+            node.querySelector(".product-image img").setAttribute("href", productURL[0]); //add link to image
+            node.querySelector(".product-info h5").innerText = product[0]; // add name
+            console.log("product name "+product[0]);
+            node.querySelector(".product-info a").setAttribute("href", productURL[0]); //add link to name
+            document.querySelector(".productContainer").appendChild(node);} //add new card 
+        
     }
 
     function createBlog(){
-        //console.log("make blog");
         var productName = productRec[0];
         var product = gridTable[productName];
         var productURL = CATALOG[productName];
-		//console.log("blog src");
-		//console.log(productName);
-		//console.log(product);
 		console.log(" validating blog url");
 		validatingurl(product[3]); 
         document.querySelector(".blog-image img").setAttribute("src", product[3]);  // add blog image
@@ -630,8 +687,6 @@
        
         async function createProductPage(){
           await calculateProduct();
-		  //console.log(productRec); 
-		  //console.log(productRec.length);
           for(var i=0; i<productRec.length;i++){
             var x = productRec[i];
             gridTable[x] = [];
@@ -639,11 +694,17 @@
             await getProductInfo(productURLs[0],productRec[i]);
             await getBlogInfo(productURLs[1], productRec[i]);
           }
-          
+          console.log(gridTable);
           createBlog();
           createGrid();
-          document.querySelector("#container").style.backgroundColor = "white";
-          document.querySelector("#title").remove();
-          document.querySelector("#description").remove();
+         
+      }
+
+      function displayProductPage(){
+        document.querySelector("#container").style.backgroundColor = "white";
+        document.querySelector("#container").style.paddingTop = "50px";
+        document.querySelector("#title").remove();
+        document.querySelector("#description").remove();
+
       }
 	  </script>
