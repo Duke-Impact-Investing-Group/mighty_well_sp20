@@ -569,7 +569,6 @@ input.invalid {
               // If a field is empty...
               if (deviceChecks[i].checked) {
                   deviceUsed.push(deviceChecks[i].value);
-                 // document.getElementById("demo").innerHTML = "Device used: " + deviceUsed;
           }}
           console.log("Device used:" + deviceUsed);
           // https://api.jsonbin.io/b/5eb23bd48284f36af7b645fc
@@ -690,10 +689,8 @@ input.invalid {
             //var imageurl = siftingundefinedurl(product[1]); 
             node.querySelector(".product-image img").setAttribute("src", imageURL);
             //node.querySelector(".product-image img").setAttribute("src", imageurl); //add image
-            //console.log("product url "+productURL[0]);
             node.querySelector(".product-image a").setAttribute("href", productURL); //add link to image
            // var product_name = siftingundefinedname(product[0], productName); 
-            //console.log("product name "+product[0]);
             node.querySelector(".product-info h5").innerText = productName; // add name
 			// node.querySelector(".product-info h5").innerText = product_name; // add name
             node.querySelector(".product-info a").setAttribute("href", productURL); //add link to name
