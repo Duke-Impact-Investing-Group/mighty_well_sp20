@@ -6,7 +6,7 @@
   <!-- ------------------Gender---------------------------- -->
   <div class = "tab">
     <h3 class= "number"> - 1 - </h3>
-    <h2 class = "question"> What is your gender? </h2><br>
+    <h2 class = "question"> What is your gender? </h2>
     <div class="inputContainer">
         <p class = "input-options">
             <span class = "radio"><input type="radio" name="gender" value="male" >Male<br></span>
@@ -20,7 +20,7 @@
   <!-- ------------------Medical Devices-------------------------------- -->
   <div class="tab">
       <h3 class="number"> - 2 - </h3>
-      <h2 class="question"> What medical devices do you use?</h2><br>
+      <h2 class="question"> What medical devices do you use?</h2>
       <p class="input-options">
         <ul class="form-fixed">
           <li><input type="checkbox" name="meddev" value="EpiPen (Allergies) ">EpiPen<br></li>
@@ -42,7 +42,7 @@
    <!-- ------------------Medical Condition-------------------------------- -->
   <div class = "tab">
       <h3 class = "number"> - 3 - </h3>
-      <h2 class = "question"> Select all that apply to you! </h2> <br>
+      <h2 class = "question"> Select all that apply to you! </h2> 
       <p class="input-options">
         <ul class="form-fixed">
             <li><input type="checkbox" name="medcon" value="aplasticAnemia">Aplastic Anemia<br></li>
@@ -72,7 +72,7 @@
 
   <div class="tab">
       <h3 class="number"> - 4 - </h3>
-      <h2 class="question"> What are you looking to use Mighty Well products for? </h2><br>
+      <h2 class="question"> What are you looking to use Mighty Well products for? </h2>
       <p class="input-options">
         <ul class="form-fixed">
           <li><input type="checkbox" name="usecase" value="antibioticInfusion">Antibiotic Infusion<br></li>
@@ -98,13 +98,15 @@
   <div class="tab results">
 
  <!-- Loading page -->
+ <div class= "loading-container">
     <div class=" indicator"> 
-        <h2 style="color: black;">loading</h2>
-        <svg width="16px" height="12px">
+        <h6 style="color: black;">loading</h6>
+        <svg width="32px" height="24px">
         <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
         <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
         </svg>
     </div>
+</div>
 
     <div class = "hidden results-page">
         <div class="results-title">Just For You</div> <br>
@@ -271,7 +273,6 @@
         object-fit: cover;
         width: 200px;
         height: 300px;
-        float: right;
         margin-left: auto;
         margin-right: auto;
         }
@@ -286,8 +287,6 @@
 .product-card-box:hover{
     box-shadow: 3px 5px 3px #7bbf31;
     }
-
-   
 /* Styling the form questions */
 #regForm {
     background-color: #ffffff;
@@ -307,7 +306,7 @@
 
 .number {
     text-align: center;
-}
+    }   
 
 .question{
     text-align: center;
@@ -342,6 +341,11 @@ ul.checkbox li {
     padding: 7px;
     }
 
+.startOverBtn{
+    margin-left: auto;
+    margin-right: auto;
+    }
+
 .formBtn{
     width: 10em;
     height: 2.2em;
@@ -369,21 +373,24 @@ h1{
     text-align: center;
     font-size:35px;
     }
-h2{
+
+h6{
     margin-left:auto;
     margin-right:auto;
     text-align: center;
     font-size:10px;
-
 }
 
 h3{
     font-size:20px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
     }
 
 h5{
     font-size:18px;
-}
+    }
 
 #description {
     text-align: center;
@@ -459,30 +466,47 @@ input.invalid {
     display: none;
     }
 
-/*loading screen*/
 .hidden{
     display: none;
-}
+    }
+
+/*loading screen*/
+.loading-container{
+    height: 250px;
+    }
+
 .indicator{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%) scale(2);}
-  svg
-    polyline{
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;}
+    position: relative;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(2);
+    }
+
+.indicator svg{
+    display: block;
+    margin-left: 45%;
+    margin-right: auto;
+    }
+
+svg polyline{
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    }
 
 #back{
-    stroke: rgba(#89d638,.3);}
+    stroke: rgba(#89d638,.3);
+    }
 
 #front{
     stroke: #89d638;
     stroke-dasharray: 12, 36;
     stroke-dashoffset: 48;
-    animation: dash 1s linear infinite;}
+    animation: dash 1s linear infinite;
+    }
 
 @keyframes dash{
   62.5%
@@ -491,12 +515,12 @@ input.invalid {
     {stroke-dashoffset: 0;}}
     
 .cta{
-  position: fixed;
-  bottom: 20px;
-  right: 30px;
-  color: #222;
-  font-weight: bold;
-}
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    color: #222;
+    font-weight: bold;
+    }
 </style>
 
 <!-- JavaScript-->
@@ -535,6 +559,7 @@ input.invalid {
       function showTab(n) {
           // This function will display the specified tab of the form ...
           var x = document.getElementsByClassName("tab");
+          window.scrollTo(0, 120);
           x[n].style.display = "block";
           // ... and fix the Previous/Next buttons:
           if(n == x.length-1){
@@ -578,19 +603,17 @@ input.invalid {
               return false;
           }
 
-          if(currentTab==x.length-2){ 
-              }
-
           if(currentTab==x.length-1){ 
             createProductPage();
             displayProductPage();
-              document.querySelector(".all-btns").className += " hidden";
-              document.querySelector(".all-steps").className += " hidden";
-              
+            window.scrollTo(0, 100);        
+            document.querySelector(".all-btns").className += " hidden";
+            document.querySelector(".all-steps").className += " hidden";
             }
 
           // Otherwise, display the correct tab:
           showTab(currentTab);
+          
       }
 
       function validateForm() {
@@ -646,8 +669,8 @@ input.invalid {
                           break;
                       }
                     }
-                  console.log("Recommended device: "+ productRec);
-                 console.log("All jSON Data: " + req.responseText);
+                //console.log("Recommended device: "+ productRec);
+                //console.log("All jSON Data: " + req.responseText);
               }}
           };
           req.open("GET", "https://api.jsonbin.io/b/5eb23bd48284f36af7b645fc/3", true);
@@ -665,13 +688,12 @@ input.invalid {
         var urls = []; 
         var product_gridTable = gridTable[productName];
         $.get(proxyurl+url, function(data) { 
-        console.log("adding product");
+        //console.log("adding product");
         product_gridTable[0] = $('h1.product-single__title', data).html();
-        console.log("about to grab images");
+        //console.log("about to grab images");
          product_gridTable[1]  = $('.product-single__thumbnails img', data).attr('src');
-          console.log("image url: "+product_gridTable);
+          //console.log("image url: "+product_gridTable);
           });
-           
               setTimeout(() => {
                   resolve('resolved');
               }, 2500);
@@ -758,7 +780,7 @@ input.invalid {
 			// node.querySelector(".product-info h5").innerText = product_name; // add name
             node.querySelector(".product-info a").setAttribute("href", productURL); //add link to name
             document.querySelector(".productContainer").appendChild(node);} //add new card 
-            document.querySelector(".indicator").className+=" hidden";
+            document.querySelector(".loading-container").className+=" hidden";
             document.querySelector(".hidden.results-page").classList.remove("hidden");
             document.querySelector(".all-btns").classList.remove("hidden");
         
@@ -768,10 +790,10 @@ input.invalid {
         var productName = productRec[0];
         var product = gridTable[productName];
         var productURL = CATALOG[productName];
-        console.log("blog url " + product[3]);
+       // console.log("blog url " + product[3]);
         document.querySelector(".blog-image img").setAttribute("src", product[3]);  // add blog image
         document.querySelector(".blog-image a").setAttribute("href", productURL[1]); // add blog url to image
-        console.log("blog name " + product[2]);
+       // console.log("blog name " + product[2]);
         document.querySelector(".blog-name h4").innerText = product[2]; // add blog name
         document.querySelector(".blog-name a").setAttribute("href", productURL[1]); // add blog url to name
     }
@@ -779,17 +801,17 @@ input.invalid {
         async function createProductPage(){
           var x1 = await calculateProduct();
           var x2,x3;
-          console.log(x1);
+          //console.log(x1);
           for(var i=0; i<productRec.length;i++){
             var x = productRec[i];
             gridTable[x] = [];
             let productURLs = CATALOG[x];
             x2 = await getProductInfo(productURLs[0],x);
             x3 =await getBlogInfo(productURLs[1], x);
-            console.log("called product for creation: "+i);
+           // console.log("called product for creation: "+i);
           }
-          console.log(x2 + x3);
-          console.log(gridTable);
+          //console.log(x2 + x3);
+          //console.log(gridTable);
           createBlog();
           createGrid();
 
