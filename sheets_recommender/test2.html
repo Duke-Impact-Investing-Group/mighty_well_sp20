@@ -150,7 +150,7 @@
   <div style="overflow:auto;">
       <div style = "float:left;"></div>
           <p id="demo"></p>
-          <div style = "text-align: center;">
+          <div class = "all-btns" style = "text-align: center;">
           <button class ="formBtn" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
           <button class ="formBtn" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
           <button class ="formBtn" type="button" id="startOverBtn" onclick="location.reload()">Start Over</button>
@@ -574,10 +574,11 @@ input.invalid {
               }
 
           if(currentTab==x.length-1){ 
-              document.querySelectorAll(".formBtn").classList.add("hidden");
-              //document.querySelector("all-steps").classList.add("hidden");
-              createProductPage();
-              displayProductPage();
+            createProductPage();
+            displayProductPage();
+              document.querySelector(".all-btns").className += " hidden";
+              document.querySelector(".all-steps").className += " hidden";
+              
             }
 
           // Otherwise, display the correct tab:
@@ -638,7 +639,7 @@ input.invalid {
                       }
                     }
                   console.log("Recommended device: "+ productRec);
-                 // console.log("All jSON Data: " + req.responseText);
+                 console.log("All jSON Data: " + req.responseText);
               }}
           };
           req.open("GET", "https://api.jsonbin.io/b/5eb23bd48284f36af7b645fc/3", true);
@@ -647,7 +648,7 @@ input.invalid {
           return new Promise(resolve => {
               setTimeout(() => {
                   resolve('resolved');
-              }, 1000);
+              }, 2000);
           });}
 	  
 
@@ -660,12 +661,6 @@ input.invalid {
         product_gridTable[0] = $('h1.product-single__title', data).html();
         console.log("about to grab images");
          product_gridTable[1]  = $('.product-single__thumbnails img', data).attr('src');
-       /* console.log("grabbing images");
-            imgs.each(function(i, img) {
-            urls.push(img.src); 
-            console.log(imgs);
-            });
-          product_gridTable[1] = urls[3];*/
           console.log("image url: "+product_gridTable);
           });
            
@@ -755,9 +750,9 @@ input.invalid {
 			// node.querySelector(".product-info h5").innerText = product_name; // add name
             node.querySelector(".product-info a").setAttribute("href", productURL); //add link to name
             document.querySelector(".productContainer").appendChild(node);} //add new card 
-            document.querySelector(".indicator")+="hidden";
-            document.querySelector(".hidden.results-page").remove();
-            document.querySelector(".formBtn").classList.remove("hidden");
+            document.querySelector(".indicator").className+=" hidden";
+            document.querySelector(".hidden.results-page").classList.remove("hidden");
+            document.querySelector(".all-btns").classList.remove("hidden");
         
     }
 
@@ -774,14 +769,18 @@ input.invalid {
     }
        
         async function createProductPage(){
-          await calculateProduct();
+          var x1 = await calculateProduct();
+          var x2,x3;
+          console.log(x1);
           for(var i=0; i<productRec.length;i++){
             var x = productRec[i];
             gridTable[x] = [];
             let productURLs = CATALOG[x];
-            await getProductInfo(productURLs[0],x);
-            await getBlogInfo(productURLs[1], x);
+            x2 = await getProductInfo(productURLs[0],x);
+            x3 =await getBlogInfo(productURLs[1], x);
+            console.log("called product for creation: "+i);
           }
+          console.log(x2 + x3);
           console.log(gridTable);
           createBlog();
           createGrid();
