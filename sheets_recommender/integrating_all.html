@@ -12,11 +12,11 @@
     <h3 class= "number"> - 1 - </h3>
     <h2 class = "question"> What is your gender? </h2><br>
     <div class="inputContainer">
-    <span class = "input-options">
+    <p class = "input-options">
         <span class = "radio"><input type="radio" name="gender" value="male" >Male<br></span>
         <span class = "radio"><input type="radio" name="gender" value="female">Female<br></span>
         <span class = "radio"><input type="radio" name="gender" value="other">Other</span>
-    </span>
+    </p>
     </div>
   </div>
 
@@ -25,7 +25,7 @@
   <div class="tab">
       <h3 class="number"> - 2 - </h3>
       <h2 class="question"> What medical devices do you use?</h2><br>
-      <span class="input-options">
+      <p class="input-options">
         <ul>
           <!--<input type="checkbox" name="meddev" value="diabeticPumps">Diabetic Pumps<br>-->
           <li><input type="checkbox" name="meddev" value="EpiPen (Allergies) ">EpiPen<br></li>
@@ -36,7 +36,7 @@
           <li><input type="checkbox" name="meddev" value="Midlines">Midlines<br></li>
           <li> <input type="checkbox" name="meddev" value="Peripheral I.V.s">Peripheral IVs<br></li>
           <li><input type="checkbox" name="meddev" value="PICCLines">PICC Lines<br></li>
-         <!-- <li><input type="checkbox" name="meddev" value="Pills and Other Medications">Pills and Other Medications<br></li>-->
+          <li><input type="checkbox" name="meddev" value="Pills and Other Medications">Pills and Other Medications<br></li>
           <li><input type="checkbox" name="meddev" value="Port">Port<br></li>
           <li><input type="checkbox" name="meddev" value="TPN ">TPN<br></li>
           <li><input type="checkbox" name="meddev" value="Tube Feeding ">Feeding Tube<br></li>
@@ -44,14 +44,14 @@
           <li><input type="checkbox" name="meddev" value="Wheelchairs/Mobility Aids ">Wheelchairs/Mobility Aids<br></li>
           <li><input type="checkbox" name="meddev" value="Other">Other<br></li>
           </ul>
-      </span>
+        </p>
   </div>
 
    <!-- ------------------Medical Condition-------------------------------- -->
    <div class = "tab">
     <h3 class = "number"> - 3 - </h3>
     <h2 class = "question"> Select all that apply to you! </h2> <br>
-      <span class="input-options">
+      <p class="input-options">
       <ul>
        <li><input type="checkbox" name="medcon" value="aplasticAnemia">Aplastic Anemia<br></li>
        <li><input type="checkbox" name="medcon" value="behcets">Behcet's Syndrome<br></li>
@@ -75,7 +75,7 @@
         <li><input type="checkbox" name="medcon" value="uc" >Ulcerative Colitis (UC)<br></li>
         <li><input type="checkbox" name="medcon" value="other" >Other<br></li>
         </ul>
-      </span>
+      </p>
 </div>
 
   <!-- -----------------Use Case--------------------------------- -->
@@ -83,7 +83,7 @@
   <div class="tab">
       <h3 class="number"> - 4 - </h3>
       <h2 class="question"> What are you looking to use Mighty Well products for? </h2><br>
-      <span class="input-options">
+      <p class="input-options">
         <ul>
           <li><input type="checkbox" name="usecase" value="antibioticInfusion">Antibiotic Infusion<br></li>
           <li><input type="checkbox" name="usecase" value="chemotherapy">Chemotherapy<br></li>
@@ -100,7 +100,7 @@
           <li><input type="checkbox" name="usecase" value="tubeFeeding">Tube Feeding<br></li>
           <li><input type="checkbox" name="usecase" value="other">Other<br></li>
         </ul>
-      </span>
+      </p>
   </div>
 
   <div class="tab results">
@@ -236,7 +236,7 @@
         list-style: none; 
       }
 
-      .input-options{
+      p.input-options{
         margin:0 10px 0 10px;
         display: inline-block;
         text-align:left;
@@ -252,8 +252,8 @@
 
      #container{
         background-color:#edf9fc;
-        padding-top:100px;
-        padding-bottom:100px;
+        padding-top:80px;
+        padding-bottom:80px;
         padding-right:150px;
         padding-left:150px;
       }
@@ -385,11 +385,11 @@
 	<script src="https://code.jquery.com/jquery-1.6.4.js"></script>
   <script>
       const CATALOG ={
-        "PICCPerfect ": ["https://mighty-well.com/products/picc-line-cover-piccperfect-mighty-well?_pos=5&_sid=db99fc554&_ss=r", "https://blog.mighty-well.com/2017/07/adapting-to-the-picc-life/"],
+        "PICCPerfect": ["https://mighty-well.com/products/picc-line-cover-piccperfect-mighty-well?_pos=5&_sid=db99fc554&_ss=r", "https://blog.mighty-well.com/2017/07/adapting-to-the-picc-life/"],
         "MedPlanner":  ["https://mighty-well.com/collections/all/products/mighty-medplanner-medical-organizer","https://blog.mighty-well.com/2019/06/trying-out-the-mighty-medplanner-your-new-medical-organizer/"],
-        "Mighty Pack ": ["https://mighty-well.com/collections/all/products/medical-iv-infusion-backpack-for-patients","https://blog.mighty-well.com/2018/12/travel-without-worries-with-the-mighty-pack-the-best-backpack-for-friends-in-the-fight/"],
+        "Mighty Pack": ["https://mighty-well.com/collections/all/products/medical-iv-infusion-backpack-for-patients","https://blog.mighty-well.com/2018/12/travel-without-worries-with-the-mighty-pack-the-best-backpack-for-friends-in-the-fight/"],
         "Mighty Wrap": ["https://mighty-well.com/collections/all/products/the-mighty-jacket","https://blog.mighty-well.com/2017/06/learning-to-love-your-tube/"],
-        "Undefeated Wear":["https://mighty-well.com/collections/all/products/undefeated-t-shirt-heather-gray","https://blog.mighty-well.com/2019/11/mighty-well-fall-photoshoot/"]
+        "Undefeated Wear":["https://mighty-well.com/collections/all/products/gift-bundle-mighty-medplanner","https://blog.mighty-well.com/2019/11/mighty-well-fall-photoshoot/"]
       }
 
       const scriptURL = "https://script.google.com/macros/s/AKfycbxx4_QDeXS7AqXlU9WkYvDTvdY_dYHUMbZ-YdQK4SslU54ihug/exec"
@@ -572,10 +572,10 @@
 		  console.log(product); 
           var node = document.getElementById("productCardTmp").cloneNode(true);
           node.id = productName;
-          node.querySelector(".product-image img").setAttribute("src", product[1]);
-		  console.log(product[1]); 
+          node.querySelector(".product-image img").setAttribute("src", product[1]); // add image
+		  //console.log(product[1]); 
           node.querySelector(".product-image img").setAttribute("href", productURL[0]); //add link to image
-          node.querySelector(".product-info h5").innerText = product[0];
+          node.querySelector(".product-info h5").innerText = product[0]; // add name
           node.querySelector(".product-info a").setAttribute("href", productURL[0]); //add link to name
           document.querySelector(".productContainer").appendChild(node); //add new card 
         }

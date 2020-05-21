@@ -1,4 +1,4 @@
-	<!-- Note from Aneesh:  -->
+<!-- Note from Aneesh:  -->
 <!-- Right now printing to Console (Ctrl-F console.log) -->
 <!-- Can change this to instead print on a screen/store easily -->
 
@@ -214,7 +214,7 @@
 
 .blog-image img {
     object-fit: cover;
-    object-position: 50% 0%;
+    object-position: 50% -20%;
     height: auto;
     width: 100%;
     max-width: 750px;
@@ -522,11 +522,12 @@ input.invalid {
               document.getElementById("demo").innerHTML = "check";
               return false;
           }
-      
+
+          if(currentTab==x.length-2){ 
+              createProductPage();}
+
           if(currentTab==x.length-1){ 
-            //buildGridTable();
-            createProductPage();
-            displayProductPage();}
+              displayProductPage();}
 
           // Otherwise, display the correct tab:
           showTab(currentTab);
@@ -597,49 +598,41 @@ input.invalid {
 	  
 
         function getProductInfo(url, productName){
-        console.log("started to get product");
         var urls = []; 
+        $.get(proxyurl+url, function(data) { 
         var product_gridTable = gridTable[productName];
-        $.get(proxyurl+url, function(data) {  
-        console.log("adding new product");
         product_gridTable[0] = $('h1.product-single__title', data).html();
+        console.log("added name");
+        console.log(gridTable);
         var imgs = $('<div class= "product-single__photos" style="user-select: auto;">').html(data).find('img');
             imgs.each(function(i, img) {
             urls.push(img.src); 
             });
           product_gridTable[1] = urls[3];
+          console.log("added image url");
+          console.log(gridTable);
           });
-          while(product_gridTable[2]== "" || product_gridTable[3]==""){
-            if(product_gridTable[2]!= "" && product_gridTable[3]!=""){
-                console.log("shooud be full");
-                console.log(gridTable);
-                console.log("sending out product promise");
-                return new Promise(resolve => {
-                    setTimeout(() => {
-                        resolve('resolved');
-                    }, 1000);
-                 });
-            }
-          }
+        console.log('before ajax stop');
+        $(document).ajaxStop(function(){
+           return new Promise(resolve => {
+              setTimeout(() => {
+                  resolve('resolved');
+              }, 1000);
+          });})
         }
 
         function getBlogInfo(url, productName){
-        console.log("started too get blog");
+        console.log('adding blog');
           var urls = []; 
           var product_gridTable = gridTable[productName];
-          console.log("adding new blog");
-
           $.get(proxyurl+url, function(data) {
           product_gridTable[2] = $('h1.post-title',data).html();         
           product_gridTable[3]= $('div.post-image',data).find('a').attr('href');
-                
-                console.log("sending out blog promise");
-                return new Promise(resolve => {
-                    setTimeout(() => {
-                        resolve('resolved');
-                    }, 1000);
-                });
-          });}
+           return new Promise(resolve => {
+              setTimeout(() => {
+                  resolve('resolved');
+              }, 1000);
+          });});}
 
       //og: https://www.quora.com/How-do-detect-if-an-image-URL-s-isn-t-able-to-load-in-browser-side-Java-script
 		function validatingurl (url){
@@ -683,7 +676,7 @@ input.invalid {
         for(var i =0; i<Object.keys(gridTable).length; i++){
           var productLabel = productRec[i];
           console.log("product label: "+ productLabel);
-          const product = Object.getOwnPropertyDescriptor(gridTable, productLabel).value;
+          var product = Object.getOwnPropertyDescriptor(gridTable, productLabel).value;
         console.log("product from grid table: ");
         console.log(product)
           var productURLList =  CATALOG[productLabel];
@@ -725,37 +718,20 @@ input.invalid {
         document.querySelector(".blog-name a").setAttribute("href", productURL[1]); // add blog url to name
     }
        
-    /*async function buildGridTable(){
-        const result = await calculateProduct();
-        if(result == 'resolved'){
+        async function createProductPage(){
+        var x1 =  await calculateProduct();
           for(var i=0; i<productRec.length;i++){
             var x = productRec[i];
             gridTable[x] = [];
             let productURLs = CATALOG[productRec[i]];
-            await getProductInfo(productURLs[0],productRec[i]);
-            await getBlogInfo(productURLs[1], productRec[i]);
-          }}
-    }*/
-        async function createProductPage(){
-            const result = await calculateProduct();
-            var result2;
-            var result3;
-            if(result == 'resolved'){
-                for(var i=0; i<productRec.length;i++){
-                    var x = productRec[i];
-                    gridTable[x] = [];
-                    let productURLs = CATALOG[productRec[i]];
-              result2 = await getProductInfo(productURLs[0],productRec[i]);
-              result3 = await getBlogInfo(productURLs[1], productRec[i]);
-              console.log(gridTable);
-          }}
-          console.log(result2 + result3);
-          //console.log(gridTable);
-          if(result2 =='resolved' && result3 == 'resolved'){
+         var x2 = await getProductInfo(productURLs[0],productRec[i]);
+         console.log(x2);
+         var x3 = await getBlogInfo(productURLs[1], productRec[i]);
+          }
+          console.log(gridTable);
           createBlog();
-          createGrid();}
-        
-          
+          createGrid();
+
       }
 
       function displayProductPage(){

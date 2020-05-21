@@ -1,7 +1,3 @@
-	<!-- Note from Aneesh:  -->
-<!-- Right now printing to Console (Ctrl-F console.log) -->
-<!-- Can change this to instead print on a screen/store easily -->
-
 <form id = "survey-form" action= "">
   <div id = "container">
   <h1 id="title">Product Finder</h1>
@@ -522,11 +518,13 @@ input.invalid {
               document.getElementById("demo").innerHTML = "check";
               return false;
           }
-      
+
+          if(currentTab==x.length-2){ 
+              }
+
           if(currentTab==x.length-1){ 
-            //buildGridTable();
-            createProductPage();
-            displayProductPage();}
+              createProductPage();
+              displayProductPage();}
 
           // Otherwise, display the correct tab:
           showTab(currentTab);
@@ -581,9 +579,12 @@ input.invalid {
                     for(var j = 0;j<prodList.length;j++){
                       if(!productRec.includes(prodList[j])){
                       productRec.push(prodList[j]);}
+                      if(productRec.length>4){
+                          break;
+                      }
                     }
                   console.log("Recommended device: "+ productRec);
-                  console.log("All jSON Data: " + req.responseText);
+                 // console.log("All jSON Data: " + req.responseText);
               }}
           };
           req.open("GET", "https://api.jsonbin.io/b/5eb23bd48284f36af7b645fc/3", true);
@@ -592,54 +593,44 @@ input.invalid {
           return new Promise(resolve => {
               setTimeout(() => {
                   resolve('resolved');
-              }, 2000);
+              }, 1000);
           });}
 	  
 
         function getProductInfo(url, productName){
-        console.log("started to get product");
+        return new Promise(resolve => {
         var urls = []; 
         var product_gridTable = gridTable[productName];
-        $.get(proxyurl+url, function(data) {  
-        console.log("adding new product");
+        $.get(proxyurl+url, function(data) { 
+        console.log("adding product");
         product_gridTable[0] = $('h1.product-single__title', data).html();
-        var imgs = $('<div class= "product-single__photos" style="user-select: auto;">').html(data).find('img');
+        console.log("about to grab images");
+         product_gridTable[1]  = $('.product-single__photos img', data).attr('src');
+       /* console.log("grabbing images");
             imgs.each(function(i, img) {
             urls.push(img.src); 
+            console.log(imgs);
             });
-          product_gridTable[1] = urls[3];
+          product_gridTable[1] = urls[3];*/
+          console.log("image url: "+product_gridTable);
           });
-          while(product_gridTable[2]== "" || product_gridTable[3]==""){
-            if(product_gridTable[2]!= "" && product_gridTable[3]!=""){
-                console.log("shooud be full");
-                console.log(gridTable);
-                console.log("sending out product promise");
-                return new Promise(resolve => {
-                    setTimeout(() => {
-                        resolve('resolved');
-                    }, 1000);
-                 });
-            }
-          }
-        }
+           
+              setTimeout(() => {
+                  resolve('resolved');
+              }, 2500);
+          });}
 
         function getBlogInfo(url, productName){
-        console.log("started too get blog");
+        return new Promise(resolve => {
           var urls = []; 
           var product_gridTable = gridTable[productName];
-          console.log("adding new blog");
-
           $.get(proxyurl+url, function(data) {
           product_gridTable[2] = $('h1.post-title',data).html();         
           product_gridTable[3]= $('div.post-image',data).find('a').attr('href');
-                
-                console.log("sending out blog promise");
-                return new Promise(resolve => {
-                    setTimeout(() => {
-                        resolve('resolved');
-                    }, 1000);
-                });
-          });}
+              setTimeout(() => {
+                  resolve('resolved');
+              }, 2000);
+          });});}
 
       //og: https://www.quora.com/How-do-detect-if-an-image-URL-s-isn-t-able-to-load-in-browser-side-Java-script
 		function validatingurl (url){
@@ -683,7 +674,7 @@ input.invalid {
         for(var i =0; i<Object.keys(gridTable).length; i++){
           var productLabel = productRec[i];
           console.log("product label: "+ productLabel);
-          const product = Object.getOwnPropertyDescriptor(gridTable, productLabel).value;
+          var product = Object.getOwnPropertyDescriptor(gridTable, productLabel).value;
         console.log("product from grid table: ");
         console.log(product)
           var productURLList =  CATALOG[productLabel];
@@ -725,37 +716,19 @@ input.invalid {
         document.querySelector(".blog-name a").setAttribute("href", productURL[1]); // add blog url to name
     }
        
-    /*async function buildGridTable(){
-        const result = await calculateProduct();
-        if(result == 'resolved'){
+        async function createProductPage(){
+          await calculateProduct();
           for(var i=0; i<productRec.length;i++){
             var x = productRec[i];
             gridTable[x] = [];
-            let productURLs = CATALOG[productRec[i]];
-            await getProductInfo(productURLs[0],productRec[i]);
-            await getBlogInfo(productURLs[1], productRec[i]);
-          }}
-    }*/
-        async function createProductPage(){
-            const result = await calculateProduct();
-            var result2;
-            var result3;
-            if(result == 'resolved'){
-                for(var i=0; i<productRec.length;i++){
-                    var x = productRec[i];
-                    gridTable[x] = [];
-                    let productURLs = CATALOG[productRec[i]];
-              result2 = await getProductInfo(productURLs[0],productRec[i]);
-              result3 = await getBlogInfo(productURLs[1], productRec[i]);
-              console.log(gridTable);
-          }}
-          console.log(result2 + result3);
-          //console.log(gridTable);
-          if(result2 =='resolved' && result3 == 'resolved'){
+            let productURLs = CATALOG[x];
+            await getProductInfo(productURLs[0],x);
+            await getBlogInfo(productURLs[1], x);
+          }
+          console.log(gridTable);
           createBlog();
-          createGrid();}
-        
-          
+          createGrid();
+
       }
 
       function displayProductPage(){
