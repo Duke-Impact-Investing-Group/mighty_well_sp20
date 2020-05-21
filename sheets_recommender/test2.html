@@ -93,27 +93,39 @@
       </p>
   </div>
 
+
   <!-- Results Page -->
   <div class="tab results">
-    <div class="results-title">Just For You</div> <br>
-    <div class="results-description">Enjoy these Mighty Well products and specially curated blog posts just for you!</div> <br>
-    <span class = "rec-blog-title"> Blog Posts for You </span>
-        <section class = "blogContainer">
-            <div class = "blog-image">
-                <a href = "" target="_blank">
-                    <img src = "">
-                </a>
-            </div><br>
-            <div class = "blog-name">
-                <a href="">
-                    <h4></h4>
-                </a>
-            </div>
-        </section>
-    <hr>
-    <span class="rec-product-title"> Mighty Well Products For You</span>
-        <section class="productContainer">
-        </section>  
+
+ <!-- Loading page -->
+    <div class=" indicator"> 
+        <svg width="16px" height="12px">
+        <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+        <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+        </svg>
+    </div>
+
+    <div class = "hidden results-page">
+        <div class="results-title">Just For You</div> <br>
+        <div class="results-description">Enjoy these Mighty Well products and specially curated blog posts just for you!</div> <br>
+        <span class = "rec-blog-title"> Blog Posts for You </span>
+            <section class = "blogContainer">
+                <div class = "blog-image">
+                    <a href = "" target="_blank">
+                        <img src = "">
+                    </a>
+                </div><br>
+                <div class = "blog-name">
+                    <a href="">
+                        <h4></h4>
+                    </a>
+                </div>
+            </section>
+        <hr>
+        <span class="rec-product-title"> Mighty Well Products For You</span>
+            <section class="productContainer">
+            </section>  
+    </div>
   </div>
 
   <!-- Product Card Template -->
@@ -147,7 +159,7 @@
   </div>
 
   <!-- Circles which indicates the steps of the form: -->
-  <div style="text-align:center;margin-top:40px;">
+  <div class = "all-steps" style="text-align:center;margin-top:40px;">
       <span class="step"></span>
       <span class="step"></span>
       <span class="step"></span>
@@ -438,6 +450,45 @@ input.invalid {
 #template{
     display: none;
     }
+
+/*loading screen*/
+.hidden{
+    display: none;
+}
+.indicator{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(2);}
+  svg
+    polyline{
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;}
+
+#back{
+    stroke: rgba(#89d638,.3);}
+
+#front{
+    stroke: #89d638;
+    stroke-dasharray: 12, 36;
+    stroke-dashoffset: 48;
+    animation: dash 1s linear infinite;}
+
+@keyframes dash{
+  62.5%
+    {opacity: 0;}
+  to 
+    {stroke-dashoffset: 0;}}
+    
+.cta{
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  color: #222;
+  font-weight: bold;
+}
 </style>
 
 <!-- JavaScript-->
@@ -523,8 +574,11 @@ input.invalid {
               }
 
           if(currentTab==x.length-1){ 
+              document.querySelectorAll(".formBtn").classList.add("hidden");
+              //document.querySelector("all-steps").classList.add("hidden");
               createProductPage();
-              displayProductPage();}
+              displayProductPage();
+            }
 
           // Otherwise, display the correct tab:
           showTab(currentTab);
@@ -605,7 +659,7 @@ input.invalid {
         console.log("adding product");
         product_gridTable[0] = $('h1.product-single__title', data).html();
         console.log("about to grab images");
-         product_gridTable[1]  = $('.product-single__photos img', data).attr('src');
+         product_gridTable[1]  = $('.product-single__thumbnails img', data).attr('src');
        /* console.log("grabbing images");
             imgs.each(function(i, img) {
             urls.push(img.src); 
@@ -701,6 +755,9 @@ input.invalid {
 			// node.querySelector(".product-info h5").innerText = product_name; // add name
             node.querySelector(".product-info a").setAttribute("href", productURL); //add link to name
             document.querySelector(".productContainer").appendChild(node);} //add new card 
+            document.querySelector(".indicator")+="hidden";
+            document.querySelector(".hidden.results-page").remove();
+            document.querySelector(".formBtn").classList.remove("hidden");
         
     }
 
