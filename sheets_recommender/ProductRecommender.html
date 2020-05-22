@@ -1,4 +1,6 @@
 <form id = "survey-form" action= "">
+
+<!-- Form Start -->
   <div id = "container">
   <h1 id="title">Product Finder</h1>
   <div id="description">Answer the 4 questions below, and we will recommend a Mighty Well Product and blog posts just for you!</div>
@@ -15,7 +17,6 @@
         </p>
     </div>
   </div>
-
    
   <!-- ------------------Medical Devices-------------------------------- -->
   <div class="tab">
@@ -69,7 +70,6 @@
 </div>
 
   <!-- -----------------Use Case--------------------------------- -->
-
   <div class="tab">
       <h3 class="number"> - 4 - </h3>
       <h2 class="question"> What are you looking to use Mighty Well products for? </h2>
@@ -93,12 +93,11 @@
       </p>
   </div>
 
-
   <!-- Results Page -->
   <div class="tab results">
 
  <!-- Loading page -->
- <div class= "loading-container">
+ <div class= "loading-container"> 
     <div class=" indicator"> 
         <h6 style="color: black;">loading</h6>
         <svg width="32px" height="24px">
@@ -526,21 +525,11 @@ svg polyline{
 <!-- JavaScript-->
 <script src="https://code.jquery.com/jquery-1.6.4.js"></script>
 <script>
-      
-      const CATALOG = {
-        "PICCPerfect": ["https://mighty-well.com/products/picc-line-cover-piccperfect-mighty-well?_pos=5&_sid=db99fc554&_ss=r", "https://blog.mighty-well.com/2017/07/adapting-to-the-picc-life/"],
-        "MedPlanner":  ["https://mighty-well.com/collections/all/products/mighty-medplanner-medical-organizer","https://blog.mighty-well.com/2019/06/trying-out-the-mighty-medplanner-your-new-medical-organizer/"],
-        "Mighty Pack": ["https://mighty-well.com/collections/all/products/medical-iv-infusion-backpack-for-patients","https://blog.mighty-well.com/2018/12/travel-without-worries-with-the-mighty-pack-the-best-backpack-for-friends-in-the-fight/"],
-        "Mighty Wrap": ["https://mighty-well.com/collections/all/products/the-mighty-jacket","https://blog.mighty-well.com/2017/06/learning-to-love-your-tube/"],
-        "Undefeated Wear":["https://mighty-well.com/collections/all/products/gift-bundle-mighty-medplanner","https://blog.mighty-well.com/2019/11/mighty-well-fall-photoshoot/"]
-      }
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxx4_QDeXS7AqXlU9WkYvDTvdY_dYHUMbZ-YdQK4SslU54ihug/exec";  
+    const form = document.forms[0];
 
-      const scriptURL = "https://script.google.com/macros/s/AKfycbxx4_QDeXS7AqXlU9WkYvDTvdY_dYHUMbZ-YdQK4SslU54ihug/exec"
-      const form = document.forms[0]
-      const proxyurl = "https://cors-anywhere.herokuapp.com/";
-
-
-      form.addEventListener("submit", e => {
+    // Adds the selected data entries in the form to the spreadsheet defined in const scriptURL
+    form.addEventListener("submit", e => {
           e.preventDefault()
           fetch(scriptURL, {
               method: "POST",
@@ -548,67 +537,83 @@ svg polyline{
               })
               .then(response => console.log("Success!", response))
               .catch(error => console.error("Error!", error.message))
-          })
+        })
 
-      var currentTab = 0; // Current tab is set to be the first tab (0)
-      var productRec = [];
-      var gridTable = new Object;
-      
-      showTab(currentTab); // Display the current tab
-		
-      function showTab(n) {
-          // This function will display the specified tab of the form ...
-          var x = document.getElementsByClassName("tab");
-          window.scrollTo(0, 120);
-          x[n].style.display = "block";
-          // ... and fix the Previous/Next buttons:
-          if(n == x.length-1){
-            document.getElementById("prevBtn").style.display = "none";
-            document.getElementById("nextBtn").style.display = "none";
-            document.getElementById("finalsub").style.display = "none";
-            document.getElementById("startOverBtn").style.display="inline";
-          }
-          else{
-          document.getElementById("startOverBtn").style.display="none";
+    const CATALOG = {
+        "PICCPerfect": ["https://mighty-well.com/products/picc-line-cover-piccperfect-mighty-well?_pos=5&_sid=db99fc554&_ss=r", "https://blog.mighty-well.com/2017/07/adapting-to-the-picc-life/"],
+        "MedPlanner":  ["https://mighty-well.com/collections/all/products/mighty-medplanner-medical-organizer","https://blog.mighty-well.com/2019/06/trying-out-the-mighty-medplanner-your-new-medical-organizer/"],
+        "Mighty Pack": ["https://mighty-well.com/collections/all/products/medical-iv-infusion-backpack-for-patients","https://blog.mighty-well.com/2018/12/travel-without-worries-with-the-mighty-pack-the-best-backpack-for-friends-in-the-fight/"],
+        "Mighty Wrap": ["https://mighty-well.com/collections/all/products/the-mighty-jacket","https://blog.mighty-well.com/2017/06/learning-to-love-your-tube/"],
+        "Undefeated Wear":["https://mighty-well.com/collections/all/products/gift-bundle-mighty-medplanner","https://blog.mighty-well.com/2019/11/mighty-well-fall-photoshoot/"]
+    }
+       
+    const proxyurl = "https://cors-anywhere.herokuapp.com/";
+    var currentTab = 0; // Current tab is set to be the first tab (0)
+    var productRec = [];
+    var gridTable = new Object;
+    
+    showTab(currentTab); // Display the current tab  
 
-          if (n == 0) {
-              document.getElementById("prevBtn").style.display = "none";
-          } else {
-              document.getElementById("prevBtn").style.display = "inline";
-          }
-          if (n == (x.length - 2)) {
-              document.getElementById("finalsub").style.display = "inline";
-              document.getElementById("nextBtn").style.display = "none";
-          } else {
-              document.getElementById("nextBtn").style.display = "inline";
-              document.getElementById("finalsub").style.display = "none";
+	// This function will display the specified tab of the form
+    function showTab(n) { 
+        window.scrollTo(0, 120); // Scrolls new tab to top of the page
+        var x = document.getElementsByClassName("tab");
+        x[n].style.display = "block";
+        // Fix the Previous/Next buttons:
 
-          }}
-          // ... and run a function that displays the correct step indicator:
-          fixStepIndicator(n)
-      }
+        // Results page
+        if(n == x.length-1){                           
+            document.getElementById("prevBtn").style.display = "none";      // Hide previous button
+            document.getElementById("nextBtn").style.display = "none";      // Hide next button
+            document.getElementById("finalsub").style.display = "none";     // Hide submit button
+            document.getElementById("startOverBtn").style.display="inline"; // Show start over button
+            }
+        else{
+        document.getElementById("startOverBtn").style.display="none";   // Hide start over button
+
+        // First question
+            if (n == 0) {
+                document.getElementById("prevBtn").style.display = "none";   // Hide previous button
+            } 
+            else {
+                document.getElementById("prevBtn").style.display = "inline"; // Show previous button
+            }
+        //Last question
+            if (n == (x.length - 2)) {
+                document.getElementById("finalsub").style.display = "inline"; // Show submit button
+                document.getElementById("nextBtn").style.display = "none";    // Hide next button
+            } 
+            else {
+                document.getElementById("nextBtn").style.display = "inline";  // Show next button
+                document.getElementById("finalsub").style.display = "none";   // Hide submit button
+                }
+        }
+        // ... and run a function that displays the correct step indicator:
+        fixStepIndicator(n)
+    }
 
       function nextPrev(n) {
-          // This function will figure out which tab to display
+        // This function will figure out which tab to display
           var x = document.getElementsByClassName("tab");
-          // Exit the function if any field in the current tab is invalid:
+        // Exit the function if any field in the current tab is invalid:
           if (n == 1 && !validateForm()) return false;
-          // Hide the current tab:
+        // Hide the current tab:
           x[currentTab].style.display = "none";
-          // Increase or decrease the current tab by 1:
+        // Increase or decrease the current tab by 1:
           currentTab = currentTab + n;
-          // if you have reached the end of the form... :
+        // if you have reached the end of the form... :
           if (currentTab >= x.length) {
               document.getElementById("demo").innerHTML = "check";
               return false;
           }
 
+         //When submit page is clicked 
           if(currentTab==x.length-1){ 
-            createProductPage();
-            displayProductPage();
-            window.scrollTo(0, 100);        
-            document.querySelector(".all-btns").className += " hidden";
-            document.querySelector(".all-steps").className += " hidden";
+            createProductPage();        //Create the product page
+            displayProductPage();       //Remove the blue box, title, and description
+            window.scrollTo(0, 100);    //Scroll to the top of the window
+            document.querySelector(".all-btns").className += " hidden";   // Hide all the buttons during the loading page
+            document.querySelector(".all-steps").className += " hidden";  // Hide the green circles indicating steps
             }
 
           // Otherwise, display the correct tab:
@@ -644,30 +649,27 @@ svg polyline{
       }
 
       function calculateProduct() {
-       // console.log("break 3");
-			//console.log("calcProduct");
           var deviceChecks = document.getElementsByName("meddev");
           var deviceUsed = [];
           for (i = 0; i < deviceChecks.length; i++) {
-              // If a field is empty...
+              // If a field is checked, add device to devicedUsed
               if (deviceChecks[i].checked) {
                   deviceUsed.push(deviceChecks[i].value);
           }}
-          console.log("Device used:" + deviceUsed);
+          // console.log("Device used:" + deviceUsed); -> Prints out the devices that the user selected
           // https://api.jsonbin.io/b/5eb23bd48284f36af7b645fc
-          let req = new XMLHttpRequest();
 
+          let req = new XMLHttpRequest();
           req.onreadystatechange = () => {
               if (req.readyState == XMLHttpRequest.DONE) {
                   var jsonData = JSON.parse(req.responseText);
+
+                // Add all the recommended products to productRec array
                   for(i = 0; i<deviceUsed.length;i++){
                     var prodList = jsonData[deviceUsed[i]];
                     for(var j = 0;j<prodList.length;j++){
                       if(!productRec.includes(prodList[j])){
-                      productRec.push(prodList[j]);}
-                      if(productRec.length>4){
-                          break;
-                      }
+                        productRec.push(prodList[j]);}
                     }
                 //console.log("Recommended device: "+ productRec);
                 //console.log("All jSON Data: " + req.responseText);
@@ -676,151 +678,143 @@ svg polyline{
           req.open("GET", "https://api.jsonbin.io/b/5eb23bd48284f36af7b645fc/3", true);
           req.send();
 
+          // Makes sure that the requests are received before creating the product page
           return new Promise(resolve => {
               setTimeout(() => {
                   resolve('resolved');
               }, 2000);
-          });}
-	  
-
-        function getProductInfo(url, productName){
-        return new Promise(resolve => {
-        var urls = []; 
-        var product_gridTable = gridTable[productName];
-        $.get(proxyurl+url, function(data) { 
-        //console.log("adding product");
-        product_gridTable[0] = $('h1.product-single__title', data).html();
-        //console.log("about to grab images");
-         product_gridTable[1]  = $('.product-single__thumbnails img', data).attr('src');
-          //console.log("image url: "+product_gridTable);
           });
-              setTimeout(() => {
-                  resolve('resolved');
-              }, 2500);
-          });}
-
-        function getBlogInfo(url, productName){
+        }
+	  
+    // This function gets the product name and image links 
+    function getProductInfo(url, productName){
         return new Promise(resolve => {
-          var urls = []; 
-          var product_gridTable = gridTable[productName];
-          $.get(proxyurl+url, function(data) {
-          product_gridTable[2] = $('h1.post-title',data).html();         
-          product_gridTable[3]= $('div.post-image',data).find('a').attr('href');
-              setTimeout(() => {
-                  resolve('resolved');
-              }, 2000);
-          });});}
+            var urls = []; 
+            var product_gridTable = gridTable[productName];
+            $.get(proxyurl+url, function(data) { 
+                product_gridTable[0] = $('h1.product-single__title', data).html(); // grabbing product name from shop page
+                product_gridTable[1]  = $('.product-single__thumbnails img', data).attr('src'); // grabbing product image url from shop page
+            });
+            // Makes sure that the requests are received before creating the product page
+            setTimeout(() => {
+                resolve('resolved');
+            }, 2500);
+        });
+    }
 
-      //og: https://www.quora.com/How-do-detect-if-an-image-URL-s-isn-t-able-to-load-in-browser-side-Java-script
-		function validatingurl (url){
-			fetch(proxyurl+url, { method: 'HEAD' })
-				.then(res => {
-					if (res.ok) {
-					//	console.log("working url image"); 
-						return true; 
-					} else {
-					//	console.log("not working"); 
-						console.log(url); 
-						return false;
-					}
-				}).catch(err => console.log('Error:', err));
-		} 
-		
-		function siftingundefinedurl(url){
-			if (url == undefined){
-				const backupurl = "https://media-exp1.licdn.com/dms/image/C510BAQHyvU-y9nCIoQ/company-logo_200_200/0?e=2159024400&v=beta&t=sgqg7XGUctmF9h5H5-_OWSJIOfhFnkhwEyBBqgLsITo" ; 
-				//console.log("doesnt work");
-				return backupurl; 
-			}
-			else{
-				console.log("works"); 
-				return url; 
-			}
-		}
-		function siftingundefinedname(product_name, productName){
-			if (product_name == undefined){
-				//console.log("dont works"); 
-				return productName; 
-			}
-			else{
-				console.log("works"); 
-				return product_name; 
-			}
-		}
+    // This function gets the blog name and image links 
+    function getBlogInfo(url, productName){
+        return new Promise(resolve => {
+            var urls = []; 
+            var product_gridTable = gridTable[productName];
+            $.get(proxyurl+url, function(data) {
+                product_gridTable[2] = $('h1.post-title',data).html();          //grabbing the blog name from the blog link 
+                product_gridTable[3]= $('div.post-image',data).find('a').attr('href');  //grabbing the blog image from the blog link 
+            // Makes sure that the requests are received before creating the product page
+            setTimeout(() => {
+                resolve('resolved');
+                }, 2000);
+            });
+        });
+    }
 
-      function createGrid(){
-          console.log(gridTable);
-        for(var i =0; i<Object.keys(gridTable).length; i++){
-          var productLabel = productRec[i];
-          console.log("product label: "+ productLabel);
-          var product = Object.getOwnPropertyDescriptor(gridTable, productLabel).value;
-        console.log("product from grid table: ");
-        console.log(product)
-          var productURLList =  CATALOG[productLabel];
-          console.log("product urls: ")
-          console.log(productURLList);
+    // Used to add the MW logo if the picture doesn't load
+    function validatingurl (url){
+        fetch(proxyurl+url, { method: 'HEAD' })
+            .then(res => {
+                if (res.ok) {
+                //	console.log("working url image"); 
+                    return true; 
+                } else {
+                //	console.log("not working"); 
+                    console.log(url); 
+                    return false;
+                }
+            }).catch(err => console.log('Error:', err));
+    } 
 
-          var imageURL = product[1];
-          var productName = product[0];
-          var productURL = productURLList[0];
-          console.log("image url: "+imageURL);
-          console.log("product name: "+productName);
-          console.log("product url: "+productURL);
+    // Used to add the MW logo if the picture doesn't load
+    function siftingundefinedurl(url){
+        if (url == undefined){
+            const backupurl = "https://media-exp1.licdn.com/dms/image/C510BAQHyvU-y9nCIoQ/company-logo_200_200/0?e=2159024400&v=beta&t=sgqg7XGUctmF9h5H5-_OWSJIOfhFnkhwEyBBqgLsITo" ; 
+            return backupurl; 
+        }
+        else{
+            console.log("works"); 
+            return url; 
+        }
+    }
 
-            var node = document.getElementById("productCardTmp").cloneNode(true);
-            node.id = productLabel;
-            node.className = "product-card-box";
-            console.log("product image url"+product[1]);
-            //var imageurl = siftingundefinedurl(product[1]); 
-            node.querySelector(".product-image img").setAttribute("src", imageURL);
-            //node.querySelector(".product-image img").setAttribute("src", imageurl); //add image
-            node.querySelector(".product-image a").setAttribute("href", productURL); //add link to image
-           // var product_name = siftingundefinedname(product[0], productName); 
-            node.querySelector(".product-info h5").innerText = productName; // add name
-			// node.querySelector(".product-info h5").innerText = product_name; // add name
-            node.querySelector(".product-info a").setAttribute("href", productURL); //add link to name
-            document.querySelector(".productContainer").appendChild(node);} //add new card 
-            document.querySelector(".loading-container").className+=" hidden";
-            document.querySelector(".hidden.results-page").classList.remove("hidden");
-            document.querySelector(".all-btns").classList.remove("hidden");
-        
+    // Used to add the MW logo if the picture doesn't load
+    function siftingundefinedname(product_name, productName){
+        if (product_name == undefined){
+            return productName; 
+        }
+        else{
+            console.log("works"); 
+            return product_name; 
+        }
+    }
+
+    function createGrid(){
+    for(var i =0; i<Object.keys(gridTable).length; i++){
+        var productLabel = productRec[i];
+        var product = Object.getOwnPropertyDescriptor(gridTable, productLabel).value;
+        var productURLList =  CATALOG[productLabel];
+
+        var imageURL = product[1];
+        var productName = product[0];
+        var productURL = productURLList[0];
+
+        //console.log("image url: "+imageURL); 
+        //console.log("product name: "+productName);
+        //console.log("product url: "+productURL);
+
+        // Populate the grid with each product card
+        var node = document.getElementById("productCardTmp").cloneNode(true); // node = copy of the html code under the id "productCardTmp"
+        node.id = productLabel;  // Add an id for the new card that = the name of the product
+        node.className = "product-card-box";
+        node.querySelector(".product-image img").setAttribute("src", imageURL); // add image
+        node.querySelector(".product-image a").setAttribute("href", productURL); // add link to image
+        node.querySelector(".product-info h5").innerText = productName; // add name
+        node.querySelector(".product-info a").setAttribute("href", productURL); // add link to name
+        document.querySelector(".productContainer").appendChild(node); // add new product card to the grid
+        } 
+
+        //After all the cards are added to the results page, hide the loading page, show the results page and startover button
+        document.querySelector(".loading-container").className+=" hidden";
+        document.querySelector(".hidden.results-page").classList.remove("hidden");
+        document.querySelector(".all-btns").classList.remove("hidden");
+
     }
 
     function createBlog(){
         var productName = productRec[0];
         var product = gridTable[productName];
         var productURL = CATALOG[productName];
-       // console.log("blog url " + product[3]);
         document.querySelector(".blog-image img").setAttribute("src", product[3]);  // add blog image
         document.querySelector(".blog-image a").setAttribute("href", productURL[1]); // add blog url to image
-       // console.log("blog name " + product[2]);
         document.querySelector(".blog-name h4").innerText = product[2]; // add blog name
         document.querySelector(".blog-name a").setAttribute("href", productURL[1]); // add blog url to name
     }
-       
-        async function createProductPage(){
-          var x1 = await calculateProduct();
-          var x2,x3;
-          //console.log(x1);
-          for(var i=0; i<productRec.length;i++){
+        
+    async function createProductPage(){
+        await calculateProduct();                   // Calculate what products to recommend and save them in productRec array
+        for(var i=0; i<productRec.length;i++){      // For every product in productRec, retrieve the image url and the name
             var x = productRec[i];
             gridTable[x] = [];
             let productURLs = CATALOG[x];
-            x2 = await getProductInfo(productURLs[0],x);
-            x3 =await getBlogInfo(productURLs[1], x);
-           // console.log("called product for creation: "+i);
-          }
-          //console.log(x2 + x3);
-          //console.log(gridTable);
-          createBlog();
-          createGrid();
+            await getProductInfo(productURLs[0],x);
+            await getBlogInfo(productURLs[1], x);
+        }
+        createBlog();                           // Create the blog picture + name part of the results page
+        createGrid();                           // Create the product grid on the results page
+    }
 
-      }
-
-      function displayProductPage(){
-        document.querySelector("#container").style.backgroundColor = "white";
-        document.querySelector("#container").style.paddingTop = "50px";
-        document.querySelector("#title").remove();
-        document.querySelector("#description").remove();
-      }
-	  </script>
+    function displayProductPage(){
+        document.querySelector("#container").style.backgroundColor = "white";  //Container changes from blue to white
+        document.querySelector("#container").style.paddingTop = "50px";        //Container padding is reset
+        document.querySelector("#title").remove();                             //Remove "Product Finder" title
+        document.querySelector("#description").remove();                       //Remove the description that was on the question pages
+    }
+ </script>
