@@ -1,0 +1,782 @@
+<form id = "survey-form" action= "">
+
+<!-- Form Start -->
+  <div id = "container">
+  <h1 id="title">Product Finder</h1>
+  <div id="description">Answer the 4 questions below, and we will recommend a Mighty Well Product and blog posts just for you!</div>
+
+  <!-- ------------------Gender---------------------------- -->
+  <div class = "tab">
+    <h3 class= "number"> - 1 - </h3>
+    <h2 class = "question"> What is your gender? </h2>
+    <div class="inputContainer">
+        <p class = "input-options">
+            <span class = "radio"><input type="radio" name="gender" value="male" >Male<br></span>
+            <span class = "radio"><input type="radio" name="gender" value="female">Female<br></span>
+            <span class = "radio"><input type="radio" name="gender" value="other">Other</span>
+        </p>
+    </div>
+  </div>
+   
+  <!-- ------------------Medical Devices-------------------------------- -->
+  <div class="tab">
+      <h3 class="number"> - 2 - </h3>
+      <h2 class="question"> What medical devices do you use?</h2>
+      <p class="input-options">
+        <ul class="form-fixed">
+          <li><input type="checkbox" name="meddev" value="EpiPen (Allergies) ">EpiPen<br></li>
+          <li><input type="checkbox" name="meddev" value="Diabetic Supplies">Diabetic Supplies<br></li>
+          <li><input type="checkbox" name="meddev" value="Mastectomy Drains">Mastectomy Drains<br></li>
+          <li><input type="checkbox" name="meddev" value="Midlines">Midlines<br></li>
+          <li> <input type="checkbox" name="meddev" value="Peripheral I.V.s">Peripheral IVs<br></li>
+          <li><input type="checkbox" name="meddev" value="PICCLines">PICC Lines<br></li>
+          <li><input type="checkbox" name="meddev" value="Pills and Other Medications">Pills and Other Medications<br></li>
+          <li><input type="checkbox" name="meddev" value="Port">Port<br></li>
+          <li><input type="checkbox" name="meddev" value="TPN ">TPN<br></li>
+          <li><input type="checkbox" name="meddev" value="Tube Feeding ">Feeding Tube<br></li>
+          <li><input type="checkbox" name="meddev" value="Wheelchairs/Mobility Aids ">Wheelchairs/Mobility Aids<br></li>
+          <li><input type="checkbox" name="meddev" value="Other">Other<br></li>
+        </ul>
+      </p>
+  </div>
+
+   <!-- ------------------Medical Condition-------------------------------- -->
+  <div class = "tab">
+      <h3 class = "number"> - 3 - </h3>
+      <h2 class = "question"> Select all that apply to you! </h2> 
+      <p class="input-options">
+        <ul class="form-fixed">
+            <li><input type="checkbox" name="medcon" value="aplasticAnemia">Aplastic Anemia<br></li>
+            <li><input type="checkbox" name="medcon" value="behcets">Behcet's Syndrome<br></li>
+            <li><input type="checkbox" name="medcon" value="caps">CAPS<br></li>
+            <li><input type="checkbox" name="medcon" value="cysticFibrosis" >Cystic Fibrosis<br></li>
+            <li><input type="checkbox" name="medcon" value="diabetes" >Diabetes<br></li>
+            <li><input type="checkbox" name="medcon" value="dysautonomia">Dysautonomia<br></li>
+            <li><input type="checkbox" name="medcon" value="eds">Ehlers-Danlos Syndrome (EDS)<br></li>
+            <li><input type="checkbox" name="medcon" value="fibromyalgia">Fibromyalgia<br></li>
+            <li><input type="checkbox" name="medcon" value="gp" >Gastroparesis (GP)<br></li>
+            <li><input type="checkbox" name="medcon" value="hrt" >HRT<br></li>
+            <li><input type="checkbox" name="medcon" value="lyme" >Lyme Disease<br></li>
+            <li><input type="checkbox" name="medcon" value="marfan" >Marfan Syndrome<br></li>
+            <li><input type="checkbox" name="medcon" value="mcas" >MCAS<br></li>
+            <li><input type="checkbox" name="medcon" value="osteomyelitis">Osteomyelitis<br></li>
+            <li><input type="checkbox" name="medcon" value="polyarthralgia">Polyarthralgia<br></li>
+            <li><input type="checkbox" name="medcon" value="pcos" >Polycystic Ovary Syndrome (PCOS)<br></li>
+            <li><input type="checkbox" name="medcon" value="pots" >Postural Orthostatic Tachycardia Syndrome (POTS)<br></li>
+            <li><input type="checkbox" name="medcon" value="uc" >Ulcerative Colitis (UC)<br></li>
+            <li><input type="checkbox" name="medcon" value="other" >Other<br></li>
+        </ul>
+      </p>
+</div>
+
+  <!-- -----------------Use Case--------------------------------- -->
+  <div class="tab">
+      <h3 class="number"> - 4 - </h3>
+      <h2 class="question"> What are you looking to use Mighty Well products for? </h2>
+      <p class="input-options">
+        <ul class="form-fixed">
+          <li><input type="checkbox" name="usecase" value="antibioticInfusion">Antibiotic Infusion<br></li>
+          <li><input type="checkbox" name="usecase" value="chemotherapy">Chemotherapy<br></li>
+          <li><input type="checkbox" name="usecase" value="glucoseMonitoring">Glucose Monitoring<br></li>
+          <li><input type="checkbox" name="usecase" value="holdMedicalSupplies">Hold Medical Supplies/Items<br></li>
+          <li><input type="checkbox" name="usecase" value="IVInfusion">IV Infusion<br></li>
+          <li><input type="checkbox" name="usecase" value="lookingGood">Looking Good/Feeling Proud!<br></li>
+          <li><input type="checkbox" name="usecase" value="organizeMedications">Organize Medications<br></li>
+          <li><input type="checkbox" name="usecase" value="raisingAwareness">Raising Awareness<br></li>
+          <li><input type="checkbox" name="usecase" value="salineTreatment">Saline Treatment<br></li>
+          <li><input type="checkbox" name="usecase" value="subcutaneousInjection">Subcutaneous Injection<br></li>
+          <li><input type="checkbox" name="usecase" value="TPNInjection">TPN Injection<br></li>
+          <li><input type="checkbox" name="usecase" value="transfusion">Transfusion<br></li>
+          <li><input type="checkbox" name="usecase" value="tubeFeeding">Tube Feeding<br></li>
+          <li><input type="checkbox" name="usecase" value="other">Other<br></li>
+        </ul>
+      </p>
+  </div>
+
+  <!-- Results Page -->
+  <div class="tab results">
+
+ <!-- Loading page -->
+ <div class= "loading-container"> 
+    <div class=" indicator"> 
+        <h6 style="color: black;">loading</h6>
+        <svg width="32px" height="24px">
+        <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+        <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+        </svg>
+    </div>
+</div>
+
+    <div class = "hidden results-page">
+        <div class="results-title">Just For You</div> <br>
+        <div class="results-description">Enjoy these Mighty Well products and specially curated blog posts just for you!</div> <br>
+        <span class = "rec-blog-title"> Blog Posts for You </span>
+            <section class = "blogContainer">
+                <div class = "blog-image">
+                    <a href = "" target="_blank">
+                        <img src = "">
+                    </a>
+                </div><br>
+                <div class = "blog-name">
+                    <a href="">
+                        <h4></h4>
+                    </a>
+                </div>
+            </section>
+        <hr>
+        <span class="rec-product-title"> Mighty Well Products For You</span>
+            <section class="productContainer">
+            </section>  
+    </div>
+  </div>
+
+  <!-- Product Card Template -->
+  <div id="template"><br>
+    <div id = "productCardTmp"><br>
+      <div class="product-card"><br>
+        <div class="product-image">
+              <a href = "" target="_blank"> 
+                <img src = ""> 
+              </a> 
+        </div><br>
+        <div class="product-info">
+              <a href ="" target="_blank">
+                <h5> </h5>
+              </a>
+        </div>
+      </div>
+    </div>
+  </div>  
+  
+  <!-- Form Buttons -->
+  <div style="overflow:auto;">
+      <div style = "float:left;"></div>
+          <p id="demo"></p>
+          <div class = "all-btns" style = "text-align: center;">
+          <button class ="formBtn" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+          <button class ="formBtn" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+          <button class ="formBtn" type="button" id="startOverBtn" onclick="location.reload()">Start Over</button>
+          <button class = "formBtn" type="submit" id="finalsub" onclick="nextPrev(1)" form="survey-form" value="Submit">Get Your Results!</button>
+      </div>
+  </div>
+
+  <!-- Circles which indicates the steps of the form: -->
+  <div class = "all-steps" style="text-align:center;margin-top:40px;">
+      <span class="step"></span>
+      <span class="step"></span>
+      <span class="step"></span>
+      <span class="step"></span>
+  </div>
+</div>
+</form>
+
+<!-- CSS -->
+<style>
+/* Styling for results page */
+.results-title{
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
+    font-size:35px;
+    text-transform: uppercase;
+    }
+
+.results-description{
+    text-align: center;
+    padding-bottom:10px;
+    max-width:400px;
+    margin-left:auto;
+    margin-right:auto;
+    font: Lato;
+    font-size: 14px;
+    color: grey;
+    }
+
+/* Styling for blog output */
+.rec-blog-title{
+    font-size: 24px;
+    padding: 0 18px;
+    line-height: 1;
+    display: inline-block;
+    text-transform: uppercase;
+    background: #fff;
+    text-align: center;
+    }
+
+.blogContainer{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 20px 40px;
+    padding: 10px;
+    width: 700px;
+    }
+
+.blog-name{
+    display:block;
+    font-size: 20px;
+    text-align: left;
+	width:700px;
+    }
+
+.blog-name h4:hover{
+    color:#7bbf31;
+    }
+
+.blog-image img {
+    object-fit: cover;
+    object-position: 50% 0%;
+    height: auto;
+    width: 100%;
+    max-width: 750px;
+    max-height: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    }
+.blog-image img:hover {
+    box-shadow: 3px 5px 3px #B8B8B8;
+    }
+
+/* Styling for product output */
+.rec-product-title{
+    font-size: 24px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 1;
+    display: inline-block;
+    text-transform: uppercase;
+    background: #fff;
+    text-align: center;
+    }
+
+.productContainer{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 20px 20px;
+    padding: 20px;
+    width: 800px;
+    }
+
+.product-info{
+    padding:15px;
+    width:300px;
+    }
+
+.productCardTmp{
+    width: 300px;
+    height: 300px;
+    padding:40px; 
+    }
+
+@media screen and (min-width: 591px) {
+    .product-image img{
+        object-fit: cover;
+        width: 200px;
+        height: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        }
+    }
+.product-card-box{
+    box-shadow: 3px 5px 3px #B8B8B8;
+    border: 1px solid #BFBFBF;
+    padding: 5px;
+    counter-increment: grid-item;
+    }
+
+.product-card-box:hover{
+    box-shadow: 3px 5px 3px #7bbf31;
+    }
+/* Styling the form questions */
+#regForm {
+    background-color: #ffffff;
+    margin: 100px auto;
+    padding: 40px;
+    width: 70%;
+    min-width: 300px;
+    }
+
+#container{
+    background-color:#edf9fc;
+    padding-top:100px;
+    padding-bottom:100px;
+    padding-right:150px;
+    padding-left:150px;
+    }
+
+.number {
+    text-align: center;
+    }   
+
+.question{
+    text-align: center;
+    padding-top: 10px;
+    }
+
+ul.checkbox  {
+    margin-left: auto;
+    background-color: color;
+    margin-right:auto;
+    list-style: none;
+    }
+
+ul.form-fixed {
+    columns: 300px;
+    list-style: none; 
+    }
+
+li{
+    background-color: white;
+    padding: 7px;
+    }
+
+ul.checkbox li {
+    border: 1px black;
+    float: left;
+    min-width: 400px;
+    }
+
+.radio{
+    background-color: white;
+    padding: 7px;
+    }
+
+.startOverBtn{
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+.formBtn{
+    width: 10em;
+    height: 2.2em;
+    text-align: center;
+    color: white;
+    text-align:center;
+    background-color: black;
+    }
+
+p{
+    margin:0 10px 0 10px;
+    display: inline-block;
+    }
+
+p.input-options{
+    margin:0 10px 0 10px;
+    display: inline-block;
+    text-align:left;
+    }
+
+/* Text formatting */
+h1{
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
+    font-size:35px;
+    }
+
+h6{
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
+    font-size:10px;
+}
+
+h3{
+    font-size:20px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
+    }
+
+h5{
+    font-size:18px;
+    }
+
+#description {
+    text-align: center;
+    padding:10px;
+    max-width:400px;
+    margin-left:auto;
+    margin-right:auto;
+    font: Lato;
+    font-size: 14px;
+    color: grey;
+    }
+
+#description .results{
+    display: none;
+    }
+
+/* Divider Line */
+hr {
+    clear: both;
+    border-top: solid #ccc;
+    border-width: 1px 0 0;
+    width:800px;
+    margin: 30px 0;
+    height: 0;
+    }
+	
+/* Styling the input fields */
+input {
+    text-align: center;
+    font-size: 17px;
+    font-family: Raleway;
+    padding-bottom: 20px;
+    }
+
+.inputContainer{
+    text-align : center;
+    }
+    
+input.invalid {
+    background-color: #ffdddd;
+    }
+
+/* Hide all steps by default: */
+.tab {
+    display: none;
+    }
+
+/* Styling for bottom cirle markers */
+/* Make circles that indicate the steps of the form: */
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+    }
+
+/* Mark the active step: */
+.step.active {
+    opacity: 1;
+    }
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+    background-color: #4CAF50;
+    }
+
+/* Hide template */
+#template{
+    display: none;
+    }
+
+.hidden{
+    display: none;
+    }
+
+/*loading screen*/
+.loading-container{
+    height: 250px;
+    }
+
+.indicator{
+    position: relative;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(2);
+    }
+
+.indicator svg{
+    display: block;
+    margin-left: 45%;
+    margin-right: auto;
+    }
+
+svg polyline{
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    }
+
+#back{
+    stroke: rgba(#89d638,.3);
+    }
+
+#front{
+    stroke: #89d638;
+    stroke-dasharray: 12, 36;
+    stroke-dashoffset: 48;
+    animation: dash 1s linear infinite;
+    }
+
+@keyframes dash{
+  62.5%
+    {opacity: 0;}
+  to 
+    {stroke-dashoffset: 0;}}
+    
+.cta{
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    color: #222;
+    font-weight: bold;
+    }
+</style>
+
+<!-- JavaScript-->
+<script src="https://code.jquery.com/jquery-1.6.4.js"></script>
+<script>
+
+	  //the function below submits the result of the form to the google sheets 
+      const scriptURL = "https://script.google.com/macros/s/AKfycbxx4_QDeXS7AqXlU9WkYvDTvdY_dYHUMbZ-YdQK4SslU54ihug/exec"; //this is the link you have to replace in the final step of making the google sheet with user input 
+      form.addEventListener("submit", e => {
+          e.preventDefault()
+          fetch(scriptURL, {
+              method: "POST",
+              body: new FormData(form)
+              })
+              .then(response => console.log("Success!", response))
+              .catch(error => console.error("Error!", error.message))
+          })
+	  
+	  const form = document.forms[0]; //linking the html form to the js script
+	  
+	  const proxyurl = "https://cors-anywhere.herokuapp.com/"; //this is a proxyurl needed to be added in front of other urls at times when accessing websites to download content 
+
+      //this is an object containing the product page and blog page for the following products (PICCPerfect, MedPlanner, Mighty Pack, Mighty Wrap and Undefeated Wear"
+      const CATALOG = {
+        "PICCPerfect": ["https://mighty-well.com/products/picc-line-cover-piccperfect-mighty-well?_pos=5&_sid=db99fc554&_ss=r", "https://blog.mighty-well.com/2017/07/adapting-to-the-picc-life/"],
+        "MedPlanner":  ["https://mighty-well.com/collections/all/products/mighty-medplanner-medical-organizer","https://blog.mighty-well.com/2019/06/trying-out-the-mighty-medplanner-your-new-medical-organizer/"],
+        "Mighty Pack": ["https://mighty-well.com/collections/all/products/medical-iv-infusion-backpack-for-patients","https://blog.mighty-well.com/2018/12/travel-without-worries-with-the-mighty-pack-the-best-backpack-for-friends-in-the-fight/"],
+        "Mighty Wrap": ["https://mighty-well.com/collections/all/products/the-mighty-jacket","https://blog.mighty-well.com/2017/06/learning-to-love-your-tube/"],
+        "Undefeated Wear":["https://mighty-well.com/collections/all/products/gift-bundle-mighty-medplanner","https://blog.mighty-well.com/2019/11/mighty-well-fall-photoshoot/"]
+      }
+	  
+      var currentTab = 0; // Current tab is set to be the first tab (0)
+      var productRec = [];
+      var gridTable = new Object; //an object containing product information, image urls and blog info 
+      
+      showTab(currentTab); // Display the current tab
+		
+      // This function will display the specified tab of the form
+    function showTab(n) { 
+        window.scrollTo(0, 120); // Scrolls new tab to top of the page
+        var x = document.getElementsByClassName("tab");
+        x[n].style.display = "block";
+        // Fix the Previous/Next buttons:
+
+        // Results page
+        if(n == x.length-1){                           
+            document.getElementById("prevBtn").style.display = "none";      // Hide previous button
+            document.getElementById("nextBtn").style.display = "none";      // Hide next button
+            document.getElementById("finalsub").style.display = "none";     // Hide submit button
+            document.getElementById("startOverBtn").style.display="inline"; // Show start over button
+            }
+        else{
+        document.getElementById("startOverBtn").style.display="none";   // Hide start over button
+
+        // First question
+            if (n == 0) {
+                document.getElementById("prevBtn").style.display = "none";   // Hide previous button
+            } 
+            else {
+                document.getElementById("prevBtn").style.display = "inline"; // Show previous button
+            }
+        //Last question
+            if (n == (x.length - 2)) {
+                document.getElementById("finalsub").style.display = "inline"; // Show submit button
+                document.getElementById("nextBtn").style.display = "none";    // Hide next button
+            } 
+            else {
+                document.getElementById("nextBtn").style.display = "inline";  // Show next button
+                document.getElementById("finalsub").style.display = "none";   // Hide submit button
+                }
+        }
+        // ... and run a function that displays the correct step indicator:
+        fixStepIndicator(n)
+    }
+
+      function nextPrev(n) {
+        // This function will figure out which tab to display
+          var x = document.getElementsByClassName("tab");
+        // Exit the function if any field in the current tab is invalid:
+          if (n == 1 && !validateForm()) return false;
+        // Hide the current tab:
+          x[currentTab].style.display = "none";
+        // Increase or decrease the current tab by 1:
+          currentTab = currentTab + n;
+        // if you have reached the end of the form... :
+          if (currentTab >= x.length) {
+              document.getElementById("demo").innerHTML = "check";
+              return false;
+          }
+
+         //When submit page is clicked 
+          if(currentTab==x.length-1){ 
+            createProductPage();        //Create the product page
+            displayProductPage();       //Remove the blue box, title, and description
+            window.scrollTo(0, 100);    //Scroll to the top of the window
+            document.querySelector(".all-btns").className += " hidden";   // Hide all the buttons during the loading page
+            document.querySelector(".all-steps").className += " hidden";  // Hide the green circles indicating steps
+            }
+
+          // Otherwise, display the correct tab:
+          showTab(currentTab);
+          
+      }
+
+      function validateForm() {
+          // This function deals with validation of the form fields
+          var x, y, i, valid = false;
+          x = document.getElementsByClassName("tab");
+          y = x[currentTab].getElementsByTagName("input");
+          for (i = 0; i < y.length; i++) {
+            if (y[i].checked) {
+              valid = true;
+              break;
+            }
+          }
+          if (valid) {
+              document.getElementsByClassName("step")[currentTab].className += " finish";
+          }
+          return valid; // return the valid status
+      }
+
+      function fixStepIndicator(n) {
+          // This function removes the "active" class of all steps...
+          var i, x = document.getElementsByClassName("step");
+          for (i = 0; i < x.length+1; i++) {
+              x[i].className = x[i].className.replace(" active", "");
+          }
+          //... and adds the "active" class to the current step:
+          x[n].className += " active";
+      }
+
+      function calculateProduct() {
+          var deviceChecks = document.getElementsByName("meddev");
+          var deviceUsed = [];
+          for (i = 0; i < deviceChecks.length; i++) {
+              // If a field is checked, add device to devicedUsed
+              if (deviceChecks[i].checked) {
+                  deviceUsed.push(deviceChecks[i].value);
+          }}
+          // console.log("Device used:" + deviceUsed); -> Prints out the devices that the user selected
+          // https://api.jsonbin.io/b/5eb23bd48284f36af7b645fc
+
+          let req = new XMLHttpRequest();
+          req.onreadystatechange = () => {
+              if (req.readyState == XMLHttpRequest.DONE) {
+                  var jsonData = JSON.parse(req.responseText);
+
+                // Add all the recommended products to productRec array
+                  for(i = 0; i<deviceUsed.length;i++){
+                    var prodList = jsonData[deviceUsed[i]];
+                    for(var j = 0;j<prodList.length;j++){
+                      if(!productRec.includes(prodList[j])){
+                        productRec.push(prodList[j]);}
+                    }
+                //console.log("Recommended device: "+ productRec);
+                //console.log("All jSON Data: " + req.responseText);
+              }}
+          };
+          req.open("GET", "https://api.jsonbin.io/b/5eb23bd48284f36af7b645fc/3", true);
+          req.send();
+
+          // Makes sure that the requests are received before creating the product page
+          return new Promise(resolve => {
+              setTimeout(() => {
+                  resolve('resolved');
+              }, 2000);
+          });
+        }
+	  
+    // This function gets the product name and image links 
+    function getProductInfo(url, productName){
+        return new Promise(resolve => {
+            var urls = []; 
+            var product_gridTable = gridTable[productName];
+            $.get(proxyurl+url, function(data) { 
+                product_gridTable[0] = $('h1.product-single__title', data).html(); // grabbing product name from shop page
+                product_gridTable[1]  = $('.product-single__thumbnails img', data).attr('src'); // grabbing product image url from shop page
+            });
+            // Makes sure that the requests are received before creating the product page
+            setTimeout(() => {
+                resolve('resolved');
+            }, 2500);
+        });
+    }
+
+    // This function gets the blog name and image links 
+    function getBlogInfo(url, productName){
+        return new Promise(resolve => {
+            var urls = []; 
+            var product_gridTable = gridTable[productName];
+            $.get(proxyurl+url, function(data) {
+                product_gridTable[2] = $('h1.post-title',data).html();          //grabbing the blog name from the blog link 
+                product_gridTable[3]= $('div.post-image',data).find('a').attr('href');  //grabbing the blog image from the blog link 
+            // Makes sure that the requests are received before creating the product page
+            setTimeout(() => {
+                resolve('resolved');
+                }, 2000);
+            });
+        });
+    }
+
+
+    function createGrid(){
+    for(var i =0; i<Object.keys(gridTable).length; i++){
+        var productLabel = productRec[i];
+        var product = Object.getOwnPropertyDescriptor(gridTable, productLabel).value;
+        var productURLList =  CATALOG[productLabel];
+
+        var imageURL = product[1];
+        var productName = product[0];
+        var productURL = productURLList[0];
+
+        // Populate the grid with each product card
+        var node = document.getElementById("productCardTmp").cloneNode(true); // node = copy of the html code under the id "productCardTmp"
+        node.id = productLabel;  // Add an id for the new card that = the name of the product
+        node.className = "product-card-box";
+        node.querySelector(".product-image img").setAttribute("src", imageURL); // add image
+        node.querySelector(".product-image a").setAttribute("href", productURL); // add link to image
+        node.querySelector(".product-info h5").innerText = productName; // add name
+        node.querySelector(".product-info a").setAttribute("href", productURL); // add link to name
+        document.querySelector(".productContainer").appendChild(node); // add new product card to the grid
+        } 
+
+        //After all the cards are added to the results page, hide the loading page, show the results page and startover button
+        document.querySelector(".loading-container").className+=" hidden";
+        document.querySelector(".hidden.results-page").classList.remove("hidden");
+        document.querySelector(".all-btns").classList.remove("hidden");
+
+    }
+
+    function createBlog(){
+        var productName = productRec[0];
+        var product = gridTable[productName];
+        var productURL = CATALOG[productName];
+        document.querySelector(".blog-image img").setAttribute("src", product[3]);  // add blog image
+        document.querySelector(".blog-image a").setAttribute("href", productURL[1]); // add blog url to image
+        document.querySelector(".blog-name h4").innerText = product[2]; // add blog name
+        document.querySelector(".blog-name a").setAttribute("href", productURL[1]); // add blog url to name
+    }
+        
+    async function createProductPage(){
+        await calculateProduct();                   // Calculate what products to recommend and save them in productRec array
+        for(var i=0; i<productRec.length;i++){      // For every product in productRec, retrieve the image url and the name
+            var x = productRec[i];
+            gridTable[x] = [];
+            let productURLs = CATALOG[x];
+            await getProductInfo(productURLs[0],x);
+            await getBlogInfo(productURLs[1], x);
+        }
+        createBlog();                           // Create the blog picture + name part of the results page
+        createGrid();                           // Create the product grid on the results page
+    }
+
+    function displayProductPage(){
+        document.querySelector("#container").style.backgroundColor = "white";  //Container changes from blue to white
+        document.querySelector("#container").style.paddingTop = "50px";        //Container padding is reset
+        document.querySelector("#title").remove();                             //Remove "Product Finder" title
+        document.querySelector("#description").remove();                       //Remove the description that was on the question pages
+    }
+ </script>
